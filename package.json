@@ -2,15 +2,21 @@
   "name": "react-basic-template",
   "version": "1.0.0",
   "description": "",
-  "main": "db.js",
+  "main": "index.js",
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "express": "^4.16.4",
+    "path": "^0.12.7",
+    "pg": "^7.10.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-router-dom": "^5.0.0",
+    "sequelize": "^5.7.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
   },
@@ -22,11 +28,12 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server.js",
+    "start": "node server",
     "postinstall": "npm run webpack",
     "webpack": "webpack",
+    "start-server": "DATABASE_URL=postgres://localhost/acme-users nodemon server --ignore client/ --ignore dist/",
     "webpack:dev": "npm run webpack -- --mode=development --watch",
-    "start:dev": "npm run webpack:dev & nodemon server.js --ignore src/ --ignore dist/"
+    "start:dev": "npm run webpack:dev & npm run start-server"
   },
   "keywords": [],
   "author": "",
