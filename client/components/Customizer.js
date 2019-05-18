@@ -99,7 +99,11 @@ class Customizer extends Component {
               value={champion}
               onChange={handleChange}
             />
-            <button type="button" onClick={() => addChampion(champion)}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => addChampion(champion)}
+            >
               Add Champion
             </button>
           </div>
@@ -118,6 +122,7 @@ class Customizer extends Component {
             <button
               type="button"
               disabled={addItemDisable}
+              className="btn btn-primary"
               onClick={() => addToItemsArr(item)}
             >
               Submit item

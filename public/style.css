@@ -1,7 +1,15 @@
 body {
   font-family: 'Muli', sans-serif;
+  /* background-color: #001f3f; */
+  background-color: #2a4b7c;
+  color: white;
 }
 
+input {
+  color: black;
+}
+
+/*
 .header-container {
   height: 10%;
   display: flex;
@@ -35,7 +43,7 @@ body {
 
 .home-about p {
   /* width: 50%; */
-  /* display: inline-block; */
-  /* float: center; */
-  text-align: center;
-}
+/* display: inline-block; */
+/* float: center; */
+/* text-align: center;
+} */

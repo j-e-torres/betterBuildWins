@@ -22,7 +22,6 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/customize" component={Customizer} />
-        {/* <Route exact path="/customize/results" component={CalculateBuild} /> */}
       </Router>
     )
   }
