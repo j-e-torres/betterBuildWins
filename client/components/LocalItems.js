@@ -9,7 +9,6 @@ export const LocalItems = ({ localItems }) => {
       return acc
     }, [])
   )
-  console.log('justNames', justNames)
   return (
     <div>
       {justNames ? (

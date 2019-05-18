@@ -23,6 +23,7 @@ export const champValidation = (champ, champions) => {
     }
     return acc
   }, {})
-
   return found
 }
+
+export const calculateAttackDamage = {}

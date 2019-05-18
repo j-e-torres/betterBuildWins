@@ -11,7 +11,7 @@ class Customizer extends Component {
   constructor() {
     super()
     this.state = {
-      championObj: {},
+      localChamp: {},
       champion: '',
       item: '',
       localItems: [],
@@ -31,29 +31,43 @@ class Customizer extends Component {
 
   addChampion = champ => {
     const { champions } = this.props
-    const { championObj } = this.state
+    const { localChamp } = this.state
 
     const found = champValidation(champ, champions)
-    if (Object.keys(found).length) this.setState({ championObj: found })
+
+    if (Object.keys(found).length) this.setState({ localChamp: found })
     else alert('Champ not Found')
-    document.querySelector('#addItem').value = ''
-    console.log('state champObj', championObj)
+
+    document.querySelector('#addChampion').value = ''
+    // console.log('state champObj', localChamp)
   }
 
   addToItemsArr = item => {
     const { items } = this.props
     const { localItems } = this.state
+
     const found = itemValidation(item, items)
+
     if (Object.keys(found).length && localItems.length < 6)
       localItems.push(found)
     else alert('Item not Found')
+
     document.querySelector('#addItem').value = ''
-    console.log('state localItems', localItems)
+    // console.log('state localItems', localItems)
   }
 
   render() {
-    const { champion, item, localItems, physicalPercent } = this.state
+    const {
+      champion,
+      item,
+      localChamp,
+      localItems,
+      physicalPercent
+    } = this.state
     const { handleChange, addToItemsArr, addChampion } = this
+    // console.log('here state', this.state)
+
+    const addItemDisable = localItems.length >= 6
 
     return (
       <div>
@@ -79,12 +93,15 @@ class Customizer extends Component {
           <div>
             <label>Pick Your Champion</label>
             <input
+              id="addChampion"
               type="text"
               name="champion"
               value={champion}
               onChange={handleChange}
             />
-            <button type="button" onClick={() => addChampion(champion)} />
+            <button type="button" onClick={() => addChampion(champion)}>
+              Add Champion
+            </button>
           </div>
 
           <br />
@@ -98,7 +115,11 @@ class Customizer extends Component {
               value={item}
               onChange={handleChange}
             />
-            <button type="button" onClick={() => addToItemsArr(item)}>
+            <button
+              type="button"
+              disabled={addItemDisable}
+              onClick={() => addToItemsArr(item)}
+            >
               Submit item
             </button>
             <br />
@@ -108,13 +129,7 @@ class Customizer extends Component {
 
           <br />
 
-          <div>
-            {/* <button type="button" onClick={() => <CalculateBuild />}>
-              Submit your build!
-            </button> */}
-          </div>
-
-          <CalculateBuild champion={champion} localItems={localItems} />
+          <CalculateBuild champion={localChamp} localItems={localItems} />
 
           <br />
         </div>
