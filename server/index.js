@@ -1,16 +1,20 @@
 const app = require('./app')
-const db = require('./db');
-const PORT = process.env.PORT || 4000;
+const db = require('./db')
+const PORT = process.env.PORT || 4000
 
 db.syncAndSeed()
-    .then(() => app.listen(PORT, () => {
-        console.log(`
+  .then(() =>
+    app.listen(PORT, () => {
+      console.log(`
             Listening on port ${PORT}
             http://localhost:${PORT}/
 
             Api:
-            http://localhost:${PORT}/api/users
+            http://ddragon.leagueoflegends.com/cdn/9.3.1/data/en_US/champion.json
+
+            http://ddragon.leagueoflegends.com/cdn/9.3.1/data/en_US/item.json
 
         `)
-    }))
-    .catch(err => console.error(err))
+    })
+  )
+  .catch(err => console.error(err))

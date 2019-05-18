@@ -1,0 +1,41 @@
+body {
+  font-family: 'Muli', sans-serif;
+}
+
+.header-container {
+  height: 10%;
+  display: flex;
+}
+
+.logo {
+  border: 1px solid green;
+  width: 10%;
+}
+
+.header-app-name {
+  text-align: center;
+  border: 1px solid red;
+  width: 80%;
+}
+
+.header-buttons {
+  border: 1px solid blue;
+  text-align: right;
+  width: 10%;
+}
+.header-buttons a {
+  padding: 5%;
+  text-decoration: none;
+  color: black;
+}
+
+.header-container div {
+  margin: auto;
+}
+
+.home-about p {
+  /* width: 50%; */
+  /* display: inline-block; */
+  /* float: center; */
+  text-align: center;
+}
