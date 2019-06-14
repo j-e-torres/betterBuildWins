@@ -8,11 +8,6 @@ const Header = ({ location: { pathname } }) => {
     { name: 'Customize', path: '/customize' }
   ]
 
-  // const rightTabs = [
-  //   { name: 'Log in', path: '/login' },
-  //   { name: 'Sign up', path: '/signup' }
-  // ]
-
   return (
     <nav className="navbar navbar-inverse">
       <div className="container-fluid">

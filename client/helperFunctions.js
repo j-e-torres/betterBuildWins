@@ -1,29 +1,28 @@
-// const percentNumberLimiter = obj => {
-//   if (Number(obj.value) > obj.max) this.setState({ physicalPercent })
-//   else if (Number(obj.value) < obj.min) obj.value = obj.min
-// }
-
-// export { percentNumberLimiter }
+import React, { Fragment } from 'react';
 
 export const itemValidation = (item, items) => {
   const found = Object.keys(items).reduce((acc, key) => {
     if (items[key].name === item) {
-      acc[key] = items[key]
+      acc[key] = items[key];
     }
-    return acc
-  }, {})
+    return acc;
+  }, {});
 
-  return found
-}
+  return found;
+};
 
 export const champValidation = (champ, champions) => {
   const found = Object.keys(champions).reduce((acc, key) => {
     if (champions[key].name === champ) {
-      acc[key] = champions[key]
+      acc[key] = champions[key];
     }
-    return acc
-  }, {})
-  return found
-}
+    return acc;
+  }, {});
+  return found;
+};
 
-export const calculateAttackDamage = {}
+const textFieldCreator = (stateProp, value, onChangeProp, placeholder) => {
+  return <Fragment />;
+};
+
+export { formInputCreator };

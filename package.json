@@ -35,7 +35,7 @@
     "start": "node server",
     "postinstall": "npm run webpack",
     "webpack": "webpack",
-    "start-server": "DATABASE_URL=postgres://localhost/acme-users nodemon server --ignore client/ --ignore dist/",
+    "start-server": "DATABASE_URL=postgres://localhost/better-build-wins nodemon server --ignore client/ --ignore dist/",
     "webpack:dev": "npm run webpack -- --mode=development --watch",
     "start:dev": "npm run webpack:dev & npm run start-server"
   },
