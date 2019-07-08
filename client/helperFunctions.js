@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Grid } from '@material-ui/core';
 
 export const itemValidation = (item, items) => {
   const found = Object.keys(items).reduce((acc, key) => {
@@ -21,8 +22,30 @@ export const champValidation = (champ, champions) => {
   return found;
 };
 
-const textFieldCreator = (stateProp, value, onChangeProp, placeholder) => {
-  return <Fragment />;
-};
+export const inputFieldCreator = (
+  label,
+  type,
+  className,
+  id,
+  name,
+  placeholder,
+  value,
+  handleChange
 
-export { formInputCreator };
+  // eslint-disable-next-line max-params
+) => {
+  return (
+    <Grid item>
+      <label>{label}</label>
+      <input
+        type={type}
+        className={className}
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+      />
+    </Grid>
+  );
+};

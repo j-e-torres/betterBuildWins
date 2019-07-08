@@ -5,45 +5,31 @@ body {
   color: white;
 }
 
-input {
-  color: black;
+ul {
+  list-style-type: none;
 }
 
-/*
-.header-container {
-  height: 10%;
-  display: flex;
-}
-
-.logo {
-  border: 1px solid green;
-  width: 10%;
-}
-
-.header-app-name {
+.inputFields {
   text-align: center;
-  border: 1px solid red;
-  width: 80%;
+  margin-top: 1em;
+  font-size: 1.25em;
+  padding: 1em;
+  /* width: 150px; */
+  /* width: 15em; */
+  border: 1px solid rgba(10, 180, 180, 1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: #222;
+  color: white;
+  outline: none;
 }
 
-.header-buttons {
-  border: 1px solid blue;
-  text-align: right;
-  width: 10%;
-}
-.header-buttons a {
-  padding: 5%;
-  text-decoration: none;
-  color: black;
+.label-input {
+  display: block;
+  /* text-align: center; */
 }
 
-.header-container div {
-  margin: auto;
+.optimizer-button {
+  background-color: #222;
 }
-
-.home-about p {
-  /* width: 50%; */
-/* display: inline-block; */
-/* float: center; */
-/* text-align: center;
-} */

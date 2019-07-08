@@ -1,49 +1,48 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
+import { Grid } from '@material-ui/core';
 
-import {
-  Grid,
-  Paper,
-  Typography,
-  TextField,
-  Button,
-  withStyles
-} from '@material-ui/core';
+const EnemyDefense = ({ health, armor, magicResist, handleChange }) => {
+  return (
+    <Grid container>
+      <Grid item sm={4}>
+        <label className="label-input">Enemy Armor</label>
+        <input
+          type="number"
+          className="inputFields"
+          id="armor"
+          name="armor"
+          placeholder="Enemy Armor"
+          value={armor}
+          onChange={handleChange}
+        />
+      </Grid>
+      <Grid item sm={4}>
+        <label className="label-input">Enemy Magic Resist</label>
+        <input
+          type="number"
+          className="inputFields"
+          id="magicResist"
+          name="magicResist"
+          placeholder="Enemy Magic Resist"
+          value={magicResist}
+          onChange={handleChange}
+        />
+      </Grid>
+      <Grid item sm={4}>
+        <label className="label-input">Enemy Health</label>
+        <input
+          type="number"
+          className="inputFields"
+          id="health"
+          name="health"
+          placeholder="Enemy Health"
+          value={health}
+          onChange={handleChange}
+        />
+      </Grid>
+    </Grid>
+  );
+};
 
-class EnemyDefense extends Component {
-  constructor() {
-    super();
-    this.state = {
-      health: 1500,
-      armor: 75,
-      magicResist: 75,
-      physicalDmg: 50,
-      magicDmg: 50
-    };
-  }
-  render() {
-    const { health, armor, magicResist, physicalDmg, magicDmg } = this.state;
-
-    return (
-      <Fragment>
-        <Grid container>
-          <Grid item>
-            <TextField
-              id="armor"
-              label="Enemy Armor"
-              name="armor"
-              placeholder="How much armor do they have?"
-              margin="normal"
-              required
-              type="text"
-              fullWidth
-              value={armor}
-              onChange={handleChange}
-            />
-          </Grid>
-        </Grid>
-      </Fragment>
-    );
-  }
-}
-
+// export default withStyles(styles)(EnemyDefense);
 export default EnemyDefense;
