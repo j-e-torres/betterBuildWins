@@ -10,21 +10,36 @@ const styles = theme => ({
     height: '5em',
     fontSize: '1em',
     background: '#222',
-    border: '1px solid rgba(10, 180, 180, 1)',
+    // border: '1px solid rgba(10, 180, 180, 1)',
+    border: 'none',
     '&:hover': {
       color: 'white',
-      background: '#222',
-      border: '1px solid rgba(10, 180, 180, 10)'
+      background: '#222'
+      // border: '1px solid rgba(10, 180, 180, 10)'
     },
     '&:focus': {
+      background: '#080808',
       outline: 'none',
       color: 'white',
-      textDecoration: 'none'
-    }
+      textDecoration: 'none',
+      border: 'none'
+    },
+    // '&:active': {
+    //   // background: '#080808'
+    //   background: 'yellow'
+    // }
+  },
+  buttonActive: {
+
+      background: '#080808',
+      outline: 'none',
+      color: 'white',
+      textDecoration: 'none',
+      border: 'none'
   }
 });
 
-const OptimizerButtons = ({ classes }) => {
+const OptimizerButtons = ({ classes, location: { pathname } }) => {
   return (
     <Grid container justify="center">
       <Grid item sm={12}>
@@ -39,7 +54,7 @@ const OptimizerButtons = ({ classes }) => {
           </Button>
           <Button
             classes={{
-              root: classes.root
+              root: pathname==='' ? classes.root
             }}
             href="#/optimize/effectiveHealth"
           >

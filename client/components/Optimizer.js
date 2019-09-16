@@ -47,15 +47,20 @@ class Optimizer extends Component {
       armor,
       magicResist,
       incomingPhysicalPercent,
-      incomingMagicPercent
+      incomingMagicPercent,
+      flatArmorPen,
+      flatMagicPen,
+      percentArmorPen,
+      percentMagicPen
     } = this.state;
     const { handleChange } = this;
-    const { match } = this.props;
+
+    const { match, location } = this.props;
     const optimizeFilter = match.params.optimizeFilter;
 
     return (
       <Grid container>
-        <OptimizerButtons />
+        <OptimizerButtons location={location} />
 
         {optimizeFilter === 'dps' && (
           <EnemyDefense
@@ -68,9 +73,10 @@ class Optimizer extends Component {
 
         {optimizeFilter === 'effectiveHealth' && (
           <EnemyOffense
-            health={health}
-            armor={armor}
-            magicResist={magicResist}
+            flatArmorPen={flatArmorPen}
+            flatMagicPen={flatMagicPen}
+            percentArmorPen={percentArmorPen}
+            percentMagicPen={percentMagicPen}
             handleChange={handleChange}
           />
         )}
