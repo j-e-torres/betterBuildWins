@@ -1,21 +1,87 @@
-body {
-  font-family: sans-serif;
-  /* background-color: #001f3f; */
-  background-color: #2a4b7c;
+/*
+  for button and nav
+  background-color: #222;
+*/
+/* CSS VARS */
+:root {
+  --darkGrey: #222;
+  --lightDarkGrey: rgb(46, 45, 45);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
   color: white;
 }
 
-ul {
-  list-style-type: none;
+body {
+  background-color: #2a4b7c;
+  line-height: 1.4;
 }
 
-.inputFields {
+/* Header */
+
+/* .header {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--darkGrey);
+}
+.header a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+} */
+
+/* Header end */
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 20px;
+  border: 1px blue solid;
+}
+
+/* Nav */
+
+.main-nav ul {
+  display: grid;
+  padding: 0;
+  list-style-type: none;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.main-nav li {
+  background: var(--darkGrey);
+  border-radius: 10rem;
+}
+
+.main-nav a {
+  color: white;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+}
+
+.main-nav a:hover {
+  /* color: var(--darkGrey); */
+  background: var(--lightDarkGrey);
+  border-radius: 10rem;
+}
+
+/* Nav End */
+
+/* .inputFields {
   text-align: center;
   margin-top: 1em;
   font-size: 1.25em;
   padding: 1em;
-  /* width: 150px; */
-  /* width: 15em; */
+  width: 150px;
+  width: 15em;
   border: 1px solid rgba(10, 180, 180, 1);
   border-top: none;
   border-left: none;
@@ -23,13 +89,13 @@ ul {
   background-color: #222;
   color: white;
   outline: none;
-}
+} */
 
-.label-input {
+/* .label-input {
   display: block;
-  /* text-align: center; */
+  text-align: center;
 }
 
 .optimizer-button {
   background-color: #222;
-}
+} */

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { fetchAllChampionsThunk } from '../redux/actions/championsAction';
 import { fetchAllItemsThunk } from '../redux/actions/itemAction';
 
-import Header from './Header';
-import Home from './Home';
+import Nav from './Nav';
 import Customizer from './Customizer';
 import Optimizer from './Optimizer';
 
@@ -18,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route component={Header} />
+        <Route component={Nav} />
         <Route exact path="/" component={Optimizer} />
         <Route exact path="/customize" component={Customizer} />
         <Route exact path="/optimize/:optimizeFilter?" component={Optimizer} />
