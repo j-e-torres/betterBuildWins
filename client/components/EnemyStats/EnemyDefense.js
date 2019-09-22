@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
-import { Grid } from '@material-ui/core';
 
 const EnemyDefense = ({ health, armor, magicResist, handleChange }) => {
   return (
-    <Grid container>
-      <Grid item sm={4}>
+    <div>
+      <div>
         <label className="label-input">Enemy Armor</label>
         <input
           type="number"
@@ -15,8 +14,8 @@ const EnemyDefense = ({ health, armor, magicResist, handleChange }) => {
           value={armor}
           onChange={handleChange}
         />
-      </Grid>
-      <Grid item sm={4}>
+      </div>
+      <div>
         <label className="label-input">Enemy Magic Resist</label>
         <input
           type="number"
@@ -27,8 +26,8 @@ const EnemyDefense = ({ health, armor, magicResist, handleChange }) => {
           value={magicResist}
           onChange={handleChange}
         />
-      </Grid>
-      <Grid item sm={4}>
+      </div>
+      <div>
         <label className="label-input">Enemy Health</label>
         <input
           type="number"
@@ -39,10 +38,9 @@ const EnemyDefense = ({ health, armor, magicResist, handleChange }) => {
           value={health}
           onChange={handleChange}
         />
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 };
 
-// export default withStyles(styles)(EnemyDefense);
 export default EnemyDefense;

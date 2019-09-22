@@ -1,18 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = ({ location: { pathname } }) => {
   const leftTabs = [
-    { name: 'Home', path: '/home' },
     { name: 'Optimize', path: '/optimize' },
     { name: 'Customize', path: '/customize' }
-  ]
+  ];
 
   return (
     <nav className="navbar navbar-inverse">
       <div className="container-fluid">
         <div className="navbar-header">
-          <Link className="navbar-brand" to="/home">
+          <Link className="navbar-brand" to="/">
             betterBuildWins
           </Link>
         </div>
@@ -25,10 +24,10 @@ const Header = ({ location: { pathname } }) => {
               >
                 <Link to={tab.path}>{tab.name}</Link>
               </li>
-            )
+            );
           })}
         </ul>
-        <ul className="nav navbar-nav navbar-right">
+        {/* <ul className="nav navbar-nav navbar-right">
           <li>
             <Link to="/login">
               <span className="glyphicon glyphicon-user" />
@@ -41,10 +40,10 @@ const Header = ({ location: { pathname } }) => {
               Log In
             </Link>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

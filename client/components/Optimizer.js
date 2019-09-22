@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import { Grid } from '@material-ui/core';
-
 import EnemyDefense from './EnemyStats/EnemyDefense';
 import EnemyOffense from './EnemyStats/EnemyOffense';
 import OptimizerButtons from './Buttons/OptimizerButtons';
@@ -59,7 +57,7 @@ class Optimizer extends Component {
     const optimizeFilter = match.params.optimizeFilter;
 
     return (
-      <Grid container>
+      <div container>
         <OptimizerButtons location={location} />
 
         {optimizeFilter === 'dps' && (
@@ -80,7 +78,7 @@ class Optimizer extends Component {
             handleChange={handleChange}
           />
         )}
-      </Grid>
+      </div>
     );
   }
 }

@@ -8,7 +8,6 @@ import { fetchAllItemsThunk } from '../redux/actions/itemAction';
 import Header from './Header';
 import Home from './Home';
 import Customizer from './Customizer';
-import LoginSignUp from './LoginSignUp';
 import Optimizer from './Optimizer';
 
 class App extends Component {
@@ -20,11 +19,8 @@ class App extends Component {
     return (
       <Router>
         <Route component={Header} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/" component={Optimizer} />
         <Route exact path="/customize" component={Customizer} />
-        <Route exact path="/login" component={LoginSignUp} />
-        <Route exact path="/signup" component={LoginSignUp} />
         <Route exact path="/optimize/:optimizeFilter?" component={Optimizer} />
       </Router>
     );
