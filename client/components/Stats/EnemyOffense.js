@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 const EnemyOffense = () => {
   return (
-    <div>
+    <section className="enemy-offense-stats">
       {/* 1st Stat panel */}
-      <div>
+      <div className="stat-panel">
         {/* Stat panel name */}
         <div>Enemy Damage Distribution</div>
 
@@ -26,7 +26,7 @@ const EnemyOffense = () => {
       </div>
 
       {/* 2nd Stat panel */}
-      <div>
+      <div className="stat-panel">
         {/* Stat panel name */}
         <div>Enemy Flat Penetration</div>
 
@@ -48,7 +48,7 @@ const EnemyOffense = () => {
       </div>
 
       {/* 3rd Stat panel */}
-      <div>
+      <div className="stat-panel">
         {/* Stat panel name */}
         <div>Enemy Percent Penetration</div>
 
@@ -68,7 +68,7 @@ const EnemyOffense = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

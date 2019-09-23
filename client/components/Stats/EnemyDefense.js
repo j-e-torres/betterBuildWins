@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 
 const EnemyDefense = ({ health, armor, magicResist, handleChange }) => {
   return (
-    <div>
+    <section className="enemy-defense-stats">
       {/* 1st Stat panel */}
-      <div>
+      <div className="stat-panel">
         {/* Stat panel name */}
         <div>Enemy Defense</div>
 
@@ -30,7 +30,7 @@ const EnemyDefense = ({ health, armor, magicResist, handleChange }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
     // <div>
     //   <div>
     //     <label className="label-input">Enemy Armor</label>

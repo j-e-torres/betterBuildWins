@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import EnemyDefense from './EnemyStats/EnemyDefense';
-import EnemyOffense from './EnemyStats/EnemyOffense';
+import EnemyDefense from './Stats/EnemyDefense';
+import EnemyOffense from './Stats/EnemyOffense';
 import OptimizerButtons from './Buttons/OptimizerButtons';
 
 class Optimizer extends Component {

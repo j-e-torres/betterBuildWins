@@ -9,21 +9,23 @@ const Nav = ({ location: { pathname } }) => {
 
   return (
     <nav className="main-nav">
-      <div className="header">
-        <Link to="/">betterBuildWins</Link>
+      <div className="nav-container">
+        <div className="nav-header">
+          <Link to="/">betterBuildWins</Link>
+        </div>
+        <ul>
+          {NavTabs.map(tab => {
+            return (
+              <li
+                key={tab.name}
+                className={`${tab.path === pathname ? 'nav-tab active' : ''}`}
+              >
+                <Link to={tab.path}>{tab.name}</Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-      <ul>
-        {NavTabs.map(tab => {
-          return (
-            <li
-              key={tab.name}
-              className={`${tab.path === pathname ? 'nav-tab active' : ''}`}
-            >
-              <Link to={tab.path}>{tab.name}</Link>
-            </li>
-          );
-        })}
-      </ul>
     </nav>
   );
 };
