@@ -11,7 +11,9 @@ const EnemyOffense = () => {
         {/* State panel value */}
         <div className="stat-panel-values">
           <div>
-            <div>Incoming Physical Damage</div>
+            <div className="stat-panel-values-name">
+              Incoming Physical Damage
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>

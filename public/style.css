@@ -116,7 +116,15 @@ body {
   background-color: var(--darkGrey);
   border: none;
   border-bottom: 2px solid var(--borderTeal);
+  color: white;
+  font-family: 'Nanum Myeongjo';
+  outline: none;
 }
+/*
+.stat-panel-values-name:hover {
+  border: 1px solid var(--borderTeal);
+  color: white;
+} */
 
 /* stats containers end */
 
@@ -140,6 +148,31 @@ body {
 }
 
 /* Formulas Container End */
+
+/* search bar */
+
+.search-bar-container {
+  text-align: center;
+}
+
+.search-bar {
+  width: 50%;
+  height: 50px;
+  /* text-align: center; */
+  outline: none;
+  background: var(--darkGrey);
+  border: 1px solid var(--borderTeal);
+  color: white;
+  font-size: 1.3rem;
+  padding-left: 0.8rem;
+  font-family: 'Nanum Myeongjo';
+}
+
+.search-bar::placeholder {
+  color: var(--borderTeal);
+}
+
+/* search bar end */
 
 /* .inputFields {
   text-align: center;

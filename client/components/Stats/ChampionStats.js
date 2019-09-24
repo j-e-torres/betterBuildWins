@@ -4,9 +4,12 @@ const ChampionStats = () => {
   return (
     <section>
       {/* items div */}
-      <div>
+      <div className="items-container">
         <div>
-          <input placeholder="search item" />
+          <p>Select Your Items</p>
+        </div>
+        <div className="search-bar-container">
+          <input className="search-bar" placeholder="Type an item" />
         </div>
         <div>
           <ul>
