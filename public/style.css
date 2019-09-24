@@ -1,18 +1,24 @@
 /* CSS VARS */
 :root {
   --darkGrey: #222;
-  --lightDarkGrey: rgb(46, 45, 45);
   --textGrey: #9d9d9d;
   --borderTeal: rgba(10, 180, 180, 1);
 }
 
+p {
+  color: var(--borderTeal);
+  text-align: center;
+}
+
 table {
-  width: 66%;
+  width: 50%;
 }
 
 html {
   box-sizing: border-box;
-  font-family: 'Times New Roman', Times, serif;
+  /* font-family: 'Times New Roman', Times, serif; */
+  /* font-family: 'Muli'; */
+  font-family: 'Nanum Myeongjo';
   color: white;
 }
 
@@ -31,6 +37,7 @@ body {
   margin: 0 auto;
   display: grid;
   border: 1px blue solid;
+  background-color: var(--darkGrey);
 }
 
 /* Nav */
@@ -69,6 +76,7 @@ body {
 /* stats containers */
 
 .stats-container {
+  row-gap: 50px;
   display: grid;
   grid-template-areas:
     'enemy-offense-stats'
@@ -89,11 +97,49 @@ body {
 .stat-panel {
   grid-area: 'stat-panel';
   text-align: center;
-  border: 1px solid var(--borderTeal);
+  /* border: 1px solid white; */
   /* background: var(--darkGrey); */
+}
+.stat-panel-values {
+  /* background-color: var(--darkGrey); */
+  color: var(--textGrey);
+}
+
+.stat-panel-name {
+  color: var(--borderTeal);
+  border-bottom: 2px solid var(--borderTeal);
+}
+
+.stat-panel-input input {
+  text-align: center;
+  /* background-color: #2a4b7c; */
+  background-color: var(--darkGrey);
+  border: none;
+  border-bottom: 2px solid var(--borderTeal);
 }
 
 /* stats containers end */
+
+/* Formulas Container */
+.formulas-container {
+  display: grid;
+  grid-template-areas: 'health-formulas dps-formulas';
+}
+
+.health-formulas {
+  grid-area: 'health-formulas';
+}
+
+.dps-formulas {
+  grid-area: 'dps-formulas';
+}
+
+.dps-formulas,
+.health-formulas {
+  text-align: center;
+}
+
+/* Formulas Container End */
 
 /* .inputFields {
   text-align: center;

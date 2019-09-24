@@ -6,19 +6,19 @@ const EnemyOffense = () => {
       {/* 1st Stat panel */}
       <div className="stat-panel">
         {/* Stat panel name */}
-        <div>Enemy Damage Distribution</div>
+        <div className="stat-panel-name">Enemy Damage Distribution</div>
 
         {/* State panel value */}
-        <div>
+        <div className="stat-panel-values">
           <div>
             <div>Incoming Physical Damage</div>
-            <div>
+            <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
             <div>Incoming Magic Damage</div>
-            <div>
+            <div className="stat-panel-input">
               <input />
             </div>
           </div>
@@ -28,19 +28,19 @@ const EnemyOffense = () => {
       {/* 2nd Stat panel */}
       <div className="stat-panel">
         {/* Stat panel name */}
-        <div>Enemy Flat Penetration</div>
+        <div className="stat-panel-name">Enemy Flat Penetration</div>
 
         {/* State panel value */}
-        <div>
+        <div className="stat-panel-values">
           <div>
             <div>Armor Penetration</div>
-            <div>
+            <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
             <div>Magic Penetration</div>
-            <div>
+            <div className="stat-panel-input">
               <input />
             </div>
           </div>
@@ -50,19 +50,19 @@ const EnemyOffense = () => {
       {/* 3rd Stat panel */}
       <div className="stat-panel">
         {/* Stat panel name */}
-        <div>Enemy Percent Penetration</div>
+        <div className="stat-panel-name">Enemy Percent Penetration</div>
 
         {/* State panel value */}
-        <div>
+        <div className="stat-panel-values">
           <div>
             <div>Armor Penetration</div>
-            <div>
+            <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
             <div>Magic Penetration</div>
-            <div>
+            <div className="stat-panel-input">
               <input />
             </div>
           </div>

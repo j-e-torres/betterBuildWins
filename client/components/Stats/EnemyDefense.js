@@ -6,25 +6,25 @@ const EnemyDefense = ({ health, armor, magicResist, handleChange }) => {
       {/* 1st Stat panel */}
       <div className="stat-panel">
         {/* Stat panel name */}
-        <div>Enemy Defense</div>
+        <div className="stat-panel-name">Enemy Defense</div>
 
         {/* State panel value */}
-        <div>
+        <div className="stat-panel-values">
           <div>
             <div>Armor</div>
-            <div>
+            <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
             <div>Magic resist</div>
-            <div>
+            <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
             <div>Health</div>
-            <div>
+            <div className="stat-panel-input">
               <input />
             </div>
           </div>

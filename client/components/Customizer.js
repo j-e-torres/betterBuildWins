@@ -6,7 +6,7 @@ import { itemValidation, champValidation } from '../helperFunctions';
 
 import { LocalItems } from './LocalItems';
 import { CalculateBuild } from './CalculateBuild';
-import { EnemyOffense, EnemyDefense, ChampionStats } from './Stats';
+import { EnemyOffense, EnemyDefense, ChampionStats, Formulas } from './Stats';
 
 class Customizer extends Component {
   constructor() {
@@ -54,6 +54,7 @@ class Customizer extends Component {
           <EnemyOffense />
           <EnemyDefense />
           <ChampionStats />
+          <Formulas />
         </section>
       </div>
     );
