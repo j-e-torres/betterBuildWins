@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const EnemyOffense = () => {
   return (
@@ -11,15 +11,17 @@ const EnemyOffense = () => {
         {/* State panel value */}
         <div className="stat-panel-values">
           <div>
-            <div className="stat-panel-values-name">
-              Incoming Physical Damage
+            <div>
+              <p className="stat-panel-values-name">Incoming Physical Damage</p>
             </div>
             <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
-            <div>Incoming Magic Damage</div>
+            <div>
+              <p className="stat-panel-values-name">Incoming Magic Damage</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>

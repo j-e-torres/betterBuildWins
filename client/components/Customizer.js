@@ -46,9 +46,9 @@ class Customizer extends Component {
     return (
       <div>
         {/* Paragraph description */}
-        <div>
-          <p>Customize! Fill in the fields below</p>
-        </div>
+        {/* <div>
+          <p className="stat-panel-name">Customize! Fill in the fields below</p>
+        </div> */}
 
         <section className="stats-container">
           <EnemyOffense />

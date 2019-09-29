@@ -2,58 +2,82 @@ import React from 'react';
 
 const ChampionStats = () => {
   return (
-    <section>
+    <section className="champion-stats-container">
       {/* items div */}
       <div className="items-container">
         <div>
-          <p>Select Your Items</p>
+          <p className="stat-panel-name">Select Your Items</p>
         </div>
         <div className="search-bar-container">
           <input className="search-bar" placeholder="Type an item" />
         </div>
-        <div>
-          <ul>
+        <div className="items-list-container">
+          <ul className="items-list">
             {/* create li as items search */}
-            <li>item 1</li>
-            <li>item 2</li>
+            <li
+              className="item"
+              style={{
+                backgroundImage: `url(
+                  'https://ddragon.leagueoflegends.com/cdn/9.19.1/img/item/1038.png'
+                )`
+              }}
+            >
+              item 1
+            </li>
+            <li className="item">item 2</li>
+            <li className="item">item 3</li>
+            <li className="item">item 4</li>
+            <li className="item">item 5 </li>
+            <li className="item">item 6</li>
           </ul>
         </div>
       </div>
 
       {/* level and time alive input */}
-      <div>
-        <div>
-          <div>Level</div>
-          <div>
-            <input />
-          </div>
+      <div className="level-alive-section">
+        <div className="stat-panel-name">
+          <p>Your Stats</p>
         </div>
-        <div>
-          <div>Time Alive(secs)</div>
-          <div>
-            <input />
+        <div className="level-alive-container">
+          <div className="level-container">
+            <div className="stat-panel-values">Level</div>
+            <div className="stat-panel-input">
+              <input />
+            </div>
+          </div>
+          <div className="alive-container">
+            <div className="stat-panel-values">Time Alive (secs)</div>
+            <div className="stat-panel-input">
+              <input />
+            </div>
           </div>
         </div>
       </div>
 
       {/* Champion and champ banner to left, Stats to right */}
-      <div>
+      <div className="champion-selection-container">
         {/* Champ */}
-        <div>
-          <div>
-            <input placeholder="search champ" />
+        <div
+          style={{ border: '1px solid red' }}
+          className="champ-search-container"
+        >
+          <div className="search-bar-container">
+            <input className="search-bar" placeholder="Type a champion" />
           </div>
           <div>
-            <img
-              width="100%"
+            {/* <img
+              width="25%"
               alt="Graves"
               src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Graves_0.jpg"
-            />
+            /> */}
           </div>
         </div>
 
         {/* Stats */}
-        <div>
+        <div
+          style={{ border: '1px solid red' }}
+          className="champion-stats-container"
+        >
           <table>
             <tr>
               <td>Attack Damage</td>
