@@ -11,19 +11,25 @@ const EnemyDefense = ({ health, armor, magicResist, handleChange }) => {
         {/* State panel value */}
         <div className="stat-panel-values">
           <div>
-            <div>Armor</div>
+            <div>
+              <p>Armor</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
-            <div>Magic resist</div>
+            <div>
+              <p>Magic resist</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
-            <div>Health</div>
+            <div>
+              <p>Health</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>

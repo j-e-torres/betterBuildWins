@@ -37,7 +37,14 @@ class Customizer extends Component {
       item,
       localChamp,
       localItems,
-      physicalPercent
+      physicalPercent,
+      flatMagicPen,
+      flatArmPen,
+      percentArmPen,
+      percentMagicPen,
+      enemyArmor,
+      enemyHealth,
+      enemyMagicResist
     } = this.state;
     const { handleChange, addToItemsArr, addChampion } = this;
 
@@ -45,13 +52,14 @@ class Customizer extends Component {
 
     return (
       <div>
-        {/* Paragraph description */}
-        {/* <div>
-          <p className="stat-panel-name">Customize! Fill in the fields below</p>
-        </div> */}
-
         <section className="stats-container">
-          <EnemyOffense />
+          <EnemyOffense
+            physicalPercent={physicalPercent}
+            flatArmPen={flatArmPen}
+            flatMagicPen={flatMagicPen}
+            percentArmPen={percentArmPen}
+            percentMagicPen={percentMagicPen}
+          />
           <EnemyDefense />
           <ChampionStats />
           <Formulas />

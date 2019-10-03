@@ -2,7 +2,7 @@ import React from 'react';
 
 const ChampionStats = () => {
   return (
-    <section className="champion-stats-container">
+    <section className="champion-stats-section">
       {/* items div */}
       <div className="items-container">
         <div>
@@ -40,13 +40,17 @@ const ChampionStats = () => {
         </div>
         <div className="level-alive-container">
           <div className="level-container">
-            <div className="stat-panel-values">Level</div>
+            <div className="stat-panel-values">
+              <p>Level</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div className="alive-container">
-            <div className="stat-panel-values">Time Alive (secs)</div>
+            <div className="stat-panel-values">
+              <p>Time Alive (secs)</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>
@@ -58,7 +62,7 @@ const ChampionStats = () => {
       <div className="champion-selection-container">
         {/* Champ */}
         <div
-          style={{ border: '1px solid red' }}
+          // style={{ border: '1px solid red' }}
           className="champ-search-container"
         >
           <div className="search-bar-container">
@@ -74,74 +78,106 @@ const ChampionStats = () => {
         </div>
 
         {/* Stats */}
-        <div
-          style={{ border: '1px solid red' }}
-          className="champion-stats-container"
-        >
-          <table>
-            <tr>
-              <td>Attack Damage</td>
-              <td>110</td>
-              <td>Armor</td>
-              <td>50</td>
-            </tr>
+        <div className="champion-stats-container">
+          <div className="champion-stats-tables">
+            <table className="offense-table">
+              <tbody>
+                <tr>
+                  <td>Attack Damage</td>
+                  <td>110</td>
+                </tr>
 
-            <tr>
-              <td>Ability Power</td>
-              <td>0</td>
-              <td>Magic Resist</td>
-              <td>32</td>
-            </tr>
+                <tr>
+                  <td>Ability Power</td>
+                  <td>0</td>
+                </tr>
 
-            <tr>
-              <td>Attack Speed</td>
-              <td>1.2</td>
-              <td>Movespeed</td>
-              <td>340</td>
-            </tr>
+                <tr>
+                  <td>Attack Speed</td>
+                  <td>1.2</td>
+                </tr>
 
-            <tr>
-              <td>Flat Armor Pen</td>
-              <td>10</td>
-              <td>Health</td>
-              <td>2000</td>
-            </tr>
+                <tr>
+                  <td>Flat Armor Pen</td>
+                  <td>10</td>
+                </tr>
 
-            <tr>
-              <td>Percent Armor Pen</td>
-              <td>.4</td>
-              <td>Health Regen</td>
-              <td>1.5</td>
-            </tr>
+                <tr>
+                  <td>Percent Armor Pen</td>
+                  <td>.4</td>
+                </tr>
 
-            <tr>
-              <td>Flat Magic Pen</td>
-              <td>0</td>
-              <td>Mana</td>
-              <td>500</td>
-            </tr>
+                <tr>
+                  <td>Flat Magic Pen</td>
+                  <td>0</td>
+                </tr>
 
-            <tr>
-              <td>Percent Magic Pen</td>
-              <td>0</td>
-              <td>Mana Regen</td>
-              <td>2.2</td>
-            </tr>
+                <tr>
+                  <td>Percent Magic Pen</td>
+                  <td>0</td>
+                </tr>
 
-            <tr>
-              <td>CDR</td>
-              <td>.4</td>
-              <td>Lifesteal</td>
-              <td>.12</td>
-            </tr>
+                <tr>
+                  <td>CDR</td>
+                  <td>.4</td>
+                </tr>
 
-            <tr>
-              <td>Crit</td>
-              <td>.3</td>
-              <td>Crit Damage</td>
-              <td>2</td>
-            </tr>
-          </table>
+                <tr>
+                  <td>Crit</td>
+                  <td>.3</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table className="defense table">
+              <tbody>
+                <tr>
+                  <td>Armor</td>
+                  <td>50</td>
+                </tr>
+
+                <tr>
+                  <td>Magic Resist</td>
+                  <td>32</td>
+                </tr>
+
+                <tr>
+                  <td>Movespeed</td>
+                  <td>340</td>
+                </tr>
+
+                <tr>
+                  <td>Health</td>
+                  <td>2000</td>
+                </tr>
+
+                <tr>
+                  <td>Health Regen</td>
+                  <td>1.5</td>
+                </tr>
+
+                <tr>
+                  <td>Mana</td>
+                  <td>500</td>
+                </tr>
+
+                <tr>
+                  <td>Mana Regen</td>
+                  <td>2.2</td>
+                </tr>
+
+                <tr>
+                  <td>Lifesteal</td>
+                  <td>.12</td>
+                </tr>
+
+                <tr>
+                  <td>Crit Damage</td>
+                  <td>2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>

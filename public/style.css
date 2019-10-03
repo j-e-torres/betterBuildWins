@@ -4,10 +4,6 @@
   --textGrey: #9d9d9d;
   --borderTeal: rgba(10, 180, 180, 1);
 }
-/*
-table {
-  width: 50%;
-} */
 
 html {
   box-sizing: border-box;
@@ -31,8 +27,9 @@ body {
   width: 80%;
   margin: 0 auto;
   display: grid;
-  border: 1px blue solid;
+  /* border: 1px blue solid; */
   background-color: var(--darkGrey);
+  border-radius: 5px;
 }
 
 /* Nav */
@@ -112,6 +109,7 @@ body {
   color: white;
   font-family: 'Nanum Myeongjo';
   outline: none;
+  font-size: 16px;
 }
 
 /* stats containers end */
@@ -130,18 +128,9 @@ body {
   grid-area: 'dps-formulas';
 }
 
-.dps-formulas,
-.health-formulas {
-  text-align: center;
-}
-
 /* Formulas Container End */
 
 /* champion-stats-container */
-
-.level-alive-section {
-  text-align: center;
-}
 
 .champion-selection-container {
   display: grid;
@@ -154,6 +143,16 @@ body {
 
 .champion-stats-container {
   grid-area: 'champstats';
+}
+
+.champion-stats-tables {
+  display: grid;
+  grid-template-areas: 'table table';
+}
+
+.defense-table,
+.offense-table {
+  grid-area: 'table';
 }
 
 /* search bar */
@@ -198,6 +197,11 @@ body {
 /* items-list container end */
 
 /* level-alive-container */
+
+.level-alive-section {
+  text-align: center;
+  margin: 15px auto;
+}
 
 .level-container,
 .alive-container {

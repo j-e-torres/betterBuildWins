@@ -12,7 +12,7 @@ const EnemyOffense = () => {
         <div className="stat-panel-values">
           <div>
             <div>
-              <p className="stat-panel-values-name">Incoming Physical Damage</p>
+              <p>Incoming Physical Damage</p>
             </div>
             <div className="stat-panel-input">
               <input />
@@ -20,7 +20,7 @@ const EnemyOffense = () => {
           </div>
           <div>
             <div>
-              <p className="stat-panel-values-name">Incoming Magic Damage</p>
+              <p>Incoming Magic Damage</p>
             </div>
             <div className="stat-panel-input">
               <input />
@@ -37,13 +37,17 @@ const EnemyOffense = () => {
         {/* State panel value */}
         <div className="stat-panel-values">
           <div>
-            <div>Armor Penetration</div>
+            <div>
+              <p>Armor Penetration</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
-            <div>Magic Penetration</div>
+            <div>
+              <p>Magic Penetration</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>
@@ -59,13 +63,17 @@ const EnemyOffense = () => {
         {/* State panel value */}
         <div className="stat-panel-values">
           <div>
-            <div>Armor Penetration</div>
+            <div>
+              <p>Armor Penetration</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>
           </div>
           <div>
-            <div>Magic Penetration</div>
+            <div>
+              <p>Magic Penetration</p>
+            </div>
             <div className="stat-panel-input">
               <input />
             </div>
