@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
 
 export const itemValidation = (item, items) => {
   const found = Object.keys(items).reduce((acc, key) => {
@@ -35,7 +34,7 @@ export const inputFieldCreator = (
   // eslint-disable-next-line max-params
 ) => {
   return (
-    <Grid item>
+    <div item>
       <label>{label}</label>
       <input
         type={type}
@@ -46,6 +45,6 @@ export const inputFieldCreator = (
         value={value}
         onChange={handleChange}
       />
-    </Grid>
+    </div>
   );
 };

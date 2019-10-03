@@ -1,35 +1,212 @@
-body {
-  font-family: 'Muli', sans-serif;
-  /* background-color: #001f3f; */
-  background-color: #2a4b7c;
+/* CSS VARS */
+:root {
+  --darkGrey: #222;
+  --textGrey: #9d9d9d;
+  --borderTeal: rgba(10, 180, 180, 1);
+}
+
+html {
+  box-sizing: border-box;
+  /* font-family: 'Times New Roman', Times, serif; */
+  /* font-family: 'Muli'; */
+  font-family: 'Nanum Myeongjo';
   color: white;
 }
 
-ul {
+img {
+  opacity: 0.75;
+  z-index: -1;
+}
+
+body {
+  background-color: #2a4b7c;
+  line-height: 1.4;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  /* border: 1px blue solid; */
+  background-color: var(--darkGrey);
+  border-radius: 5px;
+}
+
+/* Nav */
+.main-nav {
+  background: var(--darkGrey);
+  border-radius: 5px;
+}
+
+.nav-header {
+  float: left;
+}
+
+.main-nav ul {
+  padding: 0;
   list-style-type: none;
 }
 
-.inputFields {
+.main-nav li {
+  display: inline-block;
+}
+
+.main-nav a {
+  color: var(--textGrey);
+  text-decoration: none;
   text-align: center;
-  margin-top: 1em;
-  font-size: 1.25em;
-  padding: 1em;
-  /* width: 150px; */
-  /* width: 15em; */
-  border: 1px solid rgba(10, 180, 180, 1);
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  background-color: #222;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+}
+
+.main-nav a:hover {
   color: white;
+}
+
+/* Nav End */
+
+/* stats containers */
+
+.stats-container {
+  row-gap: 50px;
+  display: grid;
+  grid-template-areas:
+    'enemy-offense-stats'
+    'enemy-defense-stats';
+}
+
+.enemy-offense-stats {
+  grid-area: 'enemy-offense-stats';
+  display: grid;
+  grid-template-areas: 'stat-panel stat-panel stat-panel';
+}
+
+.enemy-defense-stats {
+  grid-area: 'enemy-defense-stats';
+  display: grid;
+}
+
+.stat-panel {
+  grid-area: 'stat-panel';
+  text-align: center;
+}
+.stat-panel-values {
+  color: var(--textGrey);
+}
+
+.stat-panel-name {
+  color: var(--borderTeal);
+  border-bottom: 2px solid var(--borderTeal);
+  text-align: center;
+}
+
+.stat-panel-input input {
+  text-align: center;
+  /* background-color: #2a4b7c; */
+  background-color: var(--darkGrey);
+  border: none;
+  border-bottom: 2px solid var(--borderTeal);
+  color: white;
+  font-family: 'Nanum Myeongjo';
   outline: none;
+  font-size: 16px;
 }
 
-.label-input {
-  display: block;
+/* stats containers end */
+
+/* Formulas Container */
+.formulas-container {
+  display: grid;
+  grid-template-areas: 'health-formulas dps-formulas';
+}
+
+.health-formulas {
+  grid-area: 'health-formulas';
+}
+
+.dps-formulas {
+  grid-area: 'dps-formulas';
+}
+
+/* Formulas Container End */
+
+/* champion-stats-container */
+
+.champion-selection-container {
+  display: grid;
+  grid-template-areas: 'champsearch champstats';
+}
+
+.champ-search-container {
+  grid-area: 'champsearch';
+}
+
+.champion-stats-container {
+  grid-area: 'champstats';
+}
+
+.champion-stats-tables {
+  display: grid;
+  grid-template-areas: 'table table';
+}
+
+.defense-table,
+.offense-table {
+  grid-area: 'table';
+}
+
+/* search bar */
+
+.search-bar-container {
+  text-align: center;
+}
+
+.search-bar {
+  width: 50%;
+  height: 50px;
   /* text-align: center; */
+  outline: none;
+  background: var(--darkGrey);
+  border: 1px solid var(--borderTeal);
+  color: white;
+  font-size: 1.3rem;
+  padding-left: 0.8rem;
+  font-family: 'Nanum Myeongjo';
 }
 
-.optimizer-button {
-  background-color: #222;
+.search-bar::placeholder {
+  color: var(--borderTeal);
 }
+
+/* search bar end */
+
+/* items-list container */
+
+.items-list {
+  text-align: center;
+  list-style-type: none;
+}
+
+.item {
+  display: inline-block;
+  border: 1px solid var(--borderTeal);
+  height: 64px;
+  width: 64px;
+}
+
+/* items-list container end */
+
+/* level-alive-container */
+
+.level-alive-section {
+  text-align: center;
+  margin: 15px auto;
+}
+
+.level-container,
+.alive-container {
+  display: inline-block;
+  width: 20%;
+}
+
+/* level-alive section end */
