@@ -1,6 +1,13 @@
 import React from 'react';
 
-const EnemyOffense = () => {
+const EnemyOffense = ({
+  physicalPercent,
+  flatArmPen,
+  flatMagicPen,
+  percentArmPen,
+  percentMagicPen,
+  handleChange
+}) => {
   return (
     <section className="enemy-offense-stats">
       {/* 1st Stat panel */}
@@ -15,7 +22,13 @@ const EnemyOffense = () => {
               <p>Incoming Physical Damage</p>
             </div>
             <div className="stat-panel-input">
-              <input />
+              <input
+                type="number"
+                name="physicalPercent"
+                value={physicalPercent}
+                onChange={handleChange}
+                step=".1"
+              />
             </div>
           </div>
           <div>
@@ -23,7 +36,10 @@ const EnemyOffense = () => {
               <p>Incoming Magic Damage</p>
             </div>
             <div className="stat-panel-input">
-              <input />
+              <input
+                disabled
+                value={Math.abs(1 - physicalPercent).toFixed(2)}
+              />
             </div>
           </div>
         </div>
@@ -41,7 +57,12 @@ const EnemyOffense = () => {
               <p>Armor Penetration</p>
             </div>
             <div className="stat-panel-input">
-              <input />
+              <input
+                type="number"
+                name="flatArmPen"
+                value={flatArmPen}
+                onChange={handleChange}
+              />
             </div>
           </div>
           <div>
@@ -49,7 +70,12 @@ const EnemyOffense = () => {
               <p>Magic Penetration</p>
             </div>
             <div className="stat-panel-input">
-              <input />
+              <input
+                type="number"
+                name="flatMagicPen"
+                value={flatMagicPen}
+                onChange={handleChange}
+              />
             </div>
           </div>
         </div>
@@ -67,7 +93,14 @@ const EnemyOffense = () => {
               <p>Armor Penetration</p>
             </div>
             <div className="stat-panel-input">
-              <input />
+              <input
+                type="number"
+                name="percentArmPen"
+                value={percentArmPen}
+                onChange={handleChange}
+                max="1"
+                step=".1"
+              />
             </div>
           </div>
           <div>
@@ -75,7 +108,14 @@ const EnemyOffense = () => {
               <p>Magic Penetration</p>
             </div>
             <div className="stat-panel-input">
-              <input />
+              <input
+                type="number"
+                name="percentMagicPen"
+                value={percentMagicPen}
+                onChange={handleChange}
+                max="1"
+                step=".1"
+              />
             </div>
           </div>
         </div>
