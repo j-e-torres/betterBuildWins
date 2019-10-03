@@ -18,7 +18,7 @@ class Customizer extends Component {
       localItems: [],
 
       //Enemy offense
-      physicalPercent: 50,
+      physicalPercent: 0.5,
       flatArmPen: 0,
       flatMagicPen: 0,
       percentArmPen: 0,
@@ -30,6 +30,16 @@ class Customizer extends Component {
       enemyMagicResist: 100
     };
   }
+
+  handleChange = ({ target }) => {
+    if (target.name === 'physicalPercent') {
+      if (Number(target.value) > 1) {
+        this.setState({ physicalPercent: 1 });
+      } else if (Number(target.value) < 0) {
+        this.setState({ physicalPercent: 0 });
+      } else this.setState({ physicalPercent: target.value });
+    } else this.setState({ [target.name]: target.value });
+  };
 
   render() {
     const {
@@ -59,6 +69,7 @@ class Customizer extends Component {
             flatMagicPen={flatMagicPen}
             percentArmPen={percentArmPen}
             percentMagicPen={percentMagicPen}
+            handleChange={handleChange}
           />
           <EnemyDefense />
           <ChampionStats />
