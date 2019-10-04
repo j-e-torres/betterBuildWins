@@ -71,7 +71,12 @@ class Customizer extends Component {
             percentMagicPen={percentMagicPen}
             handleChange={handleChange}
           />
-          <EnemyDefense />
+          <EnemyDefense
+            enemyArmor={enemyArmor}
+            enemyHealth={enemyHealth}
+            enemyMagicResist={enemyMagicResist}
+            handleChange={handleChange}
+          />
           <ChampionStats />
           <Formulas />
         </section>
