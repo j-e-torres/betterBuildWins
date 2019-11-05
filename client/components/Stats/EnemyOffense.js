@@ -2,7 +2,7 @@ import React from 'react';
 
 const EnemyOffense = ({
   physicalPercent,
-  flatArmPen,
+  lethality,
   flatMagicPen,
   percentArmPen,
   percentMagicPen,
@@ -54,13 +54,13 @@ const EnemyOffense = ({
         <div className="stat-panel-values">
           <div>
             <div>
-              <p>Armor Penetration</p>
+              <p>Lethality</p>
             </div>
             <div className="stat-panel-input">
               <input
                 type="number"
-                name="flatArmPen"
-                value={flatArmPen}
+                name="lethality"
+                value={lethality}
                 onChange={handleChange}
               />
             </div>

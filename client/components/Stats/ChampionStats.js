@@ -1,10 +1,13 @@
 import React from 'react';
+// import ItemContainer from './ItemContainer'
+import AutocompleteItem from '../AutocompleteItem';
 
-const ChampionStats = () => {
+const ChampionStats = ({ items }) => {
   return (
     <section className="champion-stats-section">
+      <AutocompleteItem />
       {/* items div */}
-      <div className="items-container">
+      {/* <div className="items-container">
         <div>
           <p className="stat-panel-name">Select Your Items</p>
         </div>
@@ -12,9 +15,9 @@ const ChampionStats = () => {
           <input className="search-bar" placeholder="Type an item" />
         </div>
         <div className="items-list-container">
-          <ul className="items-list">
-            {/* create li as items search */}
-            <li
+          <ul className="items-list"> */}
+      {/* create li as items search */}
+      {/* <li
               className="item"
               style={{
                 backgroundImage: `url(
@@ -31,7 +34,7 @@ const ChampionStats = () => {
             <li className="item">item 6</li>
           </ul>
         </div>
-      </div>
+      </div> */}
 
       {/* level and time alive input */}
       <div className="level-alive-section">
@@ -98,7 +101,7 @@ const ChampionStats = () => {
                 </tr>
 
                 <tr>
-                  <td>Flat Armor Pen</td>
+                  <td>Lethality</td>
                   <td>10</td>
                 </tr>
 

@@ -14,12 +14,11 @@ class Customizer extends Component {
     this.state = {
       localChamp: {},
       champion: '',
-      item: '',
       localItems: [],
 
       //Enemy offense
       physicalPercent: 0.5,
-      flatArmPen: 0,
+      lethality: 0,
       flatMagicPen: 0,
       percentArmPen: 0,
       percentMagicPen: 0,
@@ -44,12 +43,11 @@ class Customizer extends Component {
   render() {
     const {
       champion,
-      item,
       localChamp,
       localItems,
       physicalPercent,
       flatMagicPen,
-      flatArmPen,
+      lethality,
       percentArmPen,
       percentMagicPen,
       enemyArmor,
@@ -58,6 +56,8 @@ class Customizer extends Component {
     } = this.state;
     const { handleChange, addToItemsArr, addChampion } = this;
 
+    const { champions, items } = this.props;
+
     const addItemDisable = localItems.length >= 6;
 
     return (
@@ -65,7 +65,7 @@ class Customizer extends Component {
         <section className="stats-container">
           <EnemyOffense
             physicalPercent={physicalPercent}
-            flatArmPen={flatArmPen}
+            lethality={lethality}
             flatMagicPen={flatMagicPen}
             percentArmPen={percentArmPen}
             percentMagicPen={percentMagicPen}
