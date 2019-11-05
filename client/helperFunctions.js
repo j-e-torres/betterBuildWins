@@ -1,5 +1,9 @@
 import React from 'react';
 
+// export const itemNames = (items) => {
+
+// }
+
 export const itemValidation = (item, items) => {
   const found = Object.keys(items).reduce((acc, key) => {
     if (items[key].name === item) {
