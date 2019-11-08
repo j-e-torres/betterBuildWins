@@ -13,13 +13,13 @@ class AutocompleteItem extends React.Component {
   }
 
   handleChange = ({ target }) => {
-    const { itemNames } = this.props;
-
+    const { items } = this.props;
     const item = target.value;
 
     // Filter our suggestions that don't contain the user's input
-    const filteredOptions = itemNames.filter(
-      suggestion => suggestion.toLowerCase().indexOf(item.toLowerCase()) > -1
+    const filteredOptions = Object.values(items).filter(
+      suggestion =>
+        suggestion.name.toLowerCase().indexOf(item.toLowerCase()) > -1
     );
 
     // Update the user input and filtered suggestions, reset the active
@@ -32,13 +32,18 @@ class AutocompleteItem extends React.Component {
     });
   };
 
-  onClick = ({ target }) => {
+  onClickItem = (itemSuggestion, { target }) => {
+    const { localItems } = this.props;
+    console.log('item in onClickItem please', itemSuggestion);
+    localItems.push(itemSuggestion);
+    console.log('localItems', localItems);
+
     // Update the user input and reset the rest of the state
     this.setState({
       activeOptions: 0,
       filteredOptions: [],
       showOptions: false,
-      item: target.innerText
+      item: ''
     });
   };
 
@@ -74,8 +79,10 @@ class AutocompleteItem extends React.Component {
 
   render() {
     const { activeOptions, filteredOptions, showOptions, item } = this.state;
+    const { handleChange, onClickItem } = this;
+    const { localItems } = this.props;
 
-    const { handleChange, onClick, onKeyDown } = this;
+    const addItemDisable = localItems.length >= 6;
 
     let suggestionsListComponent;
 
@@ -92,8 +99,17 @@ class AutocompleteItem extends React.Component {
               }
 
               return (
-                <li className={activeBool} key={suggestion} onClick={onClick}>
-                  {suggestion}
+                <li
+                  className={activeBool}
+                  key={index}
+                  onClick={event => onClickItem(suggestion, event)}
+                >
+                  <div className="item-search-icon">
+                    <img
+                      src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${suggestion.image.full}`}
+                    />
+                  </div>
+                  <div>{suggestion.name}</div>
                 </li>
               );
             })}
@@ -102,7 +118,7 @@ class AutocompleteItem extends React.Component {
       } else {
         suggestionsListComponent = (
           <div className="no-suggestions">
-            <em>No suggestions, you're on your own!</em>
+            <em>No items match</em>
           </div>
         );
       }
@@ -115,19 +131,33 @@ class AutocompleteItem extends React.Component {
         </div>
         <div className="search-bar-container">
           <input
+            id="item-search"
             className="search-bar"
-            placeholder="Type an item"
+            placeholder={
+              addItemDisable ? "You've reached 6 items" : 'Type an item'
+            }
             type="text"
             name="item"
             value={item}
             onChange={handleChange}
+            disabled={addItemDisable}
           />
           {suggestionsListComponent}
         </div>
         <div className="items-list-container">
           <ul className="items-list">
             {/* create li as items search */}
-            <li
+            {localItems.map((itemObj, index) => {
+              return (
+                <li key={index} className="item">
+                  <img
+                    src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${itemObj.image.full}`}
+                  />
+                </li>
+              );
+            })}
+
+            {/* <li
               className="item"
               style={{
                 backgroundImage: `url(
@@ -141,7 +171,7 @@ class AutocompleteItem extends React.Component {
             <li className="item">item 3</li>
             <li className="item">item 4</li>
             <li className="item">item 5 </li>
-            <li className="item">item 6</li>
+            <li className="item">item 6</li> */}
           </ul>
         </div>
       </div>
@@ -149,6 +179,6 @@ class AutocompleteItem extends React.Component {
   }
 }
 
-const mapStateToProps = ({ itemNames }) => ({ itemNames });
+const mapStateToProps = ({ itemNames, items }) => ({ itemNames, items });
 
 export default connect(mapStateToProps)(AutocompleteItem);

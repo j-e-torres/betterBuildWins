@@ -58,8 +58,6 @@ class Customizer extends Component {
 
     const { champions, items } = this.props;
 
-    const addItemDisable = localItems.length >= 6;
-
     return (
       <div>
         <section className="stats-container">
@@ -77,7 +75,7 @@ class Customizer extends Component {
             enemyMagicResist={enemyMagicResist}
             handleChange={handleChange}
           />
-          <ChampionStats />
+          <ChampionStats localItems={localItems} />
           <Formulas />
         </section>
       </div>
