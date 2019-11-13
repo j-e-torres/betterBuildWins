@@ -194,6 +194,41 @@ body {
   width: 64px;
 }
 
+.item:hover {
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+/* .item .item-tooltip:hover {
+  visibility: visible;
+}
+
+.item .item-tooltip {
+  visibility: hidden;
+  width: 50%;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -50%;
+} */
+
+/* .item .item-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+} */
+
 /* items-list container end */
 
 /* level-alive-container */
@@ -217,10 +252,11 @@ body {
 }
 
 .suggestions {
-  border: 1px solid #999;
+  border: 1px solid var(--borderTeal);
   border-top-width: 0;
   list-style: none;
-  margin-top: 0;
+  /* margin-top: 0; */
+  margin: 0 auto;
   max-height: 143px;
   overflow-y: auto;
   padding-left: 0;
@@ -229,16 +265,18 @@ body {
 
 .suggestions li {
   padding: 0.5rem;
+  color: var(--textGrey);
 }
 
 .suggestion-active,
-.suggestions li:hover {
-  background-color: #008f68;
-  color: #fae042;
+.suggestions li:hover,
+.item-search-icon img:hover {
+  /* background-color: #197c62; */
+  color: white;
   cursor: pointer;
   font-weight: 700;
 }
 
 .suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid var(--borderTeal);
 }

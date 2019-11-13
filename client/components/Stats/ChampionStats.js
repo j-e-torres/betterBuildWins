@@ -1,40 +1,11 @@
-import React from 'react';
+import React from "react";
 // import ItemContainer from './ItemContainer'
-import AutocompleteItem from '../AutocompleteItem';
+import AutocompleteItem from "../AutocompleteItem";
 
-const ChampionStats = ({ items }) => {
+const ChampionStats = ({ localItems, onClickItem }) => {
   return (
     <section className="champion-stats-section">
-      <AutocompleteItem />
-      {/* items div */}
-      {/* <div className="items-container">
-        <div>
-          <p className="stat-panel-name">Select Your Items</p>
-        </div>
-        <div className="search-bar-container">
-          <input className="search-bar" placeholder="Type an item" />
-        </div>
-        <div className="items-list-container">
-          <ul className="items-list"> */}
-      {/* create li as items search */}
-      {/* <li
-              className="item"
-              style={{
-                backgroundImage: `url(
-                  'https://ddragon.leagueoflegends.com/cdn/9.19.1/img/item/1038.png'
-                )`
-              }}
-            >
-              item 1
-            </li>
-            <li className="item">item 2</li>
-            <li className="item">item 3</li>
-            <li className="item">item 4</li>
-            <li className="item">item 5 </li>
-            <li className="item">item 6</li>
-          </ul>
-        </div>
-      </div> */}
+      <AutocompleteItem localItems={localItems} onClickItem={onClickItem} />
 
       {/* level and time alive input */}
       <div className="level-alive-section">
