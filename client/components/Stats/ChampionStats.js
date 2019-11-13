@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 // import ItemContainer from './ItemContainer'
-import AutocompleteItem from '../AutocompleteItem';
+import AutocompleteItem from "../AutocompleteItem";
 
-const ChampionStats = ({ localItems }) => {
+const ChampionStats = ({ localItems, onClickItem }) => {
   return (
     <section className="champion-stats-section">
-      <AutocompleteItem localItems={localItems} />
+      <AutocompleteItem localItems={localItems} onClickItem={onClickItem} />
 
       {/* level and time alive input */}
       <div className="level-alive-section">

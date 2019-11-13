@@ -32,11 +32,9 @@ class AutocompleteItem extends React.Component {
     });
   };
 
-  onClickItem = (itemSuggestion, { target }) => {
+  onClickSuggestion = (itemSuggestion, { target }) => {
     const { localItems } = this.props;
-    console.log('item in onClickItem please', itemSuggestion);
     localItems.push(itemSuggestion);
-    console.log('localItems', localItems);
 
     // Update the user input and reset the rest of the state
     this.setState({
@@ -45,6 +43,8 @@ class AutocompleteItem extends React.Component {
       showOptions: false,
       item: ''
     });
+
+    document.getElementById('item-search').select();
   };
 
   onKeyDown = e => {
@@ -79,8 +79,8 @@ class AutocompleteItem extends React.Component {
 
   render() {
     const { activeOptions, filteredOptions, showOptions, item } = this.state;
-    const { handleChange, onClickItem } = this;
-    const { localItems } = this.props;
+    const { handleChange, onClickSuggestion } = this;
+    const { localItems, onClickItem } = this.props;
 
     const addItemDisable = localItems.length >= 6;
 
@@ -102,7 +102,7 @@ class AutocompleteItem extends React.Component {
                 <li
                   className={activeBool}
                   key={index}
-                  onClick={event => onClickItem(suggestion, event)}
+                  onClick={event => onClickSuggestion(suggestion, event)}
                 >
                   <div className="item-search-icon">
                     <img
@@ -149,29 +149,19 @@ class AutocompleteItem extends React.Component {
             {/* create li as items search */}
             {localItems.map((itemObj, index) => {
               return (
-                <li key={index} className="item">
+                <li
+                  key={index}
+                  className="item"
+                  onClick={event => onClickItem(itemObj, event)}
+                  // onMouseOver={() => <div>tesiting?</div>}
+                >
                   <img
                     src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${itemObj.image.full}`}
                   />
+                  <span className="item-tooltip">{itemObj.name}</span>
                 </li>
               );
             })}
-
-            {/* <li
-              className="item"
-              style={{
-                backgroundImage: `url(
-                'https://ddragon.leagueoflegends.com/cdn/9.19.1/img/item/1038.png'
-              )`
-              }}
-            >
-              item 1
-            </li>
-            <li className="item">item 2</li>
-            <li className="item">item 3</li>
-            <li className="item">item 4</li>
-            <li className="item">item 5 </li>
-            <li className="item">item 6</li> */}
           </ul>
         </div>
       </div>
