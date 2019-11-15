@@ -15,7 +15,9 @@ const getItemNames = items => ({
 export const fetchAllItemsThunk = () => {
   return dispatch => {
     return axios
-      .get('http://ddragon.leagueoflegends.com/cdn/9.10.1/data/en_US/item.json')
+      .get(
+        'https://ddragon.leagueoflegends.com/cdn/9.21.1/data/en_US/item.json'
+      )
       .then(({ data }) => {
         return Promise.all([
           dispatch(getAllItems(data.data)),
