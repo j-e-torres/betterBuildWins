@@ -11,7 +11,7 @@ export const fetchAllChampionsThunk = () => {
   return dispatch => {
     return axios
       .get(
-        'http://ddragon.leagueoflegends.com/cdn/9.10.1/data/en_US/champion.json'
+        'https://ddragon.leagueoflegends.com/cdn/9.21.1/data/en_US/champion.json'
       )
       .then(({ data }) => dispatch(getAllChampions(data.data)))
       .catch(err => console.error('api champions failed', err));
