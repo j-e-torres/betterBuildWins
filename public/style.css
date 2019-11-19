@@ -150,6 +150,16 @@ body {
   grid-template-areas: 'table table';
 }
 
+.champ-selected img:hover {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.champ-selected img {
+  display: block;
+  margin: 0 auto;
+}
+
 .defense-table,
 .offense-table {
   grid-area: 'table';
@@ -246,6 +256,7 @@ body {
 
 /* level-alive section end */
 
+/* suggestions for autocomplete */
 .no-suggestions {
   color: #999;
   padding: 0.5rem;
@@ -257,7 +268,7 @@ body {
   list-style: none;
   /* margin-top: 0; */
   margin: 0 auto;
-  max-height: 143px;
+  max-height: 150px;
   overflow-y: auto;
   padding-left: 0;
   width: calc(300px + 1rem);
@@ -277,6 +288,12 @@ body {
   font-weight: 700;
 }
 
+.item-search-icon img {
+  height: 64px;
+  width: 64px;
+}
+
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid var(--borderTeal);
 }
+/* suggestions end */

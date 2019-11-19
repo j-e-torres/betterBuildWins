@@ -1,19 +1,18 @@
 /* eslint-disable no-alert */
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { itemValidation, champValidation } from "../helperFunctions";
+import { itemValidation, champValidation } from '../helperFunctions';
 
-import { LocalItems } from "./LocalItems";
-import { CalculateBuild } from "./CalculateBuild";
-import { EnemyOffense, EnemyDefense, ChampionStats, Formulas } from "./Stats";
+import { LocalItems } from './LocalItems';
+import { CalculateBuild } from './CalculateBuild';
+import { EnemyOffense, EnemyDefense, ChampionStats, Formulas } from './Stats';
 
 class Customizer extends Component {
   constructor() {
     super();
     this.state = {
-      localChamp: {},
-      champion: "",
+      localChamp: [],
       localItems: [],
 
       //Enemy offense
@@ -31,7 +30,7 @@ class Customizer extends Component {
   }
 
   handleChange = ({ target }) => {
-    if (target.name === "physicalPercent") {
+    if (target.name === 'physicalPercent') {
       if (Number(target.value) > 1) {
         this.setState({ physicalPercent: 1 });
       } else if (Number(target.value) < 0) {
@@ -50,9 +49,18 @@ class Customizer extends Component {
     this.setState({ localItems: leftOverLocalItems });
   };
 
+  onClickChampion = (champObj, { target }) => {
+    const { localChamp } = this.state;
+
+    const leftOverLocalChamp = localChamp.filter(
+      champ => champ.name !== champObj.name
+    );
+
+    this.setState({ localChamp: leftOverLocalChamp });
+  };
+
   render() {
     const {
-      champion,
       localChamp,
       localItems,
       physicalPercent,
@@ -64,7 +72,7 @@ class Customizer extends Component {
       enemyHealth,
       enemyMagicResist
     } = this.state;
-    const { handleChange, onClickItem } = this;
+    const { handleChange, onClickItem, onClickChampion } = this;
 
     return (
       <div>
@@ -83,7 +91,12 @@ class Customizer extends Component {
             enemyMagicResist={enemyMagicResist}
             handleChange={handleChange}
           />
-          <ChampionStats localItems={localItems} onClickItem={onClickItem} />
+          <ChampionStats
+            localChamp={localChamp}
+            localItems={localItems}
+            onClickItem={onClickItem}
+            onClickChampion={onClickChampion}
+          />
           <Formulas />
         </section>
       </div>
