@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
-class AutocompleteItem extends React.Component {
+class AutocompleteChampion extends React.Component {
   constructor() {
     super();
     this.state = {
       activeOptions: 0,
       filteredOptions: [],
       showOptions: false,
-      item: ''
+      champion: ''
     };
   }
 
   handleChange = ({ target }) => {
-    const { items } = this.props;
-    const item = target.value;
+    const { champions } = this.props;
+    const champion = target.value;
 
     // Filter our suggestions that don't contain the user's input
-    const filteredOptions = Object.values(items).filter(
+    const filteredOptions = Object.values(champions).filter(
       suggestion =>
-        suggestion.name.toLowerCase().indexOf(item.toLowerCase()) > -1
+        suggestion.name.toLowerCase().indexOf(champion.toLowerCase()) > -1
     );
 
     // Update the user input and filtered suggestions, reset the active
@@ -28,23 +28,21 @@ class AutocompleteItem extends React.Component {
       activeOptions: 0,
       filteredOptions,
       showOptions: true,
-      item: target.value
+      champion: target.value
     });
   };
 
-  onClickSuggestion = (itemSuggestion, { target }) => {
-    const { localItems } = this.props;
-    localItems.push(itemSuggestion);
+  onClickSuggestion = (champSuggestion, { target }) => {
+    const { localChamp } = this.props;
+    localChamp.push(champSuggestion);
 
     // Update the user input and reset the rest of the state
     this.setState({
       activeOptions: 0,
       filteredOptions: [],
       showOptions: false,
-      item: ''
+      champion: ''
     });
-
-    document.getElementById('item-search').select();
   };
 
   onKeyDown = e => {
@@ -56,7 +54,7 @@ class AutocompleteItem extends React.Component {
       this.setState({
         activeOptions: 0,
         showOptions: false,
-        item: filteredOptions[activeOptions]
+        champion: filteredOptions[activeOptions]
       });
     }
     // User pressed the up arrow, decrement the index
@@ -78,15 +76,20 @@ class AutocompleteItem extends React.Component {
   };
 
   render() {
-    const { activeOptions, filteredOptions, showOptions, item } = this.state;
+    const {
+      activeOptions,
+      filteredOptions,
+      showOptions,
+      champion
+    } = this.state;
     const { handleChange, onClickSuggestion } = this;
-    const { localItems, onClickItem } = this.props;
+    const { localChamp, onClickChampion } = this.props;
 
-    const addItemDisable = localItems.length >= 6;
+    const addItemDisable = localChamp.length >= 1;
 
     let suggestionsListComponent;
 
-    if (showOptions && item) {
+    if (showOptions && champion) {
       if (filteredOptions.length) {
         suggestionsListComponent = (
           <ul className="suggestions">
@@ -101,13 +104,16 @@ class AutocompleteItem extends React.Component {
               return (
                 <li
                   className={activeBool}
-                  key={index}
+                  key={suggestion.id}
                   onClick={event => onClickSuggestion(suggestion, event)}
                 >
                   <div className="item-search-icon">
                     <img
-                      src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${suggestion.image.full}`}
+                      src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/champion/${suggestion.image.full}`}
                     />
+                    {/* <img
+                      src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${suggestion.name}_0.jpg`}
+                    /> */}
                   </div>
                   <div>{suggestion.name}</div>
                 </li>
@@ -118,57 +124,41 @@ class AutocompleteItem extends React.Component {
       } else {
         suggestionsListComponent = (
           <div className="no-suggestions">
-            <em>No items match</em>
+            <em>No Champions match</em>
           </div>
         );
       }
     }
 
     return (
-      <div className="items-container">
-        <div>
-          <p className="stat-panel-name">Select Your Items</p>
-        </div>
+      <div className="champ-search-container">
         <div className="search-bar-container">
           <input
-            id="item-search"
             className="search-bar"
             placeholder={
-              addItemDisable ? "You've reached 6 items" : 'Type an item'
+              addItemDisable ? 'Champion Selected' : 'Type a Champion'
             }
-            type="text"
-            name="item"
-            value={item}
+            value={champion}
             onChange={handleChange}
+            name="champion"
             disabled={addItemDisable}
           />
           {suggestionsListComponent}
         </div>
-        <div className="items-list-container">
-          <ul className="items-list">
-            {/* create li as items search */}
-            {localItems.map((itemObj, index) => {
-              return (
-                <li
-                  key={index}
-                  className="item"
-                  onClick={event => onClickItem(itemObj, event)}
-                  // onMouseOver={() => <div>tesiting?</div>}
-                >
-                  <img
-                    src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${itemObj.image.full}`}
-                  />
-                  {/* <span className="item-tooltip">{itemObj.name}</span> */}
-                </li>
-              );
-            })}
-          </ul>
+        <div className="champ-selected">
+          {localChamp.length > 0 ? (
+            <img
+              onClick={event => onClickChampion(localChamp[0], event)}
+              alt={localChamp[0].name}
+              src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${localChamp[0].name}_0.jpg`}
+            />
+          ) : null}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ items }) => ({ items });
+const mapStateToProps = ({ champions }) => ({ champions });
 
-export default connect(mapStateToProps)(AutocompleteItem);
+export default connect(mapStateToProps)(AutocompleteChampion);

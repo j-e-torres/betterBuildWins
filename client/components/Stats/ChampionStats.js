@@ -1,8 +1,14 @@
-import React from "react";
+import React from 'react';
 // import ItemContainer from './ItemContainer'
-import AutocompleteItem from "../AutocompleteItem";
+import AutocompleteItem from '../AutocompleteItem';
+import AutocompleteChamp from '../Autocompletes/AutocompleteChampion';
 
-const ChampionStats = ({ localItems, onClickItem }) => {
+const ChampionStats = ({
+  onClickChampion,
+  localChamp,
+  localItems,
+  onClickItem
+}) => {
   return (
     <section className="champion-stats-section">
       <AutocompleteItem localItems={localItems} onClickItem={onClickItem} />
@@ -34,22 +40,10 @@ const ChampionStats = ({ localItems, onClickItem }) => {
 
       {/* Champion and champ banner to left, Stats to right */}
       <div className="champion-selection-container">
-        {/* Champ */}
-        <div
-          // style={{ border: '1px solid red' }}
-          className="champ-search-container"
-        >
-          <div className="search-bar-container">
-            <input className="search-bar" placeholder="Type a champion" />
-          </div>
-          <div>
-            {/* <img
-              width="25%"
-              alt="Graves"
-              src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Graves_0.jpg"
-            /> */}
-          </div>
-        </div>
+        <AutocompleteChamp
+          onClickChampion={onClickChampion}
+          localChamp={localChamp}
+        />
 
         {/* Stats */}
         <div className="champion-stats-container">
