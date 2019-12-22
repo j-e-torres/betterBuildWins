@@ -1,6 +1,11 @@
 import React from 'react';
+import { effectiveHpFormula, growthFormula } from '../../helperFunctions';
 
-const Formulas = () => {
+const Formulas = ({ championLevel, parseItemStats, stats, timeAlive }) => {
+  const totalArmor =
+    stats.armor +
+    growthFormula(stats.armor, championLevel) +
+    (parseItemStats.FlatArmorMod || 0);
   return (
     <section className="formulas-container">
       <table className="health-formulas">
@@ -10,7 +15,10 @@ const Formulas = () => {
         <tbody>
           <tr>
             <td>Against Physical</td>
-            <td>1500</td>
+            <td>
+              {stats &&
+                Math.round(effectiveHpFormula(stats.hpperlevel, championLevel))}
+            </td>
           </tr>
           <tr>
             <td>Against Magic</td>

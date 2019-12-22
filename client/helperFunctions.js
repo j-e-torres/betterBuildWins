@@ -1,54 +1,71 @@
-import React from 'react';
+//champion
+/*
+hp: 600
+hpperlevel: 95
+mp: 400
+mpperlevel: 47
+movespeed: 330
+armor: 35
+armorperlevel: 3.6
+spellblock: 32.1
+spellblockperlevel: 1.25
+attackrange: 125
+hpregen: 5.5
+hpregenperlevel: 0.5
+mpregen: 6
+mpregenperlevel: 0.8
+crit: 0
+critperlevel: 0
+attackdamage: 64
+attackdamageperlevel: 3.5
+attackspeedperlevel: 2.05
+attackspeed: 0.675
+*/
 
-// export const itemNames = (items) => {
+//items
+/*
+  for ap
+    FlatMagicDamageMod
 
-// }
+  for Movespeed
+    FlatMovementSpeedMod
 
-export const itemValidation = (item, items) => {
-  const found = Object.keys(items).reduce((acc, key) => {
-    if (items[key].name === item) {
-      acc[key] = items[key];
-    }
-    return acc;
-  }, {});
+  for Mana
+    FlatMPPoolMod
 
-  return found;
+  for Defense
+    FlatHPPoolMod
+    FlatArmorMod
+    FlatSpellBlockMod
+    FlatHPRegenMod
+
+  for Ad
+    FlatPhysicalDamageMod
+    FlatCritChanceMod
+    PercentAttackSpeedMod
+    PercentLifeStealMod
+*/
+
+export const growthFormula = (growthStat, level) => {
+  return growthStat * (level - 1) * (0.685 + 0.0175 * level);
 };
 
-export const champValidation = (champ, champions) => {
-  const found = Object.keys(champions).reduce((acc, key) => {
-    if (champions[key].name === champ) {
-      acc[key] = champions[key];
-    }
-    return acc;
-  }, {});
-  return found;
-};
-
-export const inputFieldCreator = (
-  label,
-  type,
-  className,
-  id,
-  name,
-  placeholder,
-  value,
-  handleChange
-
-  // eslint-disable-next-line max-params
+export const effectiveHpFormula = (
+  resist,
+  hp,
+  hpRegen,
+  timeAlive,
+  enemyPercentPenetration,
+  enemyFlatPenetration
 ) => {
+  const hpRegenPerSecond = hpRegen / 5;
+
   return (
-    <div item>
-      <label>{label}</label>
-      <input
-        type={type}
-        className={className}
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        onChange={handleChange}
-      />
-    </div>
+    (hp + hpRegenPerSecond * timeAlive) *
+    (1 +
+      (1 -
+        100 /
+          (100 +
+            (resist * (1 - enemyPercentPenetration) - enemyFlatPenetration))))
   );
 };

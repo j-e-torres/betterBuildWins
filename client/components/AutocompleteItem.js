@@ -123,7 +123,6 @@ class AutocompleteItem extends React.Component {
         );
       }
     }
-
     return (
       <div className="items-container">
         <div>
