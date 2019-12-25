@@ -5,7 +5,15 @@ const CalculateBuild = ({
   championLevel,
   timeAlive,
   localChamp,
-  localItems
+  localItems,
+  lethality,
+  flatMagicPen,
+  percentArmPen,
+  percentMagicPen,
+  physicalPercent,
+  enemyHealth,
+  enemyArmor,
+  enemyMagicResist
 }) => {
   const parseItemStats = localItems
     .map(item => {
@@ -30,6 +38,14 @@ const CalculateBuild = ({
         localChamp={localChamp}
         parseItemStats={parseItemStats}
         timeAlive={timeAlive}
+        percentArmPen={percentArmPen}
+        percentMagicPen={percentMagicPen}
+        lethality={lethality}
+        flatMagicPen={flatMagicPen}
+        physicalPercent={physicalPercent}
+        enemyArmor={enemyArmor}
+        enemyHealth={enemyHealth}
+        enemyMagicResist={enemyMagicResist}
       />
     </Fragment>
   );

@@ -7,10 +7,66 @@ const StatsTable = ({
   timeAlive,
   parseItemStats,
   localChamp,
-  championLevel
+  championLevel,
+  percentArmPen,
+  percentMagicPen,
+  lethality,
+  flatMagicPen,
+  physicalPercent,
+  enemyArmor,
+  enemyHealth,
+  enemyMagicResist
 }) => {
   const stats = localChamp.length ? localChamp[0].stats : 0;
   // console.log('stats', stats);
+  // Defense
+
+  const totalArmor =
+    stats.armor +
+      growthFormula(stats.armorperlevel, championLevel) +
+      (parseItemStats.FlatArmorMod || 0) || 0;
+
+  const totalMagicResist =
+    stats.spellblock +
+      growthFormula(stats.spellblockperlevel, championLevel) +
+      (parseItemStats.FlatSpellBlockMod || 0) || 0;
+
+  const totalHealth =
+    stats.hp +
+      growthFormula(stats.hpperlevel, championLevel) +
+      (parseItemStats.FlatHPPoolMod || 0) || 0;
+
+  // DPS
+  const totalAD =
+    growthFormula(stats.attackdamageperlevel, championLevel) +
+      stats.attackdamage +
+      (parseItemStats.FlatPhysicalDamageMod || 0) || 0;
+
+  const totalAttackSpeed =
+    stats.attackspeed *
+      (1 +
+        growthFormula(stats.attackspeedperlevel / 100, championLevel) +
+        (parseItemStats.PercentAttackSpeedMod || 0)) || 0;
+
+  const totalCritChance =
+    growthFormula(stats.critperlevel, championLevel) +
+      stats.crit +
+      (parseItemStats.FlatCritChanceMod || 0) || 0;
+
+  const totalMana =
+    growthFormula(stats.mpperlevel, championLevel) +
+      stats.mp +
+      (parseItemStats.FlatMPPoolMod || 0) || 0;
+
+  //just champ regen
+  const totalHpRegen =
+    stats.hpregen + growthFormula(stats.hpregenperlevel, championLevel) || 0;
+
+  const totalManaRegen =
+    growthFormula(stats.mpregenperlevel, championLevel) + stats.mpregen || 0;
+
+  const totalCritDamage = 0;
+
   return (
     <Fragment>
       <div className="champion-stats-container">
@@ -19,14 +75,7 @@ const StatsTable = ({
             <tbody>
               <tr>
                 <td>Attack Damage</td>
-                <td>
-                  {stats &&
-                    Math.round(
-                      growthFormula(stats.attackdamageperlevel, championLevel) +
-                        stats.attackdamage +
-                        (parseItemStats.FlatPhysicalDamageMod || 0)
-                    )}
-                </td>
+                <td>{Math.round(totalAD)}</td>
               </tr>
 
               <tr>
@@ -38,18 +87,7 @@ const StatsTable = ({
 
               <tr>
                 <td>Attack Speed</td>
-                <td>
-                  {stats &&
-                    (
-                      stats.attackspeed *
-                      (1 +
-                        growthFormula(
-                          stats.attackspeedperlevel / 100,
-                          championLevel
-                        ) +
-                        (parseItemStats.PercentAttackSpeedMod || 0))
-                    ).toFixed(3)}
-                </td>
+                <td>{totalAttackSpeed.toFixed(3)}</td>
               </tr>
 
               <tr>
@@ -79,12 +117,7 @@ const StatsTable = ({
 
               <tr>
                 <td>Crit</td>
-                <td>
-                  {stats &&
-                    growthFormula(stats.critperlevel, championLevel) +
-                      stats.crit +
-                      (parseItemStats.FlatCritChanceMod || 0)}
-                </td>
+                <td>{totalCritChance}</td>
               </tr>
             </tbody>
           </table>
@@ -93,85 +126,37 @@ const StatsTable = ({
             <tbody>
               <tr>
                 <td>Armor</td>
-                <td>
-                  {stats &&
-                    Math.round(
-                      growthFormula(stats.armorperlevel, championLevel) +
-                        stats.armor +
-                        (parseItemStats.FlatArmorMod || 0)
-                    )}
-                </td>
+                <td>{Math.round(totalArmor)}</td>
               </tr>
 
               <tr>
                 <td>Magic Resist</td>
-                <td>
-                  {stats &&
-                    Math.round(
-                      growthFormula(stats.spellblockperlevel, championLevel) +
-                        stats.spellblock +
-                        (parseItemStats.FlatSpellBlockMod || 0)
-                    )}
-                </td>
+                <td>{Math.round(totalMagicResist)}</td>
               </tr>
 
               <tr>
                 <td>Movespeed</td>
-                <td>
-                  {/* {stats &&
-                  Math.round(
-                    stats.movespeed + (parseItemStats.FlatMovementSpeedMod || 0)
-                  )} */}{' '}
-                  -
-                </td>
+                <td>-</td>
               </tr>
 
               <tr>
                 <td>Health</td>
-                <td>
-                  {stats &&
-                    Math.round(
-                      growthFormula(stats.hpperlevel, championLevel) +
-                        stats.hp +
-                        (parseItemStats.FlatHPPoolMod || 0)
-                    )}
-                </td>
+                <td>{Math.round(totalHealth)}</td>
               </tr>
 
               <tr>
                 <td>Health Regen</td>
-                <td>
-                  {/* just champ stats */}
-                  {stats &&
-                    Math.round(
-                      growthFormula(stats.hpregenperlevel, championLevel) +
-                        stats.hpregen
-                    )}
-                </td>
+                <td>{totalHpRegen.toFixed(1)}</td>
               </tr>
 
               <tr>
                 <td>Mana</td>
-                <td>
-                  {stats &&
-                    Math.round(
-                      growthFormula(stats.mpperlevel, championLevel) +
-                        stats.mp +
-                        (parseItemStats.FlatMPPoolMod || 0)
-                    )}
-                </td>
+                <td>{Math.round(totalMana)}</td>
               </tr>
 
               <tr>
                 <td>Mana Regen</td>
-                <td>
-                  {/* just champ stats */}
-                  {stats &&
-                    Math.round(
-                      growthFormula(stats.mpregenperlevel, championLevel) +
-                        stats.mpregen
-                    )}
-                </td>
+                <td>{totalManaRegen.toFixed(1)}</td>
               </tr>
 
               <tr>
@@ -188,10 +173,23 @@ const StatsTable = ({
         </div>
       </div>
       <Formulas
-        stats={stats}
-        parseItemStats={parseItemStats}
-        championLevel={championLevel}
         timeAlive={timeAlive}
+        lethality={lethality}
+        flatMagicPen={flatMagicPen}
+        percentArmPen={percentArmPen}
+        percentMagicPen={percentMagicPen}
+        physicalPercent={physicalPercent}
+        totalAD={totalAD}
+        totalCritChance={totalCritChance}
+        totalCritDamage={totalCritDamage}
+        totalHealth={totalHealth}
+        totalHpRegen={totalHpRegen}
+        totalArmor={totalArmor}
+        totalMagicResist={totalMagicResist}
+        totalAttackSpeed={totalAttackSpeed}
+        enemyArmor={enemyArmor}
+        enemyHealth={enemyHealth}
+        enemyMagicResist={enemyMagicResist}
       />
     </Fragment>
   );

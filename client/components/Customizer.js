@@ -101,6 +101,14 @@ class Customizer extends Component {
             localItems={localItems}
             onClickItem={onClickItem}
             onClickChampion={onClickChampion}
+            lethality={lethality}
+            flatMagicPen={flatMagicPen}
+            percentArmPen={percentArmPen}
+            percentMagicPen={percentMagicPen}
+            physicalPercent={physicalPercent}
+            enemyArmor={enemyArmor}
+            enemyHealth={enemyHealth}
+            enemyMagicResist={enemyMagicResist}
           />
         </section>
       </div>

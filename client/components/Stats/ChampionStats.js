@@ -12,7 +12,15 @@ const ChampionStats = ({
   onClickItem,
   championLevel,
   timeAlive,
-  handleChange
+  handleChange,
+  lethality,
+  flatMagicPen,
+  percentArmPen,
+  percentMagicPen,
+  physicalPercent,
+  enemyHealth,
+  enemyArmor,
+  enemyMagicResist
 }) => {
   return (
     <Fragment>
@@ -72,6 +80,14 @@ const ChampionStats = ({
             timeAlive={timeAlive}
             localChamp={localChamp}
             localItems={localItems}
+            lethality={lethality}
+            flatMagicPen={flatMagicPen}
+            percentArmPen={percentArmPen}
+            percentMagicPen={percentMagicPen}
+            physicalPercent={physicalPercent}
+            enemyArmor={enemyArmor}
+            enemyHealth={enemyHealth}
+            enemyMagicResist={enemyMagicResist}
           />
         </div>
       </section>
