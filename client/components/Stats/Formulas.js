@@ -1,6 +1,6 @@
 /* eslint-disable complexity */
 import React from 'react';
-import { effectiveHpFormula, growthFormula } from '../../helperFunctions';
+import { effectiveHpFormula } from '../../helperFunctions';
 
 const Formulas = ({
   timeAlive,

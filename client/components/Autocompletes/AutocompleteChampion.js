@@ -130,8 +130,6 @@ class AutocompleteChampion extends React.Component {
       }
     }
 
-    console.log(localChamp);
-
     return (
       <div className="champ-search-container">
         <div className="search-bar-container">

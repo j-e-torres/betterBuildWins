@@ -30,7 +30,7 @@ const CalculateBuild = ({
       }
       return acc;
     }, {});
-  console.log('parseStats', parseItemStats);
+
   return (
     <Fragment>
       <StatsTable

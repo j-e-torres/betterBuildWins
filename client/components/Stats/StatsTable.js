@@ -18,7 +18,6 @@ const StatsTable = ({
   enemyMagicResist
 }) => {
   const stats = localChamp.length ? localChamp[0].stats : 0;
-  // console.log('stats', stats);
   // Defense
 
   const totalArmor =
