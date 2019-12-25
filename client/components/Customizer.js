@@ -2,11 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { itemValidation, champValidation } from '../helperFunctions';
-
-import { LocalItems } from './LocalItems';
-import { CalculateBuild } from './CalculateBuild';
-import { EnemyOffense, EnemyDefense, ChampionStats, Formulas } from './Stats';
+import { EnemyOffense, EnemyDefense, ChampionStats } from './Stats';
 
 class Customizer extends Component {
   constructor() {
@@ -25,7 +21,11 @@ class Customizer extends Component {
       //Enemy defense
       enemyHealth: 1000,
       enemyArmor: 100,
-      enemyMagicResist: 100
+      enemyMagicResist: 100,
+
+      //Champ stats
+      championLevel: 1,
+      timeAlive: 5
     };
   }
 
@@ -70,7 +70,9 @@ class Customizer extends Component {
       percentMagicPen,
       enemyArmor,
       enemyHealth,
-      enemyMagicResist
+      enemyMagicResist,
+      championLevel,
+      timeAlive
     } = this.state;
     const { handleChange, onClickItem, onClickChampion } = this;
 
@@ -92,12 +94,22 @@ class Customizer extends Component {
             handleChange={handleChange}
           />
           <ChampionStats
+            championLevel={championLevel}
+            timeAlive={timeAlive}
+            handleChange={handleChange}
             localChamp={localChamp}
             localItems={localItems}
             onClickItem={onClickItem}
             onClickChampion={onClickChampion}
+            lethality={lethality}
+            flatMagicPen={flatMagicPen}
+            percentArmPen={percentArmPen}
+            percentMagicPen={percentMagicPen}
+            physicalPercent={physicalPercent}
+            enemyArmor={enemyArmor}
+            enemyHealth={enemyHealth}
+            enemyMagicResist={enemyMagicResist}
           />
-          <Formulas />
         </section>
       </div>
     );
