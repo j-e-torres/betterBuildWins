@@ -2,64 +2,123 @@
 :root {
   --darkGrey: #222;
   --textGrey: #9d9d9d;
-  --borderTeal: rgba(10, 180, 180, 1);
+  --teal: #0ab4b4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nanum Myeongjo', Helvetica, Arial, sans-serif;
+}
+
+/*
+  FORM TESTING
+} */
+
+.enemy-stats-form {
+  width: 50%;
+  float: left;
+  /* text-align: left; */
+}
+
+.your-stats-form {
+  width: 50%;
+  float: left;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 90%;
+  width: 75%;
+  line-height: 26px;
+  margin-bottom: 10px;
+  /* position: relative; */
+}
+
+input {
+  height: 20px;
+  margin-left: 10px;
+  background-color: var(--darkGrey);
+  border: none;
+  border-bottom: 1px solid var(--textGrey);
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  font-size: 90%;
+  text-align: center;
+  width: 33%;
+  /* position: absolute; */
+}
+
+/* FORM TESTING END */
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 html {
-  box-sizing: border-box;
-  /* font-family: 'Times New Roman', Times, serif; */
-  /* font-family: 'Muli'; */
-  font-family: 'Nanum Myeongjo';
-  color: white;
-}
-
-img {
-  opacity: 0.75;
-  z-index: -1;
-}
-
-body {
-  background-color: #2a4b7c;
-  line-height: 1.4;
+  color: #fff;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  background-color: var(--darkGrey);
 }
 
 .container {
   width: 80%;
   margin: 0 auto;
   display: grid;
-  /* border: 1px blue solid; */
-  background-color: var(--darkGrey);
-  border-radius: 5px;
 }
 
 /* Nav */
-.main-nav {
-  background: var(--darkGrey);
+header {
   border-radius: 5px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  padding-bottom: 1%;
+  border-bottom: 1px solid var(--textGrey);
+  /* border-bottom: 1px solid var(--teal); */
+  /* background-color: var(--darkGrey); */
 }
 
 .nav-header {
   float: left;
 }
 
-.main-nav ul {
+.main-nav-logo {
+  float: left;
+  padding-left: 1%;
+}
+
+.main-nav {
+  float: left;
   padding: 0;
   list-style-type: none;
 }
 
 .main-nav li {
   display: inline-block;
+  margin-left: 40px;
 }
 
-.main-nav a {
+.main-nav a,
+.main-nav-logo a {
   color: var(--textGrey);
   text-decoration: none;
   text-align: center;
-  padding: 0.8rem;
-  font-size: 1.4rem;
+  font-size: 135%;
 }
 
-.main-nav a:hover {
+.main-nav a:hover,
+.main-nav-logo a:hover {
+  color: white;
+}
+
+.active a {
   color: white;
 }
 
@@ -95,8 +154,8 @@ body {
 }
 
 .stat-panel-name {
-  color: var(--borderTeal);
-  border-bottom: 2px solid var(--borderTeal);
+  color: var(--teal);
+  border-bottom: 2px solid var(--teal);
   text-align: center;
 }
 
@@ -105,7 +164,7 @@ body {
   /* background-color: #2a4b7c; */
   background-color: var(--darkGrey);
   border: none;
-  border-bottom: 2px solid var(--borderTeal);
+  border-bottom: 2px solid var(--teal);
   color: white;
   font-family: 'Nanum Myeongjo';
   outline: none;
@@ -157,7 +216,9 @@ body {
 
 .champ-selected img {
   display: block;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  width: 100px;
+  height: 100px;
 }
 
 .defense-table,
@@ -177,7 +238,7 @@ body {
   /* text-align: center; */
   outline: none;
   background: var(--darkGrey);
-  border: 1px solid var(--borderTeal);
+  border: 1px solid var(--teal);
   color: white;
   font-size: 1.3rem;
   padding-left: 0.8rem;
@@ -185,7 +246,7 @@ body {
 }
 
 .search-bar::placeholder {
-  color: var(--borderTeal);
+  color: var(--teal);
 }
 
 /* search bar end */
@@ -199,7 +260,7 @@ body {
 
 .item {
   display: inline-block;
-  border: 1px solid var(--borderTeal);
+  border: 1px solid var(--teal);
   height: 64px;
   width: 64px;
 }
@@ -208,36 +269,6 @@ body {
   cursor: pointer;
   border: 1px solid white;
 }
-
-/* .item .item-tooltip:hover {
-  visibility: visible;
-}
-
-.item .item-tooltip {
-  visibility: hidden;
-  width: 50%;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -50%;
-} */
-
-/* .item .item-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
-} */
 
 /* items-list container end */
 
@@ -263,7 +294,7 @@ body {
 }
 
 .suggestions {
-  border: 1px solid var(--borderTeal);
+  border: 1px solid var(--teal);
   border-top-width: 0;
   list-style: none;
   /* margin-top: 0; */
@@ -294,6 +325,6 @@ body {
 }
 
 .suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid var(--borderTeal);
+  border-bottom: 1px solid var(--teal);
 }
 /* suggestions end */

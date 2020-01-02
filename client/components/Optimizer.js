@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-
-import EnemyDefense from './Stats/EnemyDefense';
-import EnemyOffense from './Stats/EnemyOffense';
 import OptimizerButtons from './Buttons/OptimizerButtons';
 
 class Optimizer extends Component {
@@ -59,25 +56,6 @@ class Optimizer extends Component {
     return (
       <div container>
         <OptimizerButtons location={location} />
-
-        {optimizeFilter === 'dps' && (
-          <EnemyDefense
-            health={health}
-            armor={armor}
-            magicResist={magicResist}
-            handleChange={handleChange}
-          />
-        )}
-
-        {optimizeFilter === 'effectiveHealth' && (
-          <EnemyOffense
-            flatArmorPen={flatArmorPen}
-            flatMagicPen={flatMagicPen}
-            percentArmorPen={percentArmorPen}
-            percentMagicPen={percentMagicPen}
-            handleChange={handleChange}
-          />
-        )}
       </div>
     );
   }

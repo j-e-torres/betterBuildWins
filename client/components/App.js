@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { fetchAllChampionsThunk } from '../redux/actions/championsAction';
 import { fetchAllItemsThunk } from '../redux/actions/itemAction';
 
-import Nav from './Nav';
+import Header from './Header';
 import Customizer from './Customizer';
 import Optimizer from './Optimizer';
 
@@ -17,7 +17,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route component={Nav} />
+        <Route component={Header} />
+        <div className="clearfix"></div>
+
         <Route exact path="/" component={Optimizer} />
         <Route exact path="/customize" component={Customizer} />
         <Route exact path="/optimize/:optimizeFilter?" component={Optimizer} />
@@ -31,7 +33,4 @@ const mapDispatchToProps = dispatch => ({
   fetchAllItems: () => dispatch(fetchAllItemsThunk())
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(App);
+export default connect(null, mapDispatchToProps)(App);

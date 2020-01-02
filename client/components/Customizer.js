@@ -2,7 +2,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { EnemyOffense, EnemyDefense, ChampionStats } from './Stats';
+import AutocompleteChamp from './Autocompletes/AutocompleteChampion';
+import AutocompleteItem from './Autocompletes/AutocompleteItem';
+
+import { ChampionStats } from './Stats';
 
 class Customizer extends Component {
   constructor() {
@@ -79,20 +82,142 @@ class Customizer extends Component {
     return (
       <div>
         <section className="stats-container">
-          <EnemyOffense
-            physicalPercent={physicalPercent}
-            lethality={lethality}
-            flatMagicPen={flatMagicPen}
-            percentArmPen={percentArmPen}
-            percentMagicPen={percentMagicPen}
-            handleChange={handleChange}
-          />
-          <EnemyDefense
-            enemyArmor={enemyArmor}
-            enemyHealth={enemyHealth}
-            enemyMagicResist={enemyMagicResist}
-            handleChange={handleChange}
-          />
+          <form>
+            <div className="enemy-stats-form">
+              <label>
+                Physical Distribution
+                <input
+                  type="number"
+                  name="physicalPercent"
+                  value={physicalPercent}
+                  onChange={handleChange}
+                  step=".1"
+                />
+              </label>
+
+              <label>
+                Magic Distribution
+                <input disabled value={Math.abs(1 - physicalPercent)} />
+              </label>
+
+              <label>
+                Lethality
+                <input
+                  type="number"
+                  name="lethality"
+                  value={lethality}
+                  onChange={handleChange}
+                />
+              </label>
+
+              <label>
+                Flat Magic Pen
+                <input
+                  type="number"
+                  name="flatMagicPen"
+                  value={flatMagicPen}
+                  onChange={handleChange}
+                />
+              </label>
+
+              <label>
+                Percent Arm Pen
+                <input
+                  type="number"
+                  name="percentArmPen"
+                  value={percentArmPen}
+                  onChange={handleChange}
+                  max="1"
+                  step=".1"
+                />
+              </label>
+
+              <label>
+                Percent Magic Pen
+                <input
+                  type="number"
+                  name="percentMagicPen"
+                  value={percentMagicPen}
+                  onChange={handleChange}
+                  max="1"
+                  step=".1"
+                />
+              </label>
+
+              <label>
+                Armor
+                <input
+                  type="number"
+                  name="enemyArmor"
+                  value={enemyArmor}
+                  onChange={handleChange}
+                />
+              </label>
+
+              <label>
+                Magic Resist
+                <input
+                  type="number"
+                  name="enemyMagicResist"
+                  value={enemyMagicResist}
+                  onChange={handleChange}
+                />
+              </label>
+
+              <label>
+                Health
+                <input
+                  type="number"
+                  name="enemyHealth"
+                  value={enemyHealth}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            <div className="your-stats-form">
+              <label>
+                Your level
+                <input
+                  type="number"
+                  name="championLevel"
+                  value={championLevel}
+                  onChange={handleChange}
+                  step="1"
+                  max="18"
+                  min="1"
+                />
+              </label>
+
+              <label>
+                Time alive (secs)
+                <input
+                  type="number"
+                  name="timeAlive"
+                  value={timeAlive}
+                  onChange={handleChange}
+                  step=".5"
+                  min=".5"
+                />
+              </label>
+
+              <AutocompleteChamp
+                onClickChampion={onClickChampion}
+                localChamp={localChamp}
+              />
+
+              <label>
+                Select your items
+                <AutocompleteItem
+                  localItems={localItems}
+                  onClickItem={onClickItem}
+                />
+              </label>
+
+              <button type="submit">Calculate</button>
+            </div>
+          </form>
+
           <ChampionStats
             championLevel={championLevel}
             timeAlive={timeAlive}

@@ -131,10 +131,11 @@ class AutocompleteChampion extends React.Component {
     }
 
     return (
-      <div className="champ-search-container">
-        <div className="search-bar-container">
+      <Fragment>
+        <label>
+          Select your champion
           <input
-            className="search-bar"
+            // className="search-bar"
             placeholder={
               addItemDisable ? 'Champion Selected' : 'Type a Champion'
             }
@@ -143,8 +144,8 @@ class AutocompleteChampion extends React.Component {
             name="champion"
             disabled={addItemDisable}
           />
-          {suggestionsListComponent}
-        </div>
+        </label>
+        {suggestionsListComponent}
         <div className="champ-selected">
           {localChamp.length > 0 ? (
             <img
@@ -154,7 +155,7 @@ class AutocompleteChampion extends React.Component {
             />
           ) : null}
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
