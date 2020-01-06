@@ -33,8 +33,8 @@ class AutocompleteItem extends React.Component {
   };
 
   onClickSuggestion = (itemSuggestion, { target }) => {
-    const { localItems } = this.props;
-    localItems.push(itemSuggestion);
+    const { addItemToState } = this.props;
+    addItemToState(itemSuggestion);
 
     // Update the user input and reset the rest of the state
     this.setState({
@@ -118,52 +118,24 @@ class AutocompleteItem extends React.Component {
       } else {
         suggestionsListComponent = (
           <div className="no-suggestions">
-            <em>No items match</em>
+            <em>No match</em>
           </div>
         );
       }
     }
     return (
-      <div className="items-container">
-        <div>
-          <p className="stat-panel-name">Select Your Items</p>
-        </div>
-        <div className="search-bar-container">
-          <input
-            id="item-search"
-            className="search-bar"
-            placeholder={
-              addItemDisable ? "You've reached 6 items" : 'Type an item'
-            }
-            type="text"
-            name="item"
-            value={item}
-            onChange={handleChange}
-            disabled={addItemDisable}
-          />
-          {suggestionsListComponent}
-        </div>
-        <div className="items-list-container">
-          <ul className="items-list">
-            {/* create li as items search */}
-            {localItems.map((itemObj, index) => {
-              return (
-                <li
-                  key={index}
-                  className="item"
-                  onClick={event => onClickItem(itemObj, event)}
-                  // onMouseOver={() => <div>tesiting?</div>}
-                >
-                  <img
-                    src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${itemObj.image.full}`}
-                  />
-                  {/* <span className="item-tooltip">{itemObj.name}</span> */}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
+      <label>
+        Select Item
+        <input
+          placeholder={addItemDisable ? '6 items' : 'Item'}
+          type="text"
+          name="item"
+          value={item}
+          onChange={handleChange}
+          disabled={addItemDisable}
+        />
+        {suggestionsListComponent}
+      </label>
     );
   }
 }

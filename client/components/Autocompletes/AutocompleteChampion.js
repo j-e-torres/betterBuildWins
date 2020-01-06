@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 class AutocompleteChampion extends React.Component {
@@ -33,8 +33,10 @@ class AutocompleteChampion extends React.Component {
   };
 
   onClickSuggestion = (champSuggestion, { target }) => {
-    const { localChamp } = this.props;
-    localChamp.push(champSuggestion);
+    console.log('props', this.props);
+
+    const { addChampionToState } = this.props;
+    addChampionToState(champSuggestion);
 
     // Update the user input and reset the rest of the state
     this.setState({
@@ -83,7 +85,7 @@ class AutocompleteChampion extends React.Component {
       champion
     } = this.state;
     const { handleChange, onClickSuggestion } = this;
-    const { localChamp, onClickChampion } = this.props;
+    const { localChamp } = this.props;
 
     const addItemDisable = localChamp.length >= 1;
 
@@ -111,9 +113,6 @@ class AutocompleteChampion extends React.Component {
                     <img
                       src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/champion/${suggestion.image.full}`}
                     />
-                    {/* <img
-                      src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${suggestion.name}_0.jpg`}
-                    /> */}
                   </div>
                   <div>{suggestion.name}</div>
                 </li>
@@ -124,38 +123,25 @@ class AutocompleteChampion extends React.Component {
       } else {
         suggestionsListComponent = (
           <div className="no-suggestions">
-            <em>No Champions match</em>
+            <em>No match</em>
           </div>
         );
       }
     }
 
     return (
-      <Fragment>
-        <label>
-          Select your champion
-          <input
-            // className="search-bar"
-            placeholder={
-              addItemDisable ? 'Champion Selected' : 'Type a Champion'
-            }
-            value={champion}
-            onChange={handleChange}
-            name="champion"
-            disabled={addItemDisable}
-          />
-        </label>
+      <label>
+        Select champion
+        <input
+          placeholder={addItemDisable ? 'Selected' : 'Champion'}
+          name="champion"
+          type="text"
+          value={champion}
+          onChange={handleChange}
+          disabled={addItemDisable}
+        />
         {suggestionsListComponent}
-        <div className="champ-selected">
-          {localChamp.length > 0 ? (
-            <img
-              onClick={event => onClickChampion(localChamp[0], event)}
-              alt={localChamp[0].name}
-              src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${localChamp[0].name}_0.jpg`}
-            />
-          ) : null}
-        </div>
-      </Fragment>
+      </label>
     );
   }
 }

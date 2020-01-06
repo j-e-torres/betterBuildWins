@@ -52,14 +52,25 @@ class Customizer extends Component {
     this.setState({ localItems: leftOverLocalItems });
   };
 
-  onClickChampion = (champObj, { target }) => {
+  onClickChampion = (champObj, event) => {
     const { localChamp } = this.state;
+    // event.preventDefault();
 
     const leftOverLocalChamp = localChamp.filter(
       champ => champ.name !== champObj.name
     );
 
     this.setState({ localChamp: leftOverLocalChamp });
+  };
+
+  addChampionToState = champObj => {
+    this.setState({ localChamp: [champObj] });
+  };
+
+  addItemToState = itemObj => {
+    const { localItems } = this.state;
+
+    this.setState({ localItems: [...localItems, itemObj] });
   };
 
   render() {
@@ -77,7 +88,13 @@ class Customizer extends Component {
       championLevel,
       timeAlive
     } = this.state;
-    const { handleChange, onClickItem, onClickChampion } = this;
+    const {
+      handleChange,
+      onClickItem,
+      onClickChampion,
+      addChampionToState,
+      addItemToState
+    } = this;
 
     return (
       <div>
@@ -204,15 +221,43 @@ class Customizer extends Component {
               <AutocompleteChamp
                 onClickChampion={onClickChampion}
                 localChamp={localChamp}
+                addChampionToState={addChampionToState}
               />
 
-              <label>
-                Select your items
-                <AutocompleteItem
-                  localItems={localItems}
-                  onClickItem={onClickItem}
-                />
-              </label>
+              <AutocompleteItem
+                localItems={localItems}
+                onClickItem={onClickItem}
+                addItemToState={addItemToState}
+              />
+
+              <div className="champ-and-items">
+                <div className="champ-selected">
+                  {localChamp.length > 0 && (
+                    <img
+                      onClick={event => onClickChampion(localChamp[0], event)}
+                      alt={localChamp[0].name}
+                      src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${localChamp[0].name}_0.jpg`}
+                    />
+                  )}
+                </div>
+                <div className="items-list-container">
+                  <ul className="items-list">
+                    {localItems.map((itemObj, index) => {
+                      return (
+                        <li
+                          key={index}
+                          className="item"
+                          onClick={event => onClickItem(itemObj, event)}
+                        >
+                          <img
+                            src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${itemObj.image.full}`}
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
 
               <button type="submit">Calculate</button>
             </div>
