@@ -71,7 +71,6 @@ html {
 .container {
   width: 80%;
   margin: 0 auto;
-  display: grid;
 }
 
 /* Nav */
@@ -126,76 +125,24 @@ header {
 
 /* stats containers */
 
-.stats-container {
-  row-gap: 50px;
-  display: grid;
-  grid-template-areas:
-    'enemy-offense-stats'
-    'enemy-defense-stats';
-}
-
-.enemy-offense-stats {
-  grid-area: 'enemy-offense-stats';
-  display: grid;
-  grid-template-areas: 'stat-panel stat-panel stat-panel';
-}
-
-.enemy-defense-stats {
-  grid-area: 'enemy-defense-stats';
-  display: grid;
-}
-
-.stat-panel {
-  grid-area: 'stat-panel';
-  text-align: center;
-}
-.stat-panel-values {
-  color: var(--textGrey);
-}
-
-}
-
 /* stats containers end */
 
 /* Formulas Container */
-.formulas-container {
-  display: grid;
-  grid-template-areas: 'health-formulas dps-formulas';
-}
-
-.health-formulas {
-  grid-area: 'health-formulas';
-}
-
-.dps-formulas {
-  grid-area: 'dps-formulas';
-}
 
 /* Formulas Container End */
 
 /* champion-stats-container */
 
-.champion-selection-container {
-  display: grid;
-  grid-template-areas: 'champsearch champstats';
+.champ-and-items {
+  clear: both;
+  content: '';
+  min-height: 200px;
 }
 
-.champ-search-container {
-  grid-area: 'champsearch';
-}
-
-.champion-stats-container {
-  grid-area: 'champstats';
-}
-
-.champion-stats-tables {
-  display: grid;
-  grid-template-areas: 'table table';
-}
-
-.champ-select {
-  display: inline-block;
-  width:50%;
+.champ-selected {
+  float: left;
+  width: 50%;
+  height: 200px;
 }
 
 .champ-selected img:hover {
@@ -205,19 +152,17 @@ header {
 
 .champ-selected img {
   /* display: inline-block; */
-  /* margin: 0 auto; */
-  width: 200px;
-  height: 200px;
-}
-
-.defense-table,
-.offense-table {
-  grid-area: 'table';
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
 }
 
 /* items-list container */
 
-.items-list-container {display:inline-block;width: 50%;}
+.items-list-container {
+  float: left;
+  width: 50%;
+}
 
 .items-list {
   text-align: center;
@@ -226,12 +171,18 @@ header {
 
 .item {
   display: inline-block;
-  border: 1px solid var(--teal);
+  /* border: 1px solid var(--teal); */
   height: 64px;
   width: 64px;
 }
 
-.item:hover {
+.item img {
+  width: 100%;
+  height: 100%;
+  border: 1px dotted var(--textGrey);
+}
+
+.item img:hover {
   cursor: pointer;
   border: 1px solid white;
 }
@@ -255,10 +206,8 @@ header {
   padding-left: 0;
   /* width: calc(300px + 1rem); */
   /* max-width: 3; */
-  width: 35%
-
+  width: 35%;
 }
-
 
 .suggestions li {
   padding: 0.5rem;
@@ -280,7 +229,6 @@ header {
 .item-search-icon img {
   height: 64px;
   width: 64px;
-
 }
 
 /* .suggestions li:not(:last-of-type) {
