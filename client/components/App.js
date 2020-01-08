@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <Router>
         <Route component={Header} />
-        <div className="clearfix"></div>
+        <div className="clearfix" />
 
         <Route exact path="/" component={Optimizer} />
         <Route exact path="/customize" component={Customizer} />

@@ -123,14 +123,6 @@ header {
 
 /* Nav End */
 
-/* stats containers */
-
-/* stats containers end */
-
-/* Formulas Container */
-
-/* Formulas Container End */
-
 /* champion-stats-container */
 
 .champ-and-items {
@@ -141,7 +133,7 @@ header {
 
 .champ-selected {
   float: left;
-  width: 50%;
+  width: 200px;
   height: 200px;
 }
 
