@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import OptimizerButtons from './Buttons/OptimizerButtons';
+// import OptimizerButtons from './Buttons/OptimizerButtons';
 
 class Optimizer extends Component {
   constructor(props) {
@@ -54,9 +54,7 @@ class Optimizer extends Component {
     const optimizeFilter = match.params.optimizeFilter;
 
     return (
-      <div container>
-        <OptimizerButtons location={location} />
-      </div>
+      <div container>{/* <OptimizerButtons location={location} /> */}</div>
     );
   }
 }
