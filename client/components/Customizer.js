@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { EnemyOffense, EnemyDefense, ChampionStats } from './Stats';
+import { EnemyStatsForm, YourStatsForm } from './StatsForms';
+
+import { ChampionStats } from './Stats';
 
 class Customizer extends Component {
   constructor() {
@@ -49,14 +51,25 @@ class Customizer extends Component {
     this.setState({ localItems: leftOverLocalItems });
   };
 
-  onClickChampion = (champObj, { target }) => {
+  onClickChampion = (champObj, event) => {
     const { localChamp } = this.state;
+    // event.preventDefault();
 
     const leftOverLocalChamp = localChamp.filter(
       champ => champ.name !== champObj.name
     );
 
     this.setState({ localChamp: leftOverLocalChamp });
+  };
+
+  addChampionToState = champObj => {
+    this.setState({ localChamp: [champObj] });
+  };
+
+  addItemToState = itemObj => {
+    const { localItems } = this.state;
+
+    this.setState({ localItems: [...localItems, itemObj] });
   };
 
   render() {
@@ -74,25 +87,43 @@ class Customizer extends Component {
       championLevel,
       timeAlive
     } = this.state;
-    const { handleChange, onClickItem, onClickChampion } = this;
+    const {
+      handleChange,
+      onClickItem,
+      onClickChampion,
+      addChampionToState,
+      addItemToState
+    } = this;
 
     return (
       <div>
         <section className="stats-container">
-          <EnemyOffense
-            physicalPercent={physicalPercent}
-            lethality={lethality}
-            flatMagicPen={flatMagicPen}
-            percentArmPen={percentArmPen}
-            percentMagicPen={percentMagicPen}
-            handleChange={handleChange}
-          />
-          <EnemyDefense
-            enemyArmor={enemyArmor}
-            enemyHealth={enemyHealth}
-            enemyMagicResist={enemyMagicResist}
-            handleChange={handleChange}
-          />
+          <form>
+            <EnemyStatsForm
+              physicalPercent={physicalPercent}
+              handleChange={handleChange}
+              lethality={lethality}
+              flatMagicPen={flatMagicPen}
+              percentArmPen={percentArmPen}
+              percentMagicPen={percentMagicPen}
+              enemyArmor={enemyArmor}
+              enemyHealth={enemyHealth}
+              enemyMagicResist={enemyMagicResist}
+            />
+
+            <YourStatsForm
+              championLevel={championLevel}
+              handleChange={handleChange}
+              timeAlive={timeAlive}
+              localChamp={localChamp}
+              localItems={localItems}
+              addChampionToState={addChampionToState}
+              addItemToState={addItemToState}
+              onClickChampion={onClickChampion}
+              onClickItem={onClickItem}
+            />
+          </form>
+
           <ChampionStats
             championLevel={championLevel}
             timeAlive={timeAlive}

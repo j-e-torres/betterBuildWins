@@ -2,152 +2,139 @@
 :root {
   --darkGrey: #222;
   --textGrey: #9d9d9d;
-  --borderTeal: rgba(10, 180, 180, 1);
+  --teal: #0ab4b4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nanum Myeongjo', Helvetica, Arial, sans-serif;
+}
+
+/*
+  FORM TESTING
+} */
+
+.enemy-stats-form {
+  width: 50%;
+  float: left;
+  /* text-align: left; */
+}
+
+.your-stats-form {
+  width: 50%;
+  float: left;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 90%;
+  width: 75%;
+  line-height: 26px;
+  margin-bottom: 10px;
+  /* position: relative; */
+}
+
+input {
+  height: 20px;
+  margin-left: 10px;
+  background-color: var(--darkGrey);
+  border: none;
+  border-bottom: 1px solid var(--textGrey);
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  font-size: 90%;
+  text-align: center;
+  width: 33%;
+  /* position: absolute; */
+}
+
+/* FORM TESTING END */
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 html {
-  box-sizing: border-box;
-  /* font-family: 'Times New Roman', Times, serif; */
-  /* font-family: 'Muli'; */
-  font-family: 'Nanum Myeongjo';
-  color: white;
-}
-
-img {
-  opacity: 0.75;
-  z-index: -1;
-}
-
-body {
-  background-color: #2a4b7c;
-  line-height: 1.4;
+  color: #fff;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  background-color: var(--darkGrey);
 }
 
 .container {
   width: 80%;
   margin: 0 auto;
-  display: grid;
-  /* border: 1px blue solid; */
-  background-color: var(--darkGrey);
-  border-radius: 5px;
 }
 
 /* Nav */
-.main-nav {
-  background: var(--darkGrey);
+header {
   border-radius: 5px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  padding-bottom: 1%;
+  border-bottom: 1px solid var(--textGrey);
+  /* border-bottom: 1px solid var(--teal); */
+  /* background-color: var(--darkGrey); */
 }
 
 .nav-header {
   float: left;
 }
 
-.main-nav ul {
+.main-nav-logo {
+  float: left;
+  padding-left: 1%;
+}
+
+.main-nav {
+  float: left;
   padding: 0;
   list-style-type: none;
 }
 
 .main-nav li {
   display: inline-block;
+  margin-left: 40px;
 }
 
-.main-nav a {
+.main-nav a,
+.main-nav-logo a {
   color: var(--textGrey);
   text-decoration: none;
   text-align: center;
-  padding: 0.8rem;
-  font-size: 1.4rem;
+  font-size: 135%;
 }
 
-.main-nav a:hover {
+.main-nav a:hover,
+.main-nav-logo a:hover {
+  color: white;
+}
+
+.active a {
   color: white;
 }
 
 /* Nav End */
 
-/* stats containers */
-
-.stats-container {
-  row-gap: 50px;
-  display: grid;
-  grid-template-areas:
-    'enemy-offense-stats'
-    'enemy-defense-stats';
-}
-
-.enemy-offense-stats {
-  grid-area: 'enemy-offense-stats';
-  display: grid;
-  grid-template-areas: 'stat-panel stat-panel stat-panel';
-}
-
-.enemy-defense-stats {
-  grid-area: 'enemy-defense-stats';
-  display: grid;
-}
-
-.stat-panel {
-  grid-area: 'stat-panel';
-  text-align: center;
-}
-.stat-panel-values {
-  color: var(--textGrey);
-}
-
-.stat-panel-name {
-  color: var(--borderTeal);
-  border-bottom: 2px solid var(--borderTeal);
-  text-align: center;
-}
-
-.stat-panel-input input {
-  text-align: center;
-  /* background-color: #2a4b7c; */
-  background-color: var(--darkGrey);
-  border: none;
-  border-bottom: 2px solid var(--borderTeal);
-  color: white;
-  font-family: 'Nanum Myeongjo';
-  outline: none;
-  font-size: 16px;
-}
-
-/* stats containers end */
-
-/* Formulas Container */
-.formulas-container {
-  display: grid;
-  grid-template-areas: 'health-formulas dps-formulas';
-}
-
-.health-formulas {
-  grid-area: 'health-formulas';
-}
-
-.dps-formulas {
-  grid-area: 'dps-formulas';
-}
-
-/* Formulas Container End */
-
 /* champion-stats-container */
 
-.champion-selection-container {
-  display: grid;
-  grid-template-areas: 'champsearch champstats';
+.champ-and-items {
+  clear: both;
+  content: '';
+  min-height: 200px;
 }
 
-.champ-search-container {
-  grid-area: 'champsearch';
-}
-
-.champion-stats-container {
-  grid-area: 'champstats';
-}
-
-.champion-stats-tables {
-  display: grid;
-  grid-template-areas: 'table table';
+.champ-selected {
+  float: left;
+  width: 200px;
+  height: 200px;
 }
 
 .champ-selected img:hover {
@@ -156,41 +143,18 @@ body {
 }
 
 .champ-selected img {
-  display: block;
+  /* display: inline-block; */
   margin: 0 auto;
+  width: 100%;
+  height: 100%;
 }
-
-.defense-table,
-.offense-table {
-  grid-area: 'table';
-}
-
-/* search bar */
-
-.search-bar-container {
-  text-align: center;
-}
-
-.search-bar {
-  width: 50%;
-  height: 50px;
-  /* text-align: center; */
-  outline: none;
-  background: var(--darkGrey);
-  border: 1px solid var(--borderTeal);
-  color: white;
-  font-size: 1.3rem;
-  padding-left: 0.8rem;
-  font-family: 'Nanum Myeongjo';
-}
-
-.search-bar::placeholder {
-  color: var(--borderTeal);
-}
-
-/* search bar end */
 
 /* items-list container */
+
+.items-list-container {
+  float: left;
+  width: 50%;
+}
 
 .items-list {
   text-align: center;
@@ -199,62 +163,23 @@ body {
 
 .item {
   display: inline-block;
-  border: 1px solid var(--borderTeal);
+  /* border: 1px solid var(--teal); */
   height: 64px;
   width: 64px;
 }
 
-.item:hover {
+.item img {
+  width: 100%;
+  height: 100%;
+  border: 1px dotted var(--textGrey);
+}
+
+.item img:hover {
   cursor: pointer;
   border: 1px solid white;
 }
 
-/* .item .item-tooltip:hover {
-  visibility: visible;
-}
-
-.item .item-tooltip {
-  visibility: hidden;
-  width: 50%;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -50%;
-} */
-
-/* .item .item-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
-} */
-
 /* items-list container end */
-
-/* level-alive-container */
-
-.level-alive-section {
-  text-align: center;
-  margin: 15px auto;
-}
-
-.level-container,
-.alive-container {
-  display: inline-block;
-  width: 20%;
-}
-
-/* level-alive section end */
 
 /* suggestions for autocomplete */
 .no-suggestions {
@@ -263,20 +188,25 @@ body {
 }
 
 .suggestions {
-  border: 1px solid var(--borderTeal);
+  /* border: 1px solid var(--textGrey); */
   border-top-width: 0;
   list-style: none;
   /* margin-top: 0; */
   margin: 0 auto;
-  max-height: 150px;
+  max-height: 100px;
   overflow-y: auto;
   padding-left: 0;
-  width: calc(300px + 1rem);
+  /* width: calc(300px + 1rem); */
+  /* max-width: 3; */
+  width: 35%;
 }
 
 .suggestions li {
   padding: 0.5rem;
   color: var(--textGrey);
+  border: 1px solid var(--textGrey);
+  /* margin: 0 auto; */
+  text-align: center;
 }
 
 .suggestion-active,
@@ -285,7 +215,7 @@ body {
   /* background-color: #197c62; */
   color: white;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 .item-search-icon img {
@@ -293,7 +223,7 @@ body {
   width: 64px;
 }
 
-.suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid var(--borderTeal);
-}
+/* .suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid var(--teal);
+} */
 /* suggestions end */

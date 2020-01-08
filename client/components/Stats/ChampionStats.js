@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 // import ItemContainer from './ItemContainer'
-import AutocompleteItem from '../AutocompleteItem';
+import AutocompleteItem from '../Autocompletes/AutocompleteItem';
 import AutocompleteChamp from '../Autocompletes/AutocompleteChampion';
 
 import CalculateBuild from '../CalculateBuild';
@@ -25,10 +25,10 @@ const ChampionStats = ({
   return (
     <Fragment>
       <section className="champion-stats-section">
-        <AutocompleteItem localItems={localItems} onClickItem={onClickItem} />
+        {/* <AutocompleteItem localItems={localItems} onClickItem={onClickItem} /> */}
 
         {/* level and time alive input */}
-        <div className="level-alive-section">
+        {/* <div className="level-alive-section">
           <div className="stat-panel-name">
             <p>Your Stats</p>
           </div>
@@ -65,14 +65,14 @@ const ChampionStats = ({
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Champion and champ banner to left, Stats to right */}
         <div className="champion-selection-container">
-          <AutocompleteChamp
+          {/* <AutocompleteChamp
             onClickChampion={onClickChampion}
             localChamp={localChamp}
-          />
+          /> */}
 
           {/* Stats */}
           <CalculateBuild
