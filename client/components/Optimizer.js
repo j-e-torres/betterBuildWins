@@ -54,7 +54,7 @@ class Optimizer extends Component {
     const optimizeFilter = match.params.optimizeFilter;
 
     return (
-      <div container>{/* <OptimizerButtons location={location} /> */}</div>
+      <div>{/* <OptimizerButtons location={location} /> */}Work in Progess</div>
     );
   }
 }
