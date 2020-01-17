@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { EnemyStatsForm, YourStatsForm } from './StatsForms';
@@ -96,9 +96,9 @@ class Customizer extends Component {
     } = this;
 
     return (
-      <div>
-        <section className="stats-container">
-          <form>
+      <Fragment>
+        <section className="stats-input-form">
+          <form className="clearfix">
             <EnemyStatsForm
               physicalPercent={physicalPercent}
               handleChange={handleChange}
@@ -123,26 +123,23 @@ class Customizer extends Component {
               onClickItem={onClickItem}
             />
           </form>
-
-          <ChampionStats
-            championLevel={championLevel}
-            timeAlive={timeAlive}
-            handleChange={handleChange}
-            localChamp={localChamp}
-            localItems={localItems}
-            onClickItem={onClickItem}
-            onClickChampion={onClickChampion}
-            lethality={lethality}
-            flatMagicPen={flatMagicPen}
-            percentArmPen={percentArmPen}
-            percentMagicPen={percentMagicPen}
-            physicalPercent={physicalPercent}
-            enemyArmor={enemyArmor}
-            enemyHealth={enemyHealth}
-            enemyMagicResist={enemyMagicResist}
-          />
         </section>
-      </div>
+
+        <ChampionStats
+          championLevel={championLevel}
+          timeAlive={timeAlive}
+          localChamp={localChamp}
+          localItems={localItems}
+          lethality={lethality}
+          flatMagicPen={flatMagicPen}
+          percentArmPen={percentArmPen}
+          percentMagicPen={percentMagicPen}
+          physicalPercent={physicalPercent}
+          enemyArmor={enemyArmor}
+          enemyHealth={enemyHealth}
+          enemyMagicResist={enemyMagicResist}
+        />
+      </Fragment>
     );
   }
 }

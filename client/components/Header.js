@@ -8,7 +8,7 @@ const Nav = ({ location: { pathname } }) => {
   ];
 
   return (
-    <header>
+    <header className="clearfix">
       <nav>
         <div className="main-nav-logo">
           <Link to="/">betterBuildWins</Link>
