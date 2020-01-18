@@ -5,55 +5,11 @@
   --teal: #0ab4b4;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Nanum Myeongjo', Helvetica, Arial, sans-serif;
-}
-
 /*
-  FORM TESTING
-} */
-
-.enemy-stats-form {
-  width: 50%;
-  float: left;
-  /* text-align: left; */
-}
-
-.your-stats-form {
-  width: 50%;
-  float: left;
-}
-
-label {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-size: 90%;
-  width: 75%;
-  line-height: 26px;
-  margin-bottom: 10px;
-  /* position: relative; */
-}
-
-input {
-  height: 20px;
-  margin-left: 10px;
-  background-color: var(--darkGrey);
-  border: none;
-  border-bottom: 1px solid var(--textGrey);
-  border-radius: 5px;
-  outline: none;
-  color: #fff;
-  font-size: 90%;
-  text-align: center;
-  width: 33%;
-  /* position: absolute; */
-}
-
-/* FORM TESTING END */
+  ----------------
+  BASIC SET UP
+  ----------------
+*/
 
 .clearfix:after {
   content: '';
@@ -73,15 +29,62 @@ html {
   margin: 0 auto;
 }
 
-/* Nav */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nanum Myeongjo', Helvetica, Arial, sans-serif;
+}
+
+/*
+  ----------------
+  FORMS
+  ----------------
+*/
+
+.enemy-stats-form,
+.your-stats-form {
+  width: 50%;
+  float: left;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 90%;
+  width: 75%;
+  line-height: 130%;
+  margin-bottom: 10px;
+  /* position: relative; */
+}
+
+input {
+  height: 20px;
+  margin-left: 10px;
+  background-color: var(--darkGrey);
+  border: none;
+  border-bottom: 1px solid var(--textGrey);
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  font-size: 90%;
+  text-align: center;
+  width: 33%;
+  /* position: absolute; */
+}
+
+/*
+  ----------------
+  HEADER
+  ----------------
+*/
 header {
   border-radius: 5px;
   margin-bottom: 50px;
   overflow: hidden;
   padding-bottom: 1%;
   border-bottom: 1px solid var(--textGrey);
-  /* border-bottom: 1px solid var(--teal); */
-  /* background-color: var(--darkGrey); */
 }
 
 .nav-header {
@@ -120,10 +123,11 @@ header {
 .active a {
   color: white;
 }
-
-/* Nav End */
-
-/* champion-stats-container */
+/*
+  ----------------
+  CHAMPION STATS CONTAINER
+  ----------------
+*/
 
 .champ-and-items {
   clear: both;
@@ -149,8 +153,11 @@ header {
   height: 100%;
 }
 
-/* items-list container */
-
+/*
+  ----------------
+  ITEMS LIST CONTAINER
+  ----------------
+*/
 .items-list-container {
   float: left;
   width: 50%;
@@ -179,9 +186,11 @@ header {
   border: 1px solid white;
 }
 
-/* items-list container end */
-
-/* suggestions for autocomplete */
+/*
+  ----------------
+  AUTO COMPLETE SUGGESTIONS
+  ----------------
+*/
 .no-suggestions {
   color: #999;
   padding: 0.5rem;
@@ -227,3 +236,40 @@ header {
   border-bottom: 1px solid var(--teal);
 } */
 /* suggestions end */
+
+/*
+  ----------------
+  TABLES
+  ----------------
+*/
+
+table {
+  font-size: 90%;
+  line-height: 130%;
+}
+
+table tr {
+  /* margin-bottom: 10px; */
+}
+thead {
+  text-align: center;
+}
+
+tr td:nth-child(2) {
+  text-align: right;
+  /* padding-left: 50%; */
+}
+
+.champion-stats-table,
+.formulas-table {
+  width: 50%;
+  float: left;
+}
+
+.offense-table,
+.defense-table,
+.health-formulas,
+.dps-formulas {
+  float: left;
+  width: 50%;
+}

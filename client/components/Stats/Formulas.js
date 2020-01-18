@@ -63,43 +63,39 @@ const Formulas = ({
     totalAttackSpeed * dmgPerHit * enemyMitigationArmor;
 
   return (
-    <section className="formulas-container">
-      <table className="health-formulas">
-        <thead>
-          <th> Effective HP</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Against Physical</td>
-            <td>{physicalEHP}</td>
-          </tr>
-          <tr>
-            <td>Against Magic</td>
-            <td>{magicEHP}</td>
-          </tr>
-          <tr>
-            <td>Weighted</td>
-            <td>{weightedEHP}</td>
-          </tr>
-        </tbody>
-      </table>
+    <table className="formulas-table clearfix">
+      <thead>
+        <tr>
+          <th>Effective HP and Auto Attack DPS</th>
+        </tr>
+      </thead>
+      {/* <thead>Effective HP and Auto Attack DPS</thead> */}
+      <tbody className="health-formulas">
+        <tr>
+          <td>Against Physical</td>
+          <td>{physicalEHP}</td>
+        </tr>
+        <tr>
+          <td>Against Magic</td>
+          <td>{magicEHP}</td>
+        </tr>
+        <tr>
+          <td>Weighted</td>
+          <td>{weightedEHP}</td>
+        </tr>
+      </tbody>
 
-      <table className="dps-formulas">
-        <thead>
-          <th>Auto Attack DPS</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Before Mitigation</td>
-            <td>{Math.round(dpsBeforeMitigation)}</td>
-          </tr>
-          <tr>
-            <td>After Mitigation</td>
-            <td>{Math.round(dpsAfterMitigation)}</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <tbody className="dps-formulas">
+        <tr>
+          <td>Before Mitigation</td>
+          <td>{Math.round(dpsBeforeMitigation)}</td>
+        </tr>
+        <tr>
+          <td>After Mitigation</td>
+          <td>{Math.round(dpsAfterMitigation)}</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
