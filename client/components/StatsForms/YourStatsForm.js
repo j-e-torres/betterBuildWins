@@ -14,31 +14,35 @@ const YourStatsForm = ({
   onClickItem
 }) => {
   return (
-    <div className="your-stats-form">
-      <label>
-        Your level
-        <input
-          type="number"
-          name="championLevel"
-          value={championLevel}
-          onChange={handleChange}
-          step="1"
-          max="18"
-          min="1"
-        />
-      </label>
+    <div className="your-input-form">
+      <div className="input-row">
+        <div className="input-title">Your level</div>
+        <div className="input">
+          <input
+            type="number"
+            name="championLevel"
+            value={championLevel}
+            onChange={handleChange}
+            step="1"
+            max="18"
+            min="1"
+          />
+        </div>
+      </div>
 
-      <label>
-        Time alive (secs)
-        <input
-          type="number"
-          name="timeAlive"
-          value={timeAlive}
-          onChange={handleChange}
-          step=".5"
-          min=".5"
-        />
-      </label>
+      <div className="input-row">
+        <div className="input-title">Time alive (secs)</div>
+        <div className="input">
+          <input
+            type="number"
+            name="timeAlive"
+            value={timeAlive}
+            onChange={handleChange}
+            step=".5"
+            min=".5"
+          />
+        </div>
+      </div>
 
       <AutocompleteChampion
         onClickChampion={onClickChampion}

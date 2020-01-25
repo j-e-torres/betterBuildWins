@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <Router>
         <Route component={Header} />
-        <Route exact path="/" component={Optimizer} />
+        <Route exact path="/" component={Customizer} />
         <Route exact path="/customize" component={Customizer} />
         <Route exact path="/optimize/:optimizeFilter?" component={Optimizer} />
       </Router>

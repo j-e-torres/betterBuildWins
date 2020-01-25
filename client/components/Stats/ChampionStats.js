@@ -84,8 +84,8 @@ const ChampionStats = ({
 
   const totalCritDamage = 0;
   return (
-    <section className="champion-stats-section">
-      <table className="champion-stats-table clearfix">
+    <section className="champion-stats-section clearfix">
+      <table className="champion-stats-table">
         <thead>
           <tr>
             <th>Champion Stats</th>

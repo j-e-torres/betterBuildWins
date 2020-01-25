@@ -98,31 +98,29 @@ class Customizer extends Component {
     return (
       <Fragment>
         <section className="stats-input-form">
-          <form className="clearfix">
-            <EnemyStatsForm
-              physicalPercent={physicalPercent}
-              handleChange={handleChange}
-              lethality={lethality}
-              flatMagicPen={flatMagicPen}
-              percentArmPen={percentArmPen}
-              percentMagicPen={percentMagicPen}
-              enemyArmor={enemyArmor}
-              enemyHealth={enemyHealth}
-              enemyMagicResist={enemyMagicResist}
-            />
+          <EnemyStatsForm
+            physicalPercent={physicalPercent}
+            handleChange={handleChange}
+            lethality={lethality}
+            flatMagicPen={flatMagicPen}
+            percentArmPen={percentArmPen}
+            percentMagicPen={percentMagicPen}
+            enemyArmor={enemyArmor}
+            enemyHealth={enemyHealth}
+            enemyMagicResist={enemyMagicResist}
+          />
 
-            <YourStatsForm
-              championLevel={championLevel}
-              handleChange={handleChange}
-              timeAlive={timeAlive}
-              localChamp={localChamp}
-              localItems={localItems}
-              addChampionToState={addChampionToState}
-              addItemToState={addItemToState}
-              onClickChampion={onClickChampion}
-              onClickItem={onClickItem}
-            />
-          </form>
+          <YourStatsForm
+            championLevel={championLevel}
+            handleChange={handleChange}
+            timeAlive={timeAlive}
+            localChamp={localChamp}
+            localItems={localItems}
+            addChampionToState={addChampionToState}
+            addItemToState={addItemToState}
+            onClickChampion={onClickChampion}
+            onClickItem={onClickItem}
+          />
         </section>
 
         <ChampionStats

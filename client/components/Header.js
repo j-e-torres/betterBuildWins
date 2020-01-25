@@ -8,13 +8,13 @@ const Nav = ({ location: { pathname } }) => {
   ];
 
   return (
-    <header className="clearfix">
-      <nav>
+    <header>
+      <nav className="main-nav">
         <div className="main-nav-logo">
           <Link to="/">betterBuildWins</Link>
         </div>
 
-        <ul className="main-nav">
+        <ul className="main-nav-tabs">
           {NavTabs.map(tab => {
             return (
               <li

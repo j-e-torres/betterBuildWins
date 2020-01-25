@@ -42,36 +42,44 @@ html {
   ----------------
 */
 
-.enemy-stats-form,
-.your-stats-form {
-  width: 50%;
-  float: left;
-}
-
-label {
+.stats-input-form {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   font-size: 90%;
-  width: 75%;
-  line-height: 130%;
-  margin-bottom: 10px;
-  /* position: relative; */
+  margin-bottom: 20px;
 }
 
-input {
+.enemy-input-form,
+.your-input-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.input-row {
+  /* align-self: auto; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.input {
+  width: 20%;
+  margin-right: 20px;
+}
+
+.input > input {
   height: 20px;
-  margin-left: 10px;
   background-color: var(--darkGrey);
   border: none;
   border-bottom: 1px solid var(--textGrey);
   border-radius: 5px;
   outline: none;
   color: #fff;
-  font-size: 90%;
   text-align: center;
-  width: 33%;
-  /* position: absolute; */
+  width: 100%;
 }
 
 /*
@@ -81,33 +89,35 @@ input {
 */
 header {
   border-radius: 5px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 25px;
   overflow: hidden;
   padding-bottom: 1%;
   border-bottom: 1px solid var(--textGrey);
 }
 
-.nav-header {
-  float: left;
+.main-nav {
+  display: flex;
+
+  align-content: flex-start;
 }
 
 .main-nav-logo {
-  float: left;
-  padding-left: 1%;
+  flex: 0 0 25%;
 }
 
-.main-nav {
-  float: left;
-  padding: 0;
+.main-nav-tabs {
+  flex: 1;
   list-style-type: none;
+  display: flex;
+  align-items: flex-start;
 }
 
-.main-nav li {
-  display: inline-block;
-  margin-left: 40px;
+.main-nav-tabs li {
+  flex: 0 0 20%;
 }
 
-.main-nav a,
+.main-nav-tabs a,
 .main-nav-logo a {
   color: var(--textGrey);
   text-decoration: none;
@@ -115,7 +125,7 @@ header {
   font-size: 135%;
 }
 
-.main-nav a:hover,
+.main-nav-tabs a:hover,
 .main-nav-logo a:hover {
   color: white;
 }
@@ -200,13 +210,11 @@ header {
   /* border: 1px solid var(--textGrey); */
   border-top-width: 0;
   list-style: none;
-  /* margin-top: 0; */
+
   margin: 0 auto;
   max-height: 100px;
   overflow-y: auto;
   padding-left: 0;
-  /* width: calc(300px + 1rem); */
-  /* max-width: 3; */
   width: 35%;
 }
 
@@ -248,11 +256,12 @@ table {
   line-height: 130%;
 }
 
-table tr {
-  /* margin-bottom: 10px; */
-}
 thead {
   text-align: center;
+}
+
+.dps-formulas tr td:nth-child(2) {
+  text-align: right;
 }
 
 tr td:nth-child(2) {

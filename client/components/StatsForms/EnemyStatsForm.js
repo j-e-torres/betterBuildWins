@@ -12,96 +12,115 @@ const EnemyStatsForm = ({
   enemyMagicResist
 }) => {
   return (
-    <div className="enemy-stats-form">
-      <label>
-        Physical Distribution
-        <input
-          type="number"
-          name="physicalPercent"
-          value={physicalPercent}
-          onChange={handleChange}
-          step=".1"
-        />
-      </label>
+    <div className="enemy-input-form">
+      <div className="input-row">
+        <div className="input-title">Physical Distribution</div>
 
-      <label>
-        Magic Distribution
-        <input disabled value={Math.abs(1 - physicalPercent)} />
-      </label>
+        <div className="input">
+          <input
+            type="number"
+            name="physicalPercent"
+            value={physicalPercent}
+            onChange={handleChange}
+            step=".1"
+          />
+        </div>
+      </div>
 
-      <label>
-        Lethality
-        <input
-          type="number"
-          name="lethality"
-          value={lethality}
-          onChange={handleChange}
-        />
-      </label>
+      <div className="input-row">
+        <div className="input-title">Magic Distribution</div>
+        <div className="input">
+          <input disabled value={Math.abs(1 - physicalPercent)} />
+        </div>
+      </div>
 
-      <label>
-        Flat Magic Pen
-        <input
-          type="number"
-          name="flatMagicPen"
-          value={flatMagicPen}
-          onChange={handleChange}
-        />
-      </label>
+      <div className="input-row">
+        <div className="input-title">Lethality</div>
+        <div className="input">
+          <input
+            type="number"
+            name="lethality"
+            value={lethality}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
 
-      <label>
-        Percent Arm Pen
-        <input
-          type="number"
-          name="percentArmPen"
-          value={percentArmPen}
-          onChange={handleChange}
-          max="1"
-          step=".1"
-        />
-      </label>
+      <div className="input-row">
+        <div className="input-title">Flat Magic Pen</div>
+        <div className="input">
+          <input
+            type="number"
+            name="flatMagicPen"
+            value={flatMagicPen}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
 
-      <label>
-        Percent Magic Pen
-        <input
-          type="number"
-          name="percentMagicPen"
-          value={percentMagicPen}
-          onChange={handleChange}
-          max="1"
-          step=".1"
-        />
-      </label>
+      <div className="input-row">
+        <div className="input-title">Percent Arm Pen</div>
+        <div className="input">
+          <input
+            type="number"
+            name="percentArmPen"
+            value={percentArmPen}
+            onChange={handleChange}
+            max="1"
+            step=".1"
+          />
+        </div>
+      </div>
 
-      <label>
-        Armor
-        <input
-          type="number"
-          name="enemyArmor"
-          value={enemyArmor}
-          onChange={handleChange}
-        />
-      </label>
+      <div className="input-row">
+        <div className="input-title">Percent Magic Pen</div>
+        <div className="input">
+          <input
+            type="number"
+            name="percentMagicPen"
+            value={percentMagicPen}
+            onChange={handleChange}
+            max="1"
+            step=".1"
+          />
+        </div>
+      </div>
 
-      <label>
-        Magic Resist
-        <input
-          type="number"
-          name="enemyMagicResist"
-          value={enemyMagicResist}
-          onChange={handleChange}
-        />
-      </label>
+      <div className="input-row">
+        <div className="input-title">Armor</div>
+        <div className="input">
+          <input
+            type="number"
+            name="enemyArmor"
+            value={enemyArmor}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
 
-      <label>
-        Health
-        <input
-          type="number"
-          name="enemyHealth"
-          value={enemyHealth}
-          onChange={handleChange}
-        />
-      </label>
+      <div className="input-row">
+        <div className="input-row">Magic Resist</div>
+        <div className="input">
+          <input
+            type="number"
+            name="enemyMagicResist"
+            value={enemyMagicResist}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+
+      <div className="input-row">
+        <div className="input-title">Health</div>
+        <div className="input">
+          <input
+            type="number"
+            name="enemyHealth"
+            value={enemyHealth}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
     </div>
   );
 };
