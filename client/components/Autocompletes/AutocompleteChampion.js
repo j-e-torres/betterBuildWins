@@ -114,7 +114,7 @@ class AutocompleteChampion extends React.Component {
                       src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/champion/${suggestion.image.full}`}
                     />
                   </div>
-                  <div>{suggestion.name}</div>
+                  <div className="suggestion-name">{suggestion.name}</div>
                 </li>
               );
             })}
@@ -130,18 +130,21 @@ class AutocompleteChampion extends React.Component {
     }
 
     return (
-      <label>
-        Select champion
-        <input
-          placeholder={addItemDisable ? 'Selected' : 'Champion'}
-          name="champion"
-          type="text"
-          value={champion}
-          onChange={handleChange}
-          disabled={addItemDisable}
-        />
+      <div className="input-row">
+        <div className="input-title">Select champion</div>
         {suggestionsListComponent}
-      </label>
+
+        <div className="input">
+          <input
+            placeholder={addItemDisable ? 'Selected' : 'Champion'}
+            name="champion"
+            type="text"
+            value={champion}
+            onChange={handleChange}
+            disabled={addItemDisable}
+          />
+        </div>
+      </div>
     );
   }
 }

@@ -109,7 +109,7 @@ class AutocompleteItem extends React.Component {
                       src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${suggestion.image.full}`}
                     />
                   </div>
-                  <div>{suggestion.name}</div>
+                  <div className="suggestion-name">{suggestion.name}</div>
                 </li>
               );
             })}
@@ -124,18 +124,21 @@ class AutocompleteItem extends React.Component {
       }
     }
     return (
-      <label>
-        Select Item
-        <input
-          placeholder={addItemDisable ? '6 items' : 'Item'}
-          type="text"
-          name="item"
-          value={item}
-          onChange={handleChange}
-          disabled={addItemDisable}
-        />
+      <div className="input-row">
+        <div className="input-title">Select Item</div>
         {suggestionsListComponent}
-      </label>
+
+        <div className="input">
+          <input
+            placeholder={addItemDisable ? '6 items' : 'Item'}
+            type="text"
+            name="item"
+            value={item}
+            onChange={handleChange}
+            disabled={addItemDisable}
+          />
+        </div>
+      </div>
     );
   }
 }
