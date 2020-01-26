@@ -66,8 +66,9 @@ html {
 }
 
 .input {
-  width: 20%;
-  margin-right: 20px;
+  flex: 0 0 25%;
+  margin-right: 10%;
+  /* margin: 0 auto; */
 }
 
 .input > input {
