@@ -99,7 +99,7 @@ const EnemyStatsForm = ({
       </div>
 
       <div className="input-row">
-        <div className="input-row">Magic Resist</div>
+        <div className="input-title">Magic Resist</div>
         <div className="input">
           <input
             type="number"
