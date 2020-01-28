@@ -1,29 +1,38 @@
 @media screen and (max-width: 960px) {
-  .stats-input-form {
+  /* .stats-input-form {
     flex-direction: column;
     align-items: center;
-  }
-
+  } */
+  /*
   .enemy-input-form,
   .your-input-form {
     width: 70%;
-  }
-
+  } */
+  /*
   .input {
     margin-right: 0%;
-  }
+  } */
+
+  /* .champ-selected img {
+    width: 75%;
+    height: 75%;
+  } */
 }
 
 @media screen and (max-width: 767px) {
   .enemy-input-form,
   .your-input-form {
-    width: 80%;
+    width: 90%;
+  }
+  .stats-input-form {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media screen and (max-width: 625px) {
   .enemy-input-form,
   .your-input-form {
-    width: 90%;
+    width: 100%;
   }
 }

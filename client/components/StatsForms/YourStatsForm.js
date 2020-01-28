@@ -66,23 +66,22 @@ const YourStatsForm = ({
             />
           )}
         </div>
-        <div className="items-list-container">
-          <ul className="items-list">
-            {localItems.map((itemObj, index) => {
-              return (
-                <li
-                  key={index}
-                  className="item"
-                  onClick={event => onClickItem(itemObj, event)}
-                >
-                  <img
-                    src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${itemObj.image.full}`}
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+
+        <ul className="items-list">
+          {localItems.map((itemObj, index) => {
+            return (
+              <li
+                key={index}
+                className="item"
+                onClick={event => onClickItem(itemObj, event)}
+              >
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/${itemObj.image.full}`}
+                />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );

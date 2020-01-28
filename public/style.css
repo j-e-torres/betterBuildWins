@@ -45,7 +45,8 @@ html {
 .stats-input-form {
   display: flex;
   justify-content: space-evenly;
-  font-size: 90%;
+  font-size: 100%;
+  font-weight: 300;
   margin-bottom: 20px;
 }
 
@@ -54,6 +55,7 @@ html {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 2%;
 }
 
 .input-row {
@@ -63,10 +65,17 @@ html {
   align-items: center;
   margin-bottom: 15px;
 }
+/*
+.input-row-search {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+} */
 
 .input {
   flex: 0 0 25%;
-  margin-right: 10%;
+  /* margin-right: 10%; */
 }
 
 .input > input {
@@ -134,20 +143,17 @@ header {
 }
 /*
   ----------------
-  CHAMPION STATS CONTAINER
+  CHAMPION and ITEMS
   ----------------
 */
 
 .champ-and-items {
-  clear: both;
-  content: '';
-  min-height: 200px;
+  flex: 0 0 35%;
+  display: flex;
 }
 
 .champ-selected {
-  float: left;
-  width: 200px;
-  height: 200px;
+  flex: 0 0 25%;
 }
 
 .champ-selected img:hover {
@@ -156,37 +162,25 @@ header {
 }
 
 .champ-selected img {
-  /* display: inline-block; */
-  margin: 0 auto;
   width: 100%;
-  height: 100%;
-}
-
-/*
-  ----------------
-  ITEMS LIST CONTAINER
-  ----------------
-*/
-.items-list-container {
-  float: left;
-  width: 50%;
+  height: auto;
 }
 
 .items-list {
   text-align: center;
   list-style-type: none;
+  flex: 0 0 74%;
+  margin-left: auto;
+  display: flex;
 }
 
 .item {
-  display: inline-block;
-  /* border: 1px solid var(--teal); */
-  height: 64px;
-  width: 64px;
+  /* may not need anything */
 }
 
 .item img {
   width: 100%;
-  height: 100%;
+  height: auto;
   border: 1px dotted var(--textGrey);
 }
 
@@ -209,28 +203,27 @@ header {
   list-style: none;
   height: 36px;
   overflow-y: auto;
-  flex: 0 0 30%;
+  flex: 0 0 45%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .suggestions li {
   color: var(--textGrey);
   border: 1px solid var(--textGrey);
   flex: 0 0 100%;
-  overflow: scroll;
+  /* overflow-x: scroll; */
   display: flex;
 }
 
 .suggestion-name {
   align-self: center;
   font-size: 80%;
-  /* justify-self: stretch; */
-  /* flex: 1; */
 }
 
-.suggestion-active,
+.suggestion-active:hover,
 .suggestions li:hover,
 .item-search-icon img:hover {
   color: white;
