@@ -52,10 +52,10 @@ html {
 
 .enemy-input-form,
 .your-input-form {
+  padding: 2%;
+  flex: 0 0 50%;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 2%;
 }
 
 .input-row {
@@ -246,36 +246,25 @@ header {
   ----------------
 */
 
-table {
-  font-size: 90%;
-  line-height: 130%;
-}
-
 thead {
   text-align: center;
 }
 
-.dps-formulas tr td:nth-child(2) {
-  text-align: right;
-}
-
-tr td:nth-child(2) {
-  text-align: right;
-  /* padding-left: 50%; */
+.champion-stats-section {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .champion-stats-table,
 .formulas-table {
-  width: 50%;
-  float: left;
+  flex: 0 0 50%;
+  padding: 2%;
+  font-size: 100%;
+  font-weight: 300;
 }
-
-.offense-table,
-.defense-table,
-.health-formulas,
-.dps-formulas {
-  float: left;
-  width: 50%;
+.champion-stats-table tr,
+.formulas-table tr {
+  height: 50px;
 }
 
 /*  */

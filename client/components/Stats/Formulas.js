@@ -63,35 +63,35 @@ const Formulas = ({
     totalAttackSpeed * dmgPerHit * enemyMitigationArmor;
 
   return (
-    <table className="formulas-table clearfix">
+    <table className="formulas-table">
       <thead>
         <tr>
-          <th>Effective HP and Auto Attack DPS</th>
+          <th>Formulas</th>
         </tr>
       </thead>
       {/* <thead>Effective HP and Auto Attack DPS</thead> */}
       <tbody className="health-formulas">
         <tr>
-          <td>Against Physical</td>
+          <td>Effective Physical Health </td>
           <td>{physicalEHP}</td>
         </tr>
         <tr>
-          <td>Against Magic</td>
+          <td>Effective Magic Health</td>
           <td>{magicEHP}</td>
         </tr>
         <tr>
-          <td>Weighted</td>
+          <td>Effective Weighted Health</td>
           <td>{weightedEHP}</td>
         </tr>
       </tbody>
 
       <tbody className="dps-formulas">
         <tr>
-          <td>Before Mitigation</td>
+          <td>Auto Attack DPS Before Resist</td>
           <td>{Math.round(dpsBeforeMitigation)}</td>
         </tr>
         <tr>
-          <td>After Mitigation</td>
+          <td>Auto Attack DPS After Resist</td>
           <td>{Math.round(dpsAfterMitigation)}</td>
         </tr>
       </tbody>

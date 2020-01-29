@@ -84,7 +84,27 @@ const ChampionStats = ({
 
   const totalCritDamage = 0;
   return (
-    <section className="champion-stats-section clearfix">
+    <section className="champion-stats-section">
+      <Formulas
+        timeAlive={timeAlive}
+        lethality={lethality}
+        flatMagicPen={flatMagicPen}
+        percentArmPen={percentArmPen}
+        percentMagicPen={percentMagicPen}
+        physicalPercent={physicalPercent}
+        totalAD={totalAD}
+        totalCritChance={totalCritChance}
+        totalCritDamage={totalCritDamage}
+        totalHealth={totalHealth}
+        totalHpRegen={totalHpRegen}
+        totalArmor={totalArmor}
+        totalMagicResist={totalMagicResist}
+        totalAttackSpeed={totalAttackSpeed}
+        enemyArmor={enemyArmor}
+        enemyHealth={enemyHealth}
+        enemyMagicResist={enemyMagicResist}
+      />
+
       <table className="champion-stats-table">
         <thead>
           <tr>
@@ -110,26 +130,6 @@ const ChampionStats = ({
           totalManaRegen={totalManaRegen}
         />
       </table>
-
-      <Formulas
-        timeAlive={timeAlive}
-        lethality={lethality}
-        flatMagicPen={flatMagicPen}
-        percentArmPen={percentArmPen}
-        percentMagicPen={percentMagicPen}
-        physicalPercent={physicalPercent}
-        totalAD={totalAD}
-        totalCritChance={totalCritChance}
-        totalCritDamage={totalCritDamage}
-        totalHealth={totalHealth}
-        totalHpRegen={totalHpRegen}
-        totalArmor={totalArmor}
-        totalMagicResist={totalMagicResist}
-        totalAttackSpeed={totalAttackSpeed}
-        enemyArmor={enemyArmor}
-        enemyHealth={enemyHealth}
-        enemyMagicResist={enemyMagicResist}
-      />
     </section>
   );
 };
