@@ -21,5 +21,8 @@
   }
 }
 
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 480px) {
+  .item {
+    flex: 0 1 44.8;
+  }
 }
