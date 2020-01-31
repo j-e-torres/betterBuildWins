@@ -69,7 +69,7 @@ const Formulas = ({
           <th>Formulas</th>
         </tr>
       </thead>
-      {/* <thead>Effective HP and Auto Attack DPS</thead> */}
+
       <tbody className="health-formulas">
         <tr>
           <td>Effective Physical Health </td>

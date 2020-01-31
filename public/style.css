@@ -45,6 +45,7 @@ html {
 .stats-input-form {
   display: flex;
   justify-content: space-evenly;
+  /* flex-flow: row wrap; */
   font-size: 100%;
   font-weight: 300;
   margin-bottom: 20px;
@@ -53,7 +54,8 @@ html {
 .enemy-input-form,
 .your-input-form {
   padding: 2%;
-  flex: 0 0 50%;
+  width: 100%;
+  /* flex: 0 0 50%; */
   display: flex;
   flex-direction: column;
 }
@@ -150,10 +152,21 @@ header {
 .champ-and-items {
   flex: 0 0 35%;
   display: flex;
+  flex-direction: column;
 }
 
 .champ-selected {
-  flex: 0 0 25%;
+  /* width: 200px; */
+  /* flex: 0 1 200px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.champ-selected img {
+  flex: 0 0 10%;
+  /* width: 75%;
+  height: auto; */
 }
 
 .champ-selected img:hover {
@@ -161,21 +174,19 @@ header {
   cursor: pointer;
 }
 
-.champ-selected img {
-  width: 100%;
-  height: auto;
-}
-
 .items-list {
   text-align: center;
   list-style-type: none;
-  flex: 0 0 74%;
-  margin-left: auto;
+  flex: 0 0 25%;
   display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .item {
-  /* may not need anything */
+  /* may not need anything, jk */
+  flex: 0 0 64px;
 }
 
 .item img {
@@ -247,7 +258,9 @@ header {
 */
 
 thead {
-  text-align: center;
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 15px;
 }
 
 .champion-stats-section {
@@ -257,14 +270,23 @@ thead {
 
 .champion-stats-table,
 .formulas-table {
-  flex: 0 0 50%;
+  justify-self: center;
+  /* align-self: center; */
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
   padding: 2%;
   font-size: 100%;
   font-weight: 300;
 }
-.champion-stats-table tr,
-.formulas-table tr {
-  height: 50px;
+
+.champion-stats-table tbody tr,
+.formulas-table tbody tr {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 /*  */
