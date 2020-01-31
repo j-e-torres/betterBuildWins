@@ -1,3 +1,15 @@
+@media screen and (max-width: 1440px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 85%;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .main-nav {
     flex-direction: column;
@@ -25,20 +37,10 @@
     justify-content: center;
     align-items: center;
   }
-
-  .enemy-input-form,
-  .your-input-form,
-  .champion-stats-table,
-  .formulas-table {
-    width: 80%;
-  }
 }
 
 @media screen and (max-width: 625px) {
-  .enemy-input-form,
-  .your-input-form,
-  .champion-stats-table,
-  .formulas-table {
+  .container {
     width: 90%;
   }
 }
@@ -52,5 +54,10 @@
   .champion-stats-table,
   .formulas-table {
     width: 100%;
+  }
+
+  .container {
+    width: 95%;
+    margin: 0 auto;
   }
 }
