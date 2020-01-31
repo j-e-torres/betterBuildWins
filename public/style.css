@@ -45,7 +45,6 @@ html {
 .stats-input-form {
   display: flex;
   justify-content: space-evenly;
-  /* flex-flow: row wrap; */
   font-size: 100%;
   font-weight: 300;
   margin-bottom: 20px;
@@ -55,7 +54,6 @@ html {
 .your-input-form {
   padding: 2%;
   width: 100%;
-  /* flex: 0 0 50%; */
   display: flex;
   flex-direction: column;
 }
@@ -67,17 +65,9 @@ html {
   align-items: center;
   margin-bottom: 15px;
 }
-/*
-.input-row-search {
-  height: 35px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-} */
 
 .input {
   flex: 0 0 25%;
-  /* margin-right: 10%; */
 }
 
 .input > input {
@@ -107,24 +97,26 @@ header {
 
 .main-nav {
   display: flex;
-  align-content: flex-start;
-  /* justify-content: space-evenly; */
+  /* flex-direction: column; */
+  align-items: center;
 }
 
 .main-nav-logo {
-  flex: 0 0 25%;
+  align-self: center;
+  justify-self: center;
 }
 
 .main-nav-tabs {
-  flex: 0 0 50%;
+  align-self: flex-start;
+  /* flex: 0 0 100%; */
+  width: 50%;
   list-style-type: none;
   display: flex;
-  /* align-items: stretch; */
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .main-nav-tabs li {
-  flex: 0 0 20%;
+  /* flex: 0 0 20%; */
 }
 
 .main-nav-tabs a,
@@ -210,15 +202,12 @@ header {
   flex: 0 0 45%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 
 .suggestions li {
   color: var(--textGrey);
   border: 1px solid var(--textGrey);
   flex: 0 0 100%;
-  /* overflow-x: scroll; */
   display: flex;
 }
 
@@ -263,9 +252,6 @@ thead {
 
 .champion-stats-table,
 .formulas-table {
-  justify-self: center;
-  /* align-self: center; */
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
