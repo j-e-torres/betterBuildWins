@@ -43,7 +43,9 @@ html {
 */
 
 .stats-input-form {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: space-evenly;
   justify-content: space-evenly;
   font-size: 100%;
   font-weight: 300;
@@ -54,19 +56,26 @@ html {
 .your-input-form {
   padding: 2%;
   width: 100%;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
 }
 
 .input-row {
   height: 35px;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
   align-items: center;
   margin-bottom: 15px;
 }
 
 .input {
+  -webkit-box-flex: 0;
   flex: 0 0 25%;
 }
 
@@ -79,8 +88,15 @@ html {
   color: #fff;
   text-align: center;
   width: 100%;
+  box-shadow: 0px 0px 0px 1px transparent;
+  -webkit-transition: box-shadow 0.3s linear;
+  transition: box-shadow 0.3s linear;
 }
 
+.input > input:focus {
+  box-shadow: 0px 0px 0px 2px var(--textGrey);
+  border-bottom: none;
+}
 /*
   ----------------
   HEADER
@@ -96,8 +112,10 @@ header {
 }
 
 .main-nav {
+  display: -webkit-box;
   display: flex;
   /* flex-direction: column; */
+  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -111,6 +129,7 @@ header {
   /* flex: 0 0 100%; */
   width: 50%;
   list-style-type: none;
+  display: -webkit-box;
   display: flex;
   justify-content: space-around;
 }
@@ -125,6 +144,8 @@ header {
   text-decoration: none;
   text-align: center;
   font-size: 135%;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
 }
 
 .main-nav-tabs a:hover,
@@ -142,47 +163,71 @@ header {
 */
 
 .champ-and-items {
+  -webkit-box-flex: 0;
   flex: 0 1 35%;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
 }
 
 .champ-selected {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-align: center;
   align-items: center;
+  -webkit-box-pack: center;
   justify-content: center;
+  margin-bottom: 5px;
 }
 
 .champ-selected img {
   width: 50%;
+  box-shadow: 0px 0px 0px 1px transparent;
+  -webkit-transition: box-shadow 0.5s linear, -webkit-transform 0.5s;
+  transition: box-shadow 0.5s linear, -webkit-transform 0.5s;
+  transition: transform 0.5s, box-shadow 0.5s linear;
+  transition: transform 0.5s, box-shadow 0.5s linear, -webkit-transform 0.5s;
 }
 
 .champ-selected img:hover {
-  border: 1px solid white;
   cursor: pointer;
+  box-shadow: 0px 0px 0px 2px white;
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
 }
 
 .items-list {
   text-align: center;
   list-style-type: none;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-align: center;
   align-items: center;
+  -webkit-box-pack: center;
   justify-content: center;
 }
 
 .item {
-  /* may not need anything, jk */
+  -webkit-box-flex: 0;
   flex: 0 1 64px;
 }
 
 .item img {
   width: 100%;
-  border: 1px dotted var(--textGrey);
+  box-shadow: 0px 0px 0px 1px transparent;
+  -webkit-transition: box-shadow 0.5s linear, -webkit-transform 0.5s;
+  transition: box-shadow 0.5s linear, -webkit-transform 0.5s;
+  transition: transform 0.5s, box-shadow 0.5s linear;
+  transition: transform 0.5s, box-shadow 0.5s linear, -webkit-transform 0.5s;
 }
 
 .item img:hover {
+  box-shadow: 0px 0px 0px 2px white;
+  -webkit-transform: scale(1.04);
+  transform: scale(1.04);
   cursor: pointer;
-  border: 1px solid white;
 }
 
 /*
@@ -199,15 +244,21 @@ header {
   list-style: none;
   height: 36px;
   overflow-y: auto;
+  -webkit-box-flex: 0;
   flex: 0 0 45%;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
 }
 
 .suggestions li {
   color: var(--textGrey);
   border: 1px solid var(--textGrey);
+  -webkit-box-flex: 0;
   flex: 0 0 100%;
+  display: -webkit-box;
   display: flex;
 }
 
@@ -225,6 +276,7 @@ header {
 }
 
 .item-search-icon {
+  -webkit-box-flex: 0;
   flex: 0 0 34px;
   margin-right: 2%;
 }
@@ -246,13 +298,18 @@ thead {
 }
 
 .champion-stats-section {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: space-evenly;
   justify-content: space-evenly;
 }
 
 .champion-stats-table,
 .formulas-table {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
@@ -263,7 +320,9 @@ thead {
 
 .champion-stats-table tbody tr,
 .formulas-table tbody tr {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: justify;
   justify-content: space-between;
   margin-bottom: 15px;
 }

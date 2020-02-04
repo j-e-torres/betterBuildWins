@@ -12,6 +12,8 @@
 
 @media screen and (max-width: 800px) {
   .main-nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     flex-direction: column;
   }
 
@@ -21,6 +23,7 @@
   }
 
   .champ-selected {
+    -webkit-box-flex: 0;
     flex: 0 0 25%;
   }
   .champ-selected img {
@@ -28,13 +31,18 @@
   }
 
   .item {
+    -webkit-box-flex: 0;
     flex: 0 1 51.2px;
   }
 
   .stats-input-form,
   .champion-stats-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     flex-direction: column;
+    -webkit-box-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
     align-items: center;
   }
 }
@@ -47,6 +55,7 @@
 
 @media screen and (max-width: 480px) {
   .item {
+    -webkit-box-flex: 0;
     flex: 0 1 44.8;
   }
   .enemy-input-form,
