@@ -1,6 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+// import { Switch, Route, HashRouter } from 'react-router-dom';
+
+import logo from '../logo.svg';
+import './index.css';
 
 function App() {
   return (
