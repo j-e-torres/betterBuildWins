@@ -5,16 +5,18 @@ import axios from 'axios';
 
 const ddragonBase = 'https://ddragon.leagueoflegends.com';
 
-export const getItems = async (version) => {
-  const { data } = await axios.get(`${ddragonBase}/cdn/${version}/data/en_US/item.json`);
-
-  return data;
-}
-
-export const getChampions = async (version) => {
+export const getItems = async version => {
   const { data } = await axios.get(
-    `${ddragonBase}/cdn/${version}/data/en_US/item.json`
+    `${ddragonBase}/cdn/${version}/data/en_US/item.json`,
   );
 
-  return data;
+  return data.data;
+};
+
+export const getChampions = async version => {
+  const { data } = await axios.get(
+    `${ddragonBase}/cdn/${version}/data/en_US/champion.json`,
+  );
+
+  return data.data;
 };
