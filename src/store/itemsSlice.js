@@ -16,16 +16,13 @@ const itemsSlice = createSlice({
       state.error = null;
     },
     getItemsFail(state, action) {
+      state.items = {};
       state.error = action.payload;
     },
   },
 });
 
-export const {
-  getItemsStart,
-  getItemsFail,
-  getItemsSuccess,
-} = itemsSlice.actions;
+export const { getItemsFail, getItemsSuccess } = itemsSlice.actions;
 
 export default itemsSlice.reducer;
 

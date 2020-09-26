@@ -21,11 +21,7 @@ const championsSlice = createSlice({
   },
 });
 
-export const {
-  getChampionsStart,
-  getChampionsSuccess,
-  getChampionsFail,
-} = championsSlice.actions;
+export const { getChampionsSuccess, getChampionsFail } = championsSlice.actions;
 
 export default championsSlice.reducer;
 
