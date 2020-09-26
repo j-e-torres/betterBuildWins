@@ -1,7 +1,6 @@
 import champions, {
   getChampionsSuccess,
   getChampionsFail,
-  getChampionsStart,
   initialState,
 } from '../championsSlice';
 
@@ -10,21 +9,7 @@ describe('champions reducer', () => {
     expect(champions(undefined, {})).toEqual({
       champions: {},
       error: null,
-      loading: false,
     });
-  });
-
-  it('should handle getChampionsStart', () => {
-    expect(
-      champions(initialState, {
-        item: getChampionsStart.type,
-        payload: {
-          champions: {},
-          loading: true,
-          error: null,
-        },
-      }),
-    );
   });
 
   it('should handle getChampionsSuccess', () => {
@@ -68,7 +53,6 @@ describe('champions reducer', () => {
         },
       },
       error: null,
-      loading: false,
     });
   });
 
@@ -85,7 +69,6 @@ describe('champions reducer', () => {
       error: {
         error: 'bruh cant get connection to api',
       },
-      loading: false,
     });
   });
 });

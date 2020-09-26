@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './reducers';
 
-const store = configureStore({
-  reducer: rootReducer,
-});
-
-if (module.hot) {
-  module.hot.accept('./reducers', () => {
-    forceReducerReload(store);
+export default function configureAppStore() {
+  const store = configureStore({
+    reducer: rootReducer,
   });
-}
 
-export default store;
+  if (process.env.NODE_ENV !== 'production' && module.hot) {
+    module.hot.accept('./reducers', () => store.replaceReducer(rootReducer));
+  }
+
+  return store;
+}

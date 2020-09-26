@@ -1,7 +1,7 @@
 export const mapID = {
   SUMMONERS_RIFT: 11,
-  HOWLING_ABYSS: 12
-}
+  HOWLING_ABYSS: 12,
+};
 
 // {
 //   "type": "map",

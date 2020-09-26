@@ -1,7 +1,6 @@
 import items, {
   getItemsFail,
   getItemsSuccess,
-  getItemsStart,
   initialState,
 } from '../itemsSlice';
 
@@ -10,21 +9,7 @@ describe('items reducer', () => {
     expect(items(undefined, {})).toEqual({
       items: {},
       error: null,
-      loading: false,
     });
-  });
-
-  it('should handle getItemsStart', () => {
-    expect(
-      items(initialState, {
-        item: getItemsStart.type,
-        payload: {
-          items: {},
-          loading: true,
-          error: null,
-        },
-      }),
-    );
   });
 
   it('should handle getItemsSuccess', () => {
@@ -78,7 +63,6 @@ describe('items reducer', () => {
         },
       },
       error: null,
-      loading: false,
     });
   });
 
@@ -95,7 +79,6 @@ describe('items reducer', () => {
       error: {
         error: 'bruh cant get connection to api',
       },
-      loading: false,
     });
   });
 });

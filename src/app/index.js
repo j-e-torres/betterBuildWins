@@ -1,28 +1,44 @@
-import * as React from 'react';
-// import { Switch, Route, HashRouter } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import { useDispatch, connect } from 'react-redux';
 
-import logo from '../logo.svg';
-import './index.css';
+import { fetchChampions } from '../store/championsSlice';
+import { fetchItems } from '../store/itemsSlice';
+import { getVersion } from '../api/ddragonAPI';
 
-function App() {
+import { Header } from './components/Header';
+
+const mapDispatch = { fetchChampions, fetchItems };
+
+const App = ({ fetchItems, fetchChampions }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchAll = async () => {
+      const version = await getVersion();
+
+      dispatch(fetchItems(version));
+      dispatch(fetchChampions(version));
+    };
+
+    return fetchAll();
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        {/* <Route exact path="/" component={Customize} />
+        <Route exact path="/customize" component={Customize} /> */}
+        {/* <Route
+            exact
+            path="/optimize/:optimizeFilter?"
+            component={Optimizer}
+          /> */}
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
-export default App;
+export default connect(null, mapDispatch)(App);
+// export default App;
