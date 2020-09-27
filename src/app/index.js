@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { fetchChampions } from '../store/championsSlice';
 import { fetchItems } from '../store/itemsSlice';
+import { fetchVersion } from '../store/apiVersionSlice';
 import { getVersion } from '../api/ddragonAPI';
 
-import { Header } from './components/Header';
+import './index.scss';
+
+import Header from './components/Header';
+import NotFound from './components/NotFound';
+import Customize from './containers/Customize';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,6 +22,7 @@ const App = () => {
 
       dispatch(fetchItems(version));
       dispatch(fetchChampions(version));
+      dispatch(fetchVersion(version));
     };
 
     return fetchAll();
@@ -24,16 +30,20 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Header />
-      <Switch>
-        {/* <Route exact path="/" component={Customize} />
-        <Route exact path="/customize" component={Customize} /> */}
-        {/* <Route
+      <main className="container">
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Customize} />
+          <Route exact path="/customize" component={Customize} />
+          <Route component={NotFound} />
+
+          {/* <Route
             exact
             path="/optimize/:optimizeFilter?"
             component={Optimizer}
           /> */}
-      </Switch>
+        </Switch>
+      </main>
     </BrowserRouter>
   );
 };

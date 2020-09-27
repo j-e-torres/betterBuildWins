@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import configureAppStore from './store/configureStore';
-import './index.css';
+import './index.scss';
 import * as serviceWorker from './serviceWorker';
 
 const store = configureAppStore();

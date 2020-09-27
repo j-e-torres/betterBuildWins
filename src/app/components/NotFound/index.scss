@@ -1,0 +1,13 @@
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 30rem;
+
+  &__title {
+    font-size: 3.5rem;
+    color: var(--color-grey-light-1);
+  }
+}
