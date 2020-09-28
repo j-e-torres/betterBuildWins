@@ -7,7 +7,7 @@ import { fetchItems } from '../store/itemsSlice';
 import { fetchVersion } from '../store/apiVersionSlice';
 import { getVersion } from '../api/ddragonAPI';
 
-import './index.scss';
+import './container.scss';
 
 import Header from './components/Header';
 import NotFound from './components/NotFound';

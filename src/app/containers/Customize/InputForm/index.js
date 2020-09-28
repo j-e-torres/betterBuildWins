@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.scss';
+import './form.scss';
 
 import EnemyInput from './EnemyInput';
 import SelfInput from './SelfInput';

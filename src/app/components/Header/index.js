@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { connect } from 'react-redux';
 
-import './index.scss';
+import './header.scss';
 
 const Header = memo(({ apiVersion }) => {
   return (
