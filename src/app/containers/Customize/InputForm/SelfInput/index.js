@@ -9,6 +9,8 @@ const SelfInput = () => {
       <InputContext.Consumer>
         {context => (
           <Fragment>
+            <h1>Your Stats</h1>
+
             <div className="form__group">
               <label htmlFor="championLevel" className="form__label">
                 Your Champion Level

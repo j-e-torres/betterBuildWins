@@ -1,6 +1,6 @@
 .suggestions {
   list-style: none;
-  height: 3.5rem;
+  height: 3.4rem;
   overflow-y: auto;
   flex: 1;
   color: var(--color-grey-light-4);
@@ -11,11 +11,9 @@
 
   & li {
     border: 1px solid var(--color-grey-light-4);
-    height: 3.5rem;
-    width: 100%;
+    flex: 1;
 
     display: flex;
-    // justify-content: center;
 
     &:hover {
       color: var(--color-grey-light-1);
@@ -36,15 +34,11 @@
   }
 
   &__icon {
-    // width: 1rem;
-    // height: 1rem;
-    // width: 100%;
-    flex: 0 0 3.2rem;
+    flex: 0 0 3.4rem;
     margin: 0 1rem;
 
     & img {
       width: 100%;
-      // width: 1rem;
 
       &:hover {
         color: var(--color-grey-light-1);
@@ -54,14 +48,7 @@
   }
 
   &__name {
-    align-self: center;
+    // align-self: center;
     font-size: 1.6rem;
   }
 }
-
-// .suggestion-active:hover,
-// .suggestions li:hover,
-// .item-search-icon img:hover {
-//   color: var(--color-grey-light-1);
-//   cursor: pointer;
-// }

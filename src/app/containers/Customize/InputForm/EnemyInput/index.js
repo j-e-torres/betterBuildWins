@@ -8,6 +8,8 @@ const EnemyInput = () => {
       <InputContext.Consumer>
         {context => (
           <Fragment>
+            <h1>Enemy Stats</h1>
+
             <div className="form__group">
               <label htmlFor="physicalPercent" className="form__label">
                 Physical Distribution
