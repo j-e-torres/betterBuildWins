@@ -53,6 +53,14 @@ export default class InputProvider extends Component {
     this.setState({ localItems: [...localItems, itemObj] });
   };
 
+  addToLocal = (data, inputField) => {
+    if (inputField === 'item') {
+      this.setState({ localItems: [...this.state.localItems, data] });
+    } else if (inputField === 'champion') {
+      this.setState({ localChamp: [data] });
+    }
+  };
+
   render() {
     const {
       handleChange,
@@ -60,9 +68,12 @@ export default class InputProvider extends Component {
       // addItemToState,
       // onClickChampion,
       // onClickItem,
+      addToLocal,
     } = this;
     return (
-      <InputContext.Provider value={{ state: this.state, handleChange }}>
+      <InputContext.Provider
+        value={{ state: this.state, handleChange, addToLocal }}
+      >
         {this.props.children}
       </InputContext.Provider>
     );

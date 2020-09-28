@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { InputContext } from '../../../Customize/InputProvider';
+import Autocomplete from '../../../../components/Autocomplete';
 
 const SelfInput = () => {
   return (
@@ -9,7 +10,7 @@ const SelfInput = () => {
         {context => (
           <Fragment>
             <div className="form__group">
-              <label for="championLevel" className="form__label">
+              <label htmlFor="championLevel" className="form__label">
                 Your Champion Level
               </label>
               <input
@@ -26,7 +27,7 @@ const SelfInput = () => {
             </div>
 
             <div className="form__group">
-              <label for="timeAlive" className="form__label">
+              <label htmlFor="timeAlive" className="form__label">
                 Time Alive (secs)
               </label>
               <input
@@ -40,6 +41,9 @@ const SelfInput = () => {
                 min="0"
               />
             </div>
+
+            <Autocomplete inputField={'champion'} />
+            <Autocomplete inputField={'item'} />
           </Fragment>
         )}
       </InputContext.Consumer>

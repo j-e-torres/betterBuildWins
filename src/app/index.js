@@ -25,7 +25,7 @@ const App = () => {
       dispatch(fetchVersion(version));
     };
 
-    return fetchAll();
+    fetchAll();
   });
 
   return (

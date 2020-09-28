@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from './reducers';
+import rootReducer from './reducer';
 import logger from 'redux-logger';
 
 export default function configureAppStore() {
@@ -9,7 +9,7 @@ export default function configureAppStore() {
   });
 
   if (process.env.NODE_ENV !== 'production' && module.hot) {
-    module.hot.accept('./reducers', () => store.replaceReducer(rootReducer));
+    module.hot.accept('./reducer', () => store.replaceReducer(rootReducer));
   }
 
   return store;

@@ -9,7 +9,7 @@ const EnemyInput = () => {
         {context => (
           <Fragment>
             <div className="form__group">
-              <label for="physicalPercent" className="form__label">
+              <label htmlFor="physicalPercent" className="form__label">
                 Physical Distribution
               </label>
               <input
@@ -25,7 +25,7 @@ const EnemyInput = () => {
             </div>
 
             <div className="form__group">
-              <label for="magicPercent" className="form__label">
+              <label htmlFor="magicPercent" className="form__label">
                 Magic Distribution
               </label>
               <input
@@ -40,7 +40,7 @@ const EnemyInput = () => {
             </div>
 
             <div className="form__group">
-              <label for="lethality" className="form__label">
+              <label htmlFor="lethality" className="form__label">
                 Lethality
               </label>
               <input
@@ -55,7 +55,7 @@ const EnemyInput = () => {
             </div>
 
             <div className="form__group">
-              <label for="flatMagicPen" className="form__label">
+              <label htmlFor="flatMagicPen" className="form__label">
                 Flat Magic Pen
               </label>
               <input
@@ -70,7 +70,7 @@ const EnemyInput = () => {
             </div>
 
             <div className="form__group">
-              <label for="percentArmPen" className="form__label">
+              <label htmlFor="percentArmPen" className="form__label">
                 Percent Arm Pen
               </label>
               <input
@@ -87,7 +87,7 @@ const EnemyInput = () => {
             </div>
 
             <div className="form__group">
-              <label for="percentMagicPen" className="form__label">
+              <label htmlFor="percentMagicPen" className="form__label">
                 Percent Magic Pen
               </label>
               <input
@@ -104,7 +104,7 @@ const EnemyInput = () => {
             </div>
 
             <div className="form__group">
-              <label for="health" className="form__label">
+              <label htmlFor="health" className="form__label">
                 Health
               </label>
               <input
@@ -119,7 +119,7 @@ const EnemyInput = () => {
             </div>
 
             <div className="form__group">
-              <label for="armor" className="form__label">
+              <label htmlFor="armor" className="form__label">
                 Armor
               </label>
               <input
@@ -134,7 +134,7 @@ const EnemyInput = () => {
             </div>
 
             <div className="form__group">
-              <label for="magicResist" className="form__label">
+              <label htmlFor="magicResist" className="form__label">
                 Magic Resist
               </label>
               <input
