@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import './index.scss';
+import './suggestion.scss';
 
-import { InputContext } from '../../containers/Customize/InputProvider';
-
-const Autocomplete = ({ inputField, reducerState, apiVersion }) => {
+const Autocomplete = ({
+  addToLocal,
+  localData,
+  inputField,
+  reducerState,
+  apiVersion,
+}) => {
   const [data, setData] = useState('');
   const [activeOptions, setActiveOptions] = useState(0);
   const [filteredOptions, setFilteredOptions] = useState([]);
@@ -51,26 +55,20 @@ const Autocomplete = ({ inputField, reducerState, apiVersion }) => {
             }
 
             return (
-              <InputContext.Consumer>
-                {context => (
-                  <li
-                    className={activeBool}
-                    onClick={() =>
-                      onClickSuggestion(suggestion, context.addToLocal)
-                    }
-                  >
-                    <div className="suggestion__icon">
-                      <img
-                        src={`https://ddragon.leagueoflegends.com/cdn/${apiVersion.version}/img/${inputField}/${suggestion.image.full}`}
-                        alt={suggestion.name}
-                      />
-                    </div>
-                    <div key={suggestion.id} className="suggestion__name">
-                      {suggestion.name}
-                    </div>
-                  </li>
-                )}
-              </InputContext.Consumer>
+              <li
+                className={activeBool}
+                onClick={() => onClickSuggestion(suggestion, addToLocal)}
+              >
+                <div className="suggestion__icon">
+                  <img
+                    src={`https://ddragon.leagueoflegends.com/cdn/${apiVersion.version}/img/${inputField}/${suggestion.image.full}`}
+                    alt={suggestion.name}
+                  />
+                </div>
+                <div key={suggestion.id} className="suggestion__name">
+                  {suggestion.name}
+                </div>
+              </li>
             );
           })}
         </ul>
@@ -83,6 +81,9 @@ const Autocomplete = ({ inputField, reducerState, apiVersion }) => {
       );
     }
   }
+
+  const disable =
+    inputField === 'champion' ? localData.length >= 1 : localData.length >= 6;
 
   return (
     <div className="form__group">
@@ -97,6 +98,8 @@ const Autocomplete = ({ inputField, reducerState, apiVersion }) => {
         id={inputField}
         value={data}
         onChange={handleChange}
+        disabled={disable}
+        placeholder={disable ? 'Max Selected' : inputField}
       />
     </div>
   );

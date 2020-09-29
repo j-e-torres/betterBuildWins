@@ -28,29 +28,20 @@ export default class InputProvider extends Component {
     } else this.setState({ [target.name]: target.value });
   };
 
-  onClickItem = itemObj => {
-    const { localItems } = this.state;
-    const leftOverLocalItems = localItems.filter(
-      item => item.name !== itemObj.name,
-    );
-    this.setState({ localItems: leftOverLocalItems });
-  };
+  removeFromLocal = (data, inputType) => {
+    if (inputType === 'item') {
+      const foundItem = this.state.localItems.findIndex(
+        item => item.name === data.name,
+      );
 
-  onClickChampion = champObj => {
-    const { localChamp } = this.state;
-    const leftOverLocalChamp = localChamp.filter(
-      champ => champ.name !== champObj.name,
-    );
-    this.setState({ localChamp: leftOverLocalChamp });
-  };
-
-  addChampionToState = champObj => {
-    this.setState({ localChamp: [champObj] });
-  };
-
-  addItemToState = itemObj => {
-    const { localItems } = this.state;
-    this.setState({ localItems: [...localItems, itemObj] });
+      if (foundItem > -1) {
+        this.setState({
+          localItems: this.state.localItems.splice(foundItem, 1),
+        });
+      }
+    } else if (inputType === 'champion') {
+      this.setState({ localChamp: [] });
+    }
   };
 
   addToLocal = (data, inputField) => {
@@ -62,17 +53,10 @@ export default class InputProvider extends Component {
   };
 
   render() {
-    const {
-      handleChange,
-      // addChampionToState,
-      // addItemToState,
-      // onClickChampion,
-      // onClickItem,
-      addToLocal,
-    } = this;
+    const { handleChange, addToLocal, removeFromLocal } = this;
     return (
       <InputContext.Provider
-        value={{ state: this.state, handleChange, addToLocal }}
+        value={{ state: this.state, handleChange, addToLocal, removeFromLocal }}
       >
         {this.props.children}
       </InputContext.Provider>
