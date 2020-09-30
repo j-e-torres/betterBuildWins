@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { InputContext } from '../../../Customize/InputProvider';
 import Autocomplete from '../../../../components/Autocomplete';
+import { ddragonBase } from '../../../../../api/ddragonAPI';
 
 const SelfInput = ({ apiVersion }) => {
   const inputChampion = 'champion';
@@ -68,26 +69,43 @@ const SelfInput = ({ apiVersion }) => {
                     )
                   }
                   alt={context.state.localChamp[0].name}
-                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${context.state.localChamp[0].name}_0.jpg`}
+                  src={`${ddragonBase}/cdn/img/champion/tiles/${context.state.localChamp[0].name}_0.jpg`}
                   className="form__img form__img--champion"
                 />
               )}
             </figure>
 
             <ul className="form__list">
-              {context.state.localItems.map((itemObj, index) => {
+              {context.state.localItems.map((item, index) => {
                 return (
-                  <li
-                    key={index}
-                    className="form__listItem"
-                    onClick={() => context.removeFromLocal(itemObj, inputItem)}
-                  >
-                    <img
-                      src={`https://ddragon.leagueoflegends.com/cdn/${apiVersion.version}/img/item/${itemObj.image.full}`}
-                      alt={itemObj.name}
-                      className="form__img form__img--item"
-                    />
-                  </li>
+                  <Fragment>
+                    <li
+                      key={index}
+                      className="form__listItem"
+                      onClick={() => context.removeFromLocal(item, inputItem)}
+                    >
+                      <img
+                        src={`${ddragonBase}/cdn/${apiVersion.version}/img/item/${item.image.full}`}
+                        alt={item.name}
+                        className="form__img form__img--item"
+                      />
+                    </li>
+
+                    <div className="form__tooltip">
+                      <span className="form__itemInfo">{item.name}</span>
+                      <span className="form__itemInfo">
+                        {/* {item.description.replace(/(?<=\<)(.*?)(?=\>)/g, '')} */}
+                        {/* {item.description.replace(
+                          /(<\W[a-zA-Z]*>|<[a-zA-Z]*>)/g,
+                          '',
+                        )} */}
+                        {item.description.replace(/<\W*\w*\s*\S*>/g, '')}
+                      </span>
+                      <span className="form__itemInfo">
+                        Cost:{item.gold.base}
+                      </span>
+                    </div>
+                  </Fragment>
                 );
               })}
             </ul>

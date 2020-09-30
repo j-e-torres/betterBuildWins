@@ -4,7 +4,7 @@ import axios from 'axios';
 // 'https://ddragon.leagueoflegends.com/cdn/9.21.1/data/en_US/champion.json'
 import { mapID } from '../vars/mapID';
 
-const ddragonBase = 'https://ddragon.leagueoflegends.com';
+export const ddragonBase = 'https://ddragon.leagueoflegends.com';
 
 export const getItems = async version => {
   const { data } = await axios.get(
