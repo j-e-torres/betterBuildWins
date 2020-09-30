@@ -1,0 +1,26 @@
+.section-overview {
+  display: flex;
+}
+
+.table {
+  padding: 1rem;
+  flex: 0 0 50%;
+  font-size: 2rem;
+
+  // & caption {
+  //   color
+  // }
+
+  & tr {
+    & td {
+      padding-bottom: 2rem;
+
+      &:first-of-type {
+        color: var(--color-grey-light-1);
+      }
+      &:last-of-type {
+        color: var(--color-grey-light-4);
+      }
+    }
+  }
+}

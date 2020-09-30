@@ -13,7 +13,7 @@ const SelfInput = ({ apiVersion }) => {
       <InputContext.Consumer>
         {context => (
           <Fragment>
-            <h1>Your Stats</h1>
+            <h1 className="heading-primary">Your Stats</h1>
 
             <div className="form__group">
               <label htmlFor="championLevel" className="form__label">

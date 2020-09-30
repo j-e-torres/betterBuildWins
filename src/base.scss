@@ -19,6 +19,14 @@
   margin-bottom: 1rem;
 }
 
+.u-margin-bottom-medium {
+  margin-bottom: 3rem;
+}
+
+.u-margin-bottom-large {
+  margin-bottom: 5rem;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -53,7 +61,9 @@ input {
     monospace;
 } */
 
-h1 {
+.heading-primary {
   text-align: center;
   color: var(--color-grey-light-1);
+  font-weight: bold;
+  font-size: 3rem;
 }

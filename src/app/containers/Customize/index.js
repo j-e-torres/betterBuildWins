@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import InputForm from './InputForm';
+import ChampionOverview from './ChampionOverview';
 import InputProvider from './InputProvider';
 
 const Customizer = () => {
@@ -8,7 +9,7 @@ const Customizer = () => {
     <Fragment>
       <InputProvider>
         <InputForm />
-        {/* <ChampionOverview /> */}
+        <ChampionOverview />
       </InputProvider>
     </Fragment>
   );

@@ -35,8 +35,10 @@ export default class InputProvider extends Component {
       );
 
       if (foundItem > -1) {
+        this.state.localItems.splice(foundItem, 1);
+
         this.setState({
-          localItems: this.state.localItems.splice(foundItem, 1),
+          localItems: this.state.localItems,
         });
       }
     } else if (inputType === 'champion') {

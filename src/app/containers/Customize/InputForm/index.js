@@ -6,7 +6,7 @@ import SelfInput from './SelfInput';
 
 const InputForm = () => {
   return (
-    <section className="section-form">
+    <section className="section-form u-margin-bottom-large">
       <EnemyInput />
       <SelfInput />
     </section>
