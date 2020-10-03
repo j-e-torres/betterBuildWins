@@ -15,6 +15,12 @@
   // --color-test: #c2c2d6;
 }
 
+// $bp-largest: 75rem;
+// $bp-large: 68.75em;
+$bp-medium: 51.5625em;
+$bp-small: 39.0625em;
+$bp-smallest: 30em;
+
 .u-margin-bottom-small {
   margin-bottom: 1rem;
 }
@@ -66,4 +72,5 @@ input {
   color: var(--color-grey-light-1);
   font-weight: bold;
   font-size: 3rem;
+  margin-bottom: 1rem;
 }

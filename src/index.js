@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import configureAppStore from './store/configureStore';
 import './base.scss';
+
 import * as serviceWorker from './serviceWorker';
 
 const store = configureAppStore();

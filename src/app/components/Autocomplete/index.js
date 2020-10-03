@@ -91,16 +91,19 @@ const Autocomplete = ({
         Select {inputField}
       </label>
       {suggestionsListComponent}
-      <input
-        className="form__input"
-        type="text"
-        name={inputField}
-        id={inputField}
-        value={data}
-        onChange={handleChange}
-        disabled={disable}
-        placeholder={disable ? 'Max Selected' : inputField}
-      />
+
+      <div className="form__input-box">
+        <input
+          className="form__input"
+          type="text"
+          name={inputField}
+          id={inputField}
+          value={data}
+          onChange={handleChange}
+          disabled={disable}
+          placeholder={disable ? 'Max Selected' : inputField}
+        />
+      </div>
     </div>
   );
 };

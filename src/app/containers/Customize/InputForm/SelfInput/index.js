@@ -19,33 +19,39 @@ const SelfInput = ({ apiVersion }) => {
               <label htmlFor="championLevel" className="form__label">
                 Your Champion Level
               </label>
-              <input
-                className="form__input"
-                type="number"
-                name="championLevel"
-                id="championLevel"
-                value={context.state.championLevel}
-                onChange={context.handleChange}
-                step="1"
-                min="0"
-                max="18"
-              />
+
+              <div className="form__input-box">
+                <input
+                  className="form__input"
+                  type="number"
+                  name="championLevel"
+                  id="championLevel"
+                  value={context.state.championLevel}
+                  onChange={context.handleChange}
+                  step="1"
+                  min="0"
+                  max="18"
+                />
+              </div>
             </div>
 
             <div className="form__group">
               <label htmlFor="timeAlive" className="form__label">
                 Time Alive (secs)
               </label>
-              <input
-                className="form__input"
-                type="number"
-                name="timeAlive"
-                id="timeAlive"
-                value={context.state.timeAlive}
-                onChange={context.handleChange}
-                step="1"
-                min="0"
-              />
+
+              <div className="form__input-box">
+                <input
+                  className="form__input"
+                  type="number"
+                  name="timeAlive"
+                  id="timeAlive"
+                  value={context.state.timeAlive}
+                  onChange={context.handleChange}
+                  step="1"
+                  min="0"
+                />
+              </div>
             </div>
 
             <Autocomplete

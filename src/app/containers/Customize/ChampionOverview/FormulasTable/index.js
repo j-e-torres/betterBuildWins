@@ -68,15 +68,15 @@ const FormulasTable = ({
       <caption className="heading-primary">Formulas</caption>
       <tbody>
         <tr>
-          <td className="table__data table__data--formula">
-            Effective Physical Health{' '}
-          </td>
+          <td>Effective Physical Health </td>
           <td>{physicalEHP}</td>
         </tr>
+
         <tr>
           <td>Effective Magic Health</td>
           <td>{magicEHP}</td>
         </tr>
+
         <tr>
           <td>Effective Weighted Health</td>
           <td>{weightedEHP}</td>
@@ -86,6 +86,7 @@ const FormulasTable = ({
           <td>Auto Attack DPS Before Resist</td>
           <td>{Math.round(dpsBeforeMitigation)}</td>
         </tr>
+
         <tr>
           <td>Auto Attack DPS After Resist</td>
           <td>{Math.round(dpsAfterMitigation)}</td>

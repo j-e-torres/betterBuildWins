@@ -1,4 +1,14 @@
+@import '../base.scss';
+
 .container {
   width: 75%;
   margin: 0 auto;
+
+  @media screen and (max-width: $bp-small) {
+    width: 95%;
+  }
+
+  @media screen and (max-width: $bp-smallest) {
+    width: 100%;
+  }
 }

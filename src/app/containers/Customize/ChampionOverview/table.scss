@@ -1,9 +1,15 @@
+@import '../../../../base.scss';
+
 .section-overview {
   display: flex;
+
+  @media screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
 }
 
 .table {
-  padding: 1rem;
+  padding: 1.5rem;
   flex: 0 0 50%;
   font-size: 2rem;
 

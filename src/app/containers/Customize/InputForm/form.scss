@@ -1,7 +1,13 @@
+@import '../../../../base.scss';
+
 .section-form {
   display: flex;
   // justify-content: space-between;
   // align-items: center;
+
+  @media screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
 }
 
 .form {
@@ -13,6 +19,10 @@
   display: flex;
   flex-direction: column;
 
+  @media screen and (max-width: $bp-medium) {
+    padding: 0.5rem;
+  }
+
   &__group {
     display: flex;
     justify-content: space-between;
@@ -23,11 +33,17 @@
     }
   }
 
-  // &__label {
-  // }
+  &__label {
+    flex: 1;
+    display: block;
+  }
+
+  &__input-box {
+    flex: 0 0 20%;
+  }
 
   &__input {
-    width: 12rem;
+    width: 100%;
     outline: none;
     color: var(--color-grey-light-4);
     background-color: var(--color-grey-dark-1);
