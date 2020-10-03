@@ -91,20 +91,15 @@ const SelfInput = ({ apiVersion }) => {
                       />
                     </li>
 
-                    <div className="form__tooltip">
+                    {/* <div className="form__tooltip">
                       <span className="form__itemInfo">{item.name}</span>
                       <span className="form__itemInfo">
-                        {/* {item.description.replace(/(?<=\<)(.*?)(?=\>)/g, '')} */}
-                        {/* {item.description.replace(
-                          /(<\W[a-zA-Z]*>|<[a-zA-Z]*>)/g,
-                          '',
-                        )} */}
                         {item.description.replace(/<\W*\w*\s*\S*>/g, '')}
                       </span>
                       <span className="form__itemInfo">
                         Cost:{item.gold.base}
                       </span>
-                    </div>
+                    </div> */}
                   </Fragment>
                 );
               })}

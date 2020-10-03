@@ -56,6 +56,7 @@ export default class InputProvider extends Component {
 
   render() {
     const { handleChange, addToLocal, removeFromLocal } = this;
+
     return (
       <InputContext.Provider
         value={{ state: this.state, handleChange, addToLocal, removeFromLocal }}

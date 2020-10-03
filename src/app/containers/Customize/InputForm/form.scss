@@ -92,10 +92,12 @@
   &__tooltip {
     position: absolute;
     top: 100%;
+
     left: 0;
     opacity: 0;
     visibility: hidden;
     color: var(--color-grey-dark-4);
+    // background-color: var(--color-grey-light-4);
     width: 100%;
     font-size: 1.2rem;
     transition: all 0.35s;
@@ -112,7 +114,8 @@
 
   &__list &__listItem:hover + &__tooltip {
     opacity: 1;
-    top: 100%;
+    // left: -75%;
     visibility: visible;
+    z-index: 10;
   }
 }
