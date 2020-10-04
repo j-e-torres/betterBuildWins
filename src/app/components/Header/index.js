@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 import './header.scss';
 
 const Header = memo(({ apiVersion }) => {
+  // const toggleActive = (e, link) => {
+  //   e.preventDefault();
+  //   // console.log('e e e e e', e);
+  //   // this.classList.toggle('navbar__link--active');
+  //   console.log('toggleActive', link);
+  // };
+
   return (
     <nav className="navbar">
       <ul className="navbar__list">
@@ -29,7 +36,11 @@ const Header = memo(({ apiVersion }) => {
         </li>
 
         <li className="navbar__item">
-          <a className="navbar__link" href="/customize">
+          <a
+            // onClick={e => toggleActive(e, this)}
+            className="navbar__link"
+            href="/customize"
+          >
             Customize
           </a>
         </li>

@@ -56,5 +56,15 @@
       color: var(--color-grey-light-0);
       border-top: 1px solid var(--color-grey-light-1);
     }
+
+    &:target[href='#customize'] {
+      color: var(--color-grey-light-0);
+      border-top: 1px solid var(--color-grey-light-1);
+    }
+
+    &--active {
+      color: var(--color-grey-light-0);
+      border-top: 1px solid var(--color-grey-light-1);
+    }
   }
 }
